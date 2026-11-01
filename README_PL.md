@@ -7,6 +7,7 @@ Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
 Źródła domyślnie budują początek kampanii Q01–Q08 (etap 3).
+Reguły Q09–Q15 są już w źródłach i przechodzą testy hostowe; test UI trwa.
 `dist/` zawiera dokładnie przetestowany build `a9afaecc…b98482` z etapu 3c.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.

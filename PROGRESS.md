@@ -300,3 +300,23 @@ Forki/zasoby/HFS PASS. Źródła UI zapisano i wysłano w `f8d29aa`.
 Następny krok: reguły Q09–Q15 fazy B w modelu produkcyjnym (stary wycinek
 pozostaje regresją), potem C–F i pełne ścieżki. Zapis, grafiki produkcyjne,
 audio, pomiary pamięci i test SE nadal czekają. Gra nie jest ukończona.
+
+## 2026-11-01 — etap 3d, zapis roboczy: reguły Q09–Q15
+
+Produkcjny silnik i UI obsługują fazę B: szufladę, klucze/Biblię, Tolka,
+Marysię/zeznanie, znaczniki i noc, cień z blokadą i odrzuceniem bez utraty
+rzeczy; po stronie K ostrzeżenie/skrócenie ataku, pakowanie, dwa warianty
+ucieczki, molo/bezpieczny odwrót i ratunek rybaka. Znaczniki pozostają
+w scenie. Odłożonych znaczników nie można zabrać i nadal uznać za działające.
+Przewinięcie listy przejść zeruje się przy zmianie lokacji, pozostając
+niezależne między bohaterami.
+
+Host C/ASan/UBSan PASS: cztery pełne ścieżki Q01–Q15 bez ustawiania flag,
+obie kolejności M/K i Q11/Q12, Biblia zabrana/zostawiona, obie ucieczki
+i skrócenie opisu, błędne rozmowy, odrzucenie przez cień i blokada zmiany.
+Cross-build aplikacji 68000 PASS. Dotychczasowe regresje PASS.
+
+Test natywny nowej fazy jest dopiero przygotowywany. `dist/` nadal oznacza
+zweryfikowane Q01–Q08 z `d6e6124`, nie przypisywać mu wyników Q09–Q15.
+Następny krok: natywne przejście A+B na świeżym profilu, poprawki jeśli
+potrzebne, potem faza C. Q16–Q40, zapisy i końcowe zasoby nadal niewykonane.

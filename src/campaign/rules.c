@@ -8,7 +8,10 @@ void pr_mark_action(PrState *s,unsigned q,unsigned bit)
     if(!pr_done(s,q))s->quest[q-1].status=PR_ACTIVE;
 }
 void pr_story_move(PrState *s,unsigned scene)
-{ s->hero[s->active].location=s->hero[s->active].last_safe_location=(uint8_t)scene; }
+{
+    s->hero[s->active].location=s->hero[s->active].last_safe_location=(uint8_t)scene;
+    s->hero[s->active].map_scroll=0;
+}
 PrFeedback pr_reply(unsigned result,unsigned text,unsigned presentation,unsigned target)
 {
     PrFeedback f;
@@ -17,6 +20,7 @@ PrFeedback pr_reply(unsigned result,unsigned text,unsigned presentation,unsigned
 }
 static unsigned open_index(unsigned target)
 {
+    if(target==PR_DRAWER)return 352;
     if(target>=PR_ITEM(1) && target<=PR_ITEM(PR_ITEMS))return 360+target-PR_ITEM(0);
     return target<352?target:512;
 }
@@ -38,6 +42,7 @@ int pr_target_here(const PrState *s,unsigned target)
     if(target>=PR_ITEM(1) && target<=PR_ITEM(PR_ITEMS)) {
         unsigned pos;
         item=target-PR_ITEM(0);pos=s->world.item_position[item];
+        if(pos==13 && (item==13 || item==14) && !pr_container_is_open(s,PR_DRAWER))return 0;
         return pr_has_item(s,actor,item) || pos==scene ||
             (pos>PR_CONTAINER_BASE && pos<=PR_CONTAINER_BASE+PR_ITEMS &&
              pr_target_here(s,PR_ITEM(pos-PR_CONTAINER_BASE)) &&
@@ -51,13 +56,16 @@ int pr_target_here(const PrState *s,unsigned target)
     case PR_OPENED_ENVELOPE:return scene==26 && pr_action_done(s,8,3);
     case PR_DEPARTURE:return scene==3 || scene==25;
     case PR_LETTER_DESK:return scene==25;
+    case PR_DRAWER:case PR_ROOM_DOOR:return scene==13;
+    case PR_PIER_LIGHTS:case PR_PIER_WALK:return scene==32;
     default:return 0;
     }
 }
 unsigned pr_topics(const PrState *s,unsigned target,PrTopic *out,unsigned capacity)
 {
     if(s->active>=PR_HEROES || !pr_target_here(s,target) || s->player_dead || s->ending)return 0;
-    return s->phase==PR_A?pr_topics_a(s,target,out,capacity):0;
+    if(s->phase==PR_A)return pr_topics_a(s,target,out,capacity);
+    return s->phase==PR_B?pr_topics_b(s,target,out,capacity):0;
 }
 static int valid_choice(const PrState *s,PrAction a)
 {
@@ -69,19 +77,21 @@ static int valid_choice(const PrState *s,PrAction a)
 static int is_container(unsigned target)
 {
     return target==PR_HOTSPOT(3,1) || target==PR_HOTSPOT(7,3) ||
-        target==PR_HOTSPOT(25,1) || target==PR_ITEM(8) || target==PR_HOTSPOT(3,3);
+        target==PR_HOTSPOT(25,1) || target==PR_ITEM(8) || target==PR_HOTSPOT(3,3) ||
+        target==PR_HOTSPOT(13,1) || target==PR_DRAWER || target==PR_HOTSPOT(15,1);
 }
 PrFeedback pr_act(PrGame *g,PrAction a)
 {
     PrState *s=&g->current;
     PrFeedback f;
-    if(s->active>=PR_HEROES || s->player_dead || s->ending || (s->locks&~PR_MODAL))
+    if(s->active>=PR_HEROES || s->player_dead || s->ending ||
+       (s->locks&(PR_TRANSITION|PR_VISION|PR_RESCUE)))
         return pr_reply(PR_DENIED,PR_TEXT_BLOCKED,PR_LOG,0);
     if(a.verb==PR_SWITCH)
         return pr_reply(pr_switch_hero(s),s->locks?PR_TEXT_CLOSE_FIRST:PR_TEXT_SWITCHED,PR_LOG,0);
     if(a.verb==PR_GO && (s->locks&PR_MODAL))
         return pr_reply(PR_DENIED,PR_TEXT_CLOSE_FIRST,PR_LOG,0);
-    if(a.verb==PR_HIT)return pr_reply(PR_DENIED,PR_TEXT_VIOLENCE,PR_LOG,0);
+    if(a.verb==PR_HIT && !(s->locks&PR_SHADOW))return pr_reply(PR_DENIED,PR_TEXT_VIOLENCE,PR_LOG,0);
     if(a.verb==PR_EAT)return pr_reply(PR_DENIED,PR_TEXT_INEDIBLE,PR_LOG,0);
     if(a.verb>PR_SWITCH)return pr_reply(PR_INVALID,PR_TEXT_NO_EFFECT,PR_LOG,0);
     if(a.verb==PR_USE && !pr_has_item(s,s->active,a.source))
@@ -99,13 +109,15 @@ PrFeedback pr_act(PrGame *g,PrAction a)
         set_open(s,a.target,0);
         return pr_reply(PR_OK,PR_TEXT_CLOSED,PR_LOG,0);
     }
-    f=s->phase==PR_A?pr_rules_a(s,a):pr_reply(PR_DENIED,PR_TEXT_NO_EFFECT,PR_LOG,0);
+    f=s->phase==PR_A?pr_rules_a(s,a):s->phase==PR_B?pr_rules_b(s,a):
+        pr_reply(PR_DENIED,PR_TEXT_NO_EFFECT,PR_LOG,0);
     if(f.result==PR_OK) {
         if(a.verb==PR_OPEN && is_container(a.target)) {
             set_open(s,a.target,1);
             f.presentation=PR_CONTAINER;f.target=a.target;
         }
         if(s->phase==PR_A)pr_refresh_a(s);
+        else if(s->phase==PR_B)pr_refresh_b(s);
         pr_advance_phase(s,0);
     }
     return f;

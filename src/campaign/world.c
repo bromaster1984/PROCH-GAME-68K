@@ -53,6 +53,7 @@ enum PrResult pr_move_local(PrState *s,unsigned scene)
     if(s->player_dead || s->ending || (s->locks&(PR_MODAL|PR_RESCUE|PR_TRANSITION)))return PR_DENIED;
     if(!pr_local_edge(from,scene) || !pr_scene_allowed(s,scene))return PR_DENIED;
     s->hero[s->active].location=(uint8_t)scene;
+    s->hero[s->active].map_scroll=0;
     if(!(s->locks&(PR_VISION|PR_SHADOW)))s->hero[s->active].last_safe_location=(uint8_t)scene;
     return PR_OK;
 }

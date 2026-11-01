@@ -20,7 +20,7 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.h
             content/campaign_facts.json scenes.json quests.json items.json)
 # Build the production model separately until the full campaign is connected.
 add_library(PROCHCampaignCore STATIC src/campaign/model.c src/campaign/world.c
-            src/campaign/rules.c src/campaign/rules_a.c
+            src/campaign/rules.c src/campaign/rules_a.c src/campaign/rules_b.c
             ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.c)
 target_include_directories(PROCHCampaignCore PRIVATE src/campaign ${CMAKE_CURRENT_BINARY_DIR}/generated)
 target_compile_features(PROCHCampaignCore PRIVATE c_std_99)

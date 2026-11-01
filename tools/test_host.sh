@@ -15,7 +15,7 @@ python3 tools/generate_campaign.py
 ASAN_OPTIONS=detect_leaks=0 build/host/test_campaign_model
 "${CC:-cc}" -std=c99 -Wall -Wextra -Werror -g -fsanitize=address,undefined \
     -Isrc -Isrc/campaign -Ibuild/generated src/campaign/model.c src/campaign/world.c \
-    src/campaign/rules.c src/campaign/rules_a.c build/generated/campaign_data.c \
+    src/campaign/rules.c src/campaign/rules_a.c src/campaign/rules_b.c build/generated/campaign_data.c \
     tests/test_campaign_a.c -o build/host/test_campaign_a
 ASAN_OPTIONS=detect_leaks=0 build/host/test_campaign_a
 python3 validate_spec.py

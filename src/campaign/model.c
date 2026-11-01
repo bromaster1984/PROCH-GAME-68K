@@ -173,6 +173,7 @@ enum PrResult pr_advance_phase(PrState *s,int confirm)
     else return PR_WAITING;
     s->hero[PR_M].last_safe_location=s->hero[PR_M].location;
     s->hero[PR_K].last_safe_location=s->hero[PR_K].location;
+    s->hero[PR_M].map_scroll=s->hero[PR_K].map_scroll=0;
     s->phase_confirmed[0]=s->phase_confirmed[1]=0;
     pr_deliver_messages(s);
     return PR_OK;

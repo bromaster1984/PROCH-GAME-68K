@@ -11,4 +11,7 @@ PrFeedback pr_reply(unsigned result,unsigned text,unsigned presentation,unsigned
 PrFeedback pr_rules_a(PrState *s,PrAction a);
 unsigned pr_topics_a(const PrState *s,unsigned target,PrTopic *out,unsigned capacity);
 void pr_refresh_a(PrState *s);
+PrFeedback pr_rules_b(PrState *s,PrAction a);
+unsigned pr_topics_b(const PrState *s,unsigned target,PrTopic *out,unsigned capacity);
+void pr_refresh_b(PrState *s);
 #endif

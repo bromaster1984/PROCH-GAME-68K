@@ -21,8 +21,11 @@ static PrFeedback step(unsigned verb,unsigned source,unsigned target)
     assert(f.result==PR_OK);
     if(interleave) {
         PrState before=game.current;
-        assert(pr_switch_hero(&game.current)==PR_OK);
-        assert(pr_switch_hero(&game.current)==PR_OK);
+        if(game.current.locks)assert(pr_switch_hero(&game.current)==PR_DENIED);
+        else {
+            assert(pr_switch_hero(&game.current)==PR_OK);
+            assert(pr_switch_hero(&game.current)==PR_OK);
+        }
         assert(memcmp(&before,&game.current,sizeof(before))==0);
     }
     return f;
@@ -166,10 +169,80 @@ static void test_modal_and_negative_actions(void)
     denied(PR_GO,0,2);
 }
 
+static void b_m_path(int bible,int q12_first)
+{
+    assert(game.current.active==PR_M);
+    go(11);go(12);go(13);
+    denied(PR_OPEN,0,PR_DRAWER);open_box(H(13,1));take(12); /* legal early pickup */
+    go(12);go(11);choose(H(11,1),C(9,1));
+    go(12);go(13);use(12,PR_DRAWER);open_box(PR_DRAWER);
+    take(13);look(PR_ITEM(14));if(bible)take(14);
+    go(12);go(11);choose(H(11,1),C(9,2));assert(pr_done(&game.current,9));
+    if(!q12_first) {
+        go(9);go(10);choose(H(10,1),C(10,1));choose(H(10,1),C(10,2));
+        denied(PR_CHOOSE,H(10,1),C(10,3));use(1,H(10,1));choose(H(10,1),C(10,3));
+        go(9);go(16);denied(PR_CHOOSE,H(16,3),C(11,4));
+        choose(H(16,1),C(11,1));choose(H(16,1),C(11,2));
+        choose(H(16,2),C(11,3));choose(H(16,3),C(11,4));
+        assert(pr_has_item(&game.current,PR_M,15) && pr_done(&game.current,11));
+        go(9);go(11);
+    }
+    go(15);take(18);take(16);take(17);go(11);go(12);go(13);
+    denied(PR_CHOOSE,H(13,3),C(12,1));
+    look(H(13,2));look(PR_ROOM_DOOR);use(18,PR_ROOM_DOOR);
+    denied(PR_USE,16,H(13,2));use(17,H(13,2));use(16,H(13,2));
+    choose(H(13,3),C(12,1));take(19); /* pickup before final inspections */
+    assert(!pr_done(&game.current,12));look(H(13,2));look(PR_ROOM_DOOR);
+    assert(pr_done(&game.current,12));
+    go(12);
+    if(q12_first) {
+        assert(!game.current.locks);go(11);go(9);go(10);
+        choose(H(10,1),C(10,1));choose(H(10,1),C(10,2));use(1,H(10,1));choose(H(10,1),C(10,3));
+        go(9);go(16);choose(H(16,1),C(11,1));choose(H(16,1),C(11,2));
+        choose(H(16,2),C(11,3));choose(H(16,3),C(11,4));go(9);go(11);go(12);
+    }
+    assert(game.current.locks&PR_SHADOW);denied(PR_SWITCH,0,0);denied(PR_GO,0,13);
+    look(H(12,3));step(PR_HIT,0,H(12,3));assert(pr_has_item(&game.current,PR_M,19));
+    denied(PR_CHOOSE,H(12,3),C(13,1)); /* reset scene, not inventory or prior Q */
+    look(H(12,3));choose(H(12,3),C(13,1));step(PR_OPEN,0,H(12,1));go(11);
+    assert(pr_done(&game.current,13) && !game.current.locks);
+    assert(pr_has_item(&game.current,PR_M,14)==bible);
+}
+static void b_k_path(int confrontation,int skip)
+{
+    assert(game.current.active==PR_K);
+    denied(PR_GO,0,31);choose(H(30,1),C(14,skip?2:1));
+    denied(PR_GO,0,31);choose(H(30,2),C(14,3));
+    choose(H(30,2),C(14,confrontation?5:4));go(31);
+    assert(pr_done(&game.current,14) && pr_has_item(&game.current,PR_K,7));
+    assert(game.current.escape_variant==(confrontation?PR_ESCAPE_CONFRONTATION:PR_ESCAPE_EARLY));
+    denied(PR_GO,0,30);denied(PR_GO,0,32);look(H(31,2));go(32);
+    denied(PR_GO,0,33);denied(PR_CHOOSE,H(32,3),C(15,1));
+    step(PR_GO,0,PR_PIER_WALK);assert(game.current.hero[PR_K].location==32);
+    look(PR_PIER_LIGHTS);choose(H(32,3),C(15,1));assert(game.current.hero[PR_K].location==33);
+    choose(H(33,1),C(15,2));assert(pr_done(&game.current,15));
+    assert(!pr_knows(&game.current,PR_K,PR_FACT_GRETA_NAME));
+}
+static void complete_ab(int k_first,int alternate)
+{
+    unsigned q;
+    complete_a(k_first,alternate);
+    /* Start B with the opposite hero to exercise both shared barriers. */
+    if(game.current.active!=(unsigned)(k_first?PR_K:PR_M))step(PR_SWITCH,0,0);
+    if(k_first)b_k_path(alternate,!alternate);else b_m_path(alternate,!alternate);
+    assert(game.current.phase==PR_B);step(PR_SWITCH,0,0);
+    if(k_first)b_m_path(alternate,!alternate);else b_k_path(alternate,!alternate);
+    assert(game.current.phase==PR_C && game.current.hero[PR_M].location==11 && game.current.hero[PR_K].location==33);
+    for(q=9;q<=15;++q)assert(pr_done(&game.current,q));
+    assert(!pr_knows(&game.current,PR_M,PR_FACT_IRENA_ATTACK));
+    assert(!pr_knows(&game.current,PR_K,PR_FACT_UNBROKEN_MARKERS));
+}
+
 int main(void)
 {
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
+    complete_ab(0,0);complete_ab(0,1);complete_ab(1,0);complete_ab(1,1);
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q08 action playthroughs, M/K first, optional address, interleaved switches, guarded wrong actions");
+    puts("PASS: Q01-Q15 action playthroughs, both M/K orders, optional address/Bible, Q11/Q12 order, both escapes/skip, shadow recovery");
     return 0;
 }
