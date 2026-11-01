@@ -1,0 +1,10 @@
+{
+  "retro68_repository": "https://github.com/autc04/Retro68.git",
+  "retro68_commit": "2aa5c87e88771c6057f52bf830af9d440a5e4e36",
+  "multiversal_commit": "580f3309649ad4c788c048be3dff2416d7ba49f3",
+  "bootstrap_image": "ghcr.io/autc04/retro68@sha256:dd923969100f408943f73c9618b3c7628686aae819583eecb0ddd1837da6943c",
+  "source_build_options": ["--no-ppc", "--multiversal"],
+  "target_options": ["-m68000", "-msoft-float"],
+  "executor_test_release": "https://github.com/autc04/executor/releases/download/v0.1.0/Executor2000-0.1.0-Linux.tar.bz2",
+  "executor_test_sha256": "dbb73d0ff89f7f9f8876060ad8a2232025b654d3e8b91387433c198afbaa9615"
+}

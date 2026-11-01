@@ -44,3 +44,25 @@ wycinek Q09/Q12 i Konstancji w L33. Nie oznaczać zgodności SE po samym buildzi
 
 Synchronizacja: ten zapis ma zostać wysłany natychmiast po commicie; wynik
 potwierdza polecenie `git push`, a nie sam lokalny commit.
+
+## 2026-11-01 — etap 1a: pierwszy build aplikacji 68000
+
+Wykonano: CMake Retro68, aplikacja Toolbox w C, okno o geometrii docelowej,
+monochromatyczny bufor sceny 360×208/46 B na wiersz, zachowywanie kliknięć
+w buforze, obsługa menu i wyjścia. Pętla zdarzeń usypia przez WaitNextEvent,
+odrysowuje tylko po unieważnieniu. Powstały MacBinary i wolumin HFS w `dist/`.
+Dodano `README_PL.md`, `TEST_REPORT.md`, lock narzędzi i testy renderera/forków.
+
+Testy: build z ostrzeżeniami jako błędami PASS; C host ASan/UBSan PASS;
+5 testów struktury pakietu PASS; walidator specyfikacji PASS. Wyniki i granice
+w raporcie. To wzorzec diagnostyczny, nie ilustracja ani gra.
+
+Problemy: build toolchaina ze źródeł jest nadal wykonywany poza repozytorium.
+Oficjalny bootstrap jest przypięty digestem; jego SHA źródeł nie jest podane
+w metadanych. Nie przedstawiać obrazu jako kompilacji wybranego SHA.
+Nie potwierdzono jeszcze uruchomienia aplikacji. Brakuje dostarczonego ROM-u SE
+i obrazu Systemu 6.0.8; poproszono o ścieżki, bez zatrzymywania prac hostowych.
+
+Następny krok: uruchomić test Toolbox w Executor 2000 (osobny wynik, nie SE),
+dokończyć toolchain ze źródeł, przebudować aplikację i rozpocząć wycinek Q09/Q12.
+Pierwszy zapis etapu 0 został wysłany na GitHub: `0b03963`.

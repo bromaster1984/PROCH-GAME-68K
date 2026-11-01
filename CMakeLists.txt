@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.16)
+project(PROCH C)
+if(NOT CMAKE_SYSTEM_NAME STREQUAL "Retro68")
+    message(FATAL_ERROR "Use Retro68's m68k-apple-macos toolchain; host checks use tools/test_host.sh")
+endif()
+add_application(PROCH src/platform_mac/main.c src/render_1bit.c src/platform_mac/proch.r
+                CREATOR PRCH)
+target_include_directories(PROCH PRIVATE src)
+target_compile_features(PROCH PRIVATE c_std_99)
+target_compile_options(PROCH PRIVATE -m68000 -msoft-float -Os -Wall -Wextra
+                       -Werror -ffunction-sections -fdata-sections)
+target_link_options(PROCH PRIVATE -m68000 -msoft-float -Wl,-gc-sections)
+option(PROCH_AUTOTEST "Run Toolbox smoke checks and exit; test build only" OFF)
+if(PROCH_AUTOTEST)
+    target_compile_definitions(PROCH PRIVATE PROCH_AUTOTEST=1)
+endif()
