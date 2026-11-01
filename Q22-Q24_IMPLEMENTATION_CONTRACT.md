@@ -1,13 +1,15 @@
 # Faza C K — kontrakt implementacyjny Q22–Q24
 
-Dokument przygotowawczy na podstawie `02_QUESTY.md`, `06_DIALOGI_I_ZAKONCZENIA.md`,
-`items.json` i `scenes.json`. Reguły, UI i artefakty nie są tu zmieniane.
+Kontrakt na podstawie `02_QUESTY.md`, `06_DIALOGI_I_ZAKONCZENIA.md`,
+`items.json` i `scenes.json`. Q22 wdrożono w etapie 3k; Q23–Q24 pozostają
+planem implementacyjnym.
 
 ## Q22 — sieć i zaufanie (L34, po Q21)
 
 K rozmawia z sąsiadem (L34_H1), ogląda sieć (L34_H2), używa I25, po czym
-łączy lewy koniec ze środkowym i środkowy z prawym. Dopiero zatwierdzenie
-poprawnego wzoru kończy Q22, ustawia `PR_SAFE_COURIER` i daje K I27.
+łączy lewy koniec ze środkowym i środkowy z prawym. Zatwierdzenie wzoru
+pozwala ponownie zapytać sąsiada; dopiero jego odpowiedź kończy Q22,
+ustawia `PR_SAFE_COURIER` i daje K I27.
 Q22 jest opcjonalne i nie może być wymagane przez Q24 ani przejście do D.
 
 Błędne połączenie wyświetla „Oczko się zaciska. Rozplątuję nić” i zeruje
@@ -35,7 +37,7 @@ Przejście C→D wymaga Q19 oraz Q24. Bez obu zadań stan i faza pozostają bez
 zmian; przy spełnionych warunkach wymagane jest osobne potwierdzenie gracza.
 Q22, Q23 i `PR_SAFE_COURIER` nie mogą blokować podróży ani tej bariery.
 
-## Przypadki testowe do późniejszej implementacji
+## Przypadki testowe i regresje
 
 - Q22: przed Q21 brak tematów; przed zgodą sąsiada nie ma postępu. Sprawdź
   poprawny wzór w kolejności lewy→środkowy→prawy oraz błędne połączenie

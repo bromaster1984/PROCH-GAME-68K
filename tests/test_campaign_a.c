@@ -332,13 +332,60 @@ static void c_k_q21(void)
     assert(!pr_has_item(&game.current,PR_M,26));
 }
 
+static void c_k_q22(int skip)
+{
+    PrState expected;
+    c_k_q21();
+    step(PR_SWITCH,0,0);
+    assert(game.current.active==PR_K && game.current.phase==PR_C);
+    denied(PR_GO,0,34); /* There is no direct route from the hut. */
+    go(32);denied(PR_GO,0,31);go(34);
+    assert(!pr_done(&game.current,22) && !pr_flag(&game.current,PR_SAFE_COURIER));
+    assert(!pr_has_item(&game.current,PR_K,27));
+    if(skip) {
+        go(32);go(33);
+        assert(!pr_done(&game.current,22) && pr_done(&game.current,21));
+        return;
+    }
+    look(H(34,2));
+    assert(game.current.quest[21].actions==0); /* Looking before the offer is harmless. */
+    denied(PR_USE,25,H(34,2));
+    denied(PR_CHOOSE,H(34,2),C(22,2));
+    choose(H(34,1),C(22,1));
+    denied(PR_CHOOSE,H(34,2),C(22,2));
+    look(H(34,2));
+    denied(PR_CHOOSE,H(34,2),C(22,2));
+    use(25,H(34,2));
+    assert(pr_has_item(&game.current,PR_K,25));
+    expected=game.current;
+    assert(step(PR_CHOOSE,H(34,2),C(22,3)).text==PR_TEXT_Q22_WRONG);
+    assert(memcmp(&expected,&game.current,sizeof(expected))==0);
+    choose(H(34,2),C(22,2));
+    expected=game.current;
+    expected.quest[21].actions&=~((uint32_t)(1u<<3)|(1u<<4));
+    assert(step(PR_CHOOSE,H(34,2),C(22,2)).text==PR_TEXT_Q22_WRONG);
+    assert(memcmp(&expected,&game.current,sizeof(expected))==0);
+    choose(H(34,2),C(22,2));choose(H(34,2),C(22,3));
+    assert(!pr_done(&game.current,22) && !pr_flag(&game.current,PR_SAFE_COURIER));
+    assert(!pr_has_item(&game.current,PR_K,27));
+    choose(H(34,2),C(22,4));
+    assert(!pr_done(&game.current,22) && !pr_has_item(&game.current,PR_K,27));
+    choose(H(34,1),C(22,5));
+    assert(pr_done(&game.current,22) && pr_flag(&game.current,PR_SAFE_COURIER));
+    assert(game.current.quest[21].substep==4 && pr_has_item(&game.current,PR_K,27));
+    assert(pr_has_item(&game.current,PR_K,25) && !pr_done(&game.current,23));
+    denied(PR_CHOOSE,H(34,1),C(22,5));
+    go(32);go(33);
+}
+
 int main(void)
 {
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
     complete_ab(0,0);complete_ab(0,1);complete_ab(1,0);complete_ab(1,1);
     c_m_path(0,0);c_m_path(1,0);c_m_path(0,1);
     c_k_q21();
+    c_k_q22(1);c_k_q22(0);
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q20 M, Q21 K action playthroughs, optional Q20 skip, C vision, A/B variants and isolation");
+    puts("PASS: Q01-Q20 M, Q21-Q22 K action playthroughs, optional Q20/Q22 skip, C vision, A/B variants and isolation");
     return 0;
 }

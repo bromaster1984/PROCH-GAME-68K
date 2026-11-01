@@ -210,11 +210,26 @@ class CampaignDriver(Driver):
         self.source(7);self.click(400,65)
         self.journal_title('Zwykła suknia',3,2,'campaign-c-q21')
 
+    def chapter_c_k_q22(self):
+        self.go(0,'Plaża z sieciami')
+        self.go(1,'Przystań rybacka')
+        self.talk(1)
+        self.inspect(2);self.expect('Trzy luźne końce',9,266)
+        self.use(6,2);self.expect('Używam igły i nici',9,266)
+        self.talk(2,1);self.expect('Oczko się zaciska',9,266)
+        self.talk(2,0)
+        self.talk(2,0);self.expect('Oczko się zaciska',9,266)
+        self.talk(2,0);self.talk(2,1);self.talk(2,2)
+        self.talk(1)
+        self.journal_title('Sieć i zaufanie',4,0,'campaign-c-q22')
+        self.go(0,'Plaża z sieciami');self.go(0,'Chata rybaka')
+
     def run(self):
         self.chapter_a()
-        if self.args.chapter in ('ab','abc_m','abc_mk21'):self.chapter_b()
-        if self.args.chapter in ('abc_m','abc_mk21'):self.chapter_c_m()
-        if self.args.chapter=='abc_mk21':self.chapter_c_k_q21()
+        if self.args.chapter in ('ab','abc_m','abc_mk21','abc_mk22'):self.chapter_b()
+        if self.args.chapter in ('abc_m','abc_mk21','abc_mk22'):self.chapter_c_m()
+        if self.args.chapter in ('abc_mk21','abc_mk22'):self.chapter_c_k_q21()
+        if self.args.chapter=='abc_mk22':self.chapter_c_k_q22()
 
 
 if __name__=='__main__':
@@ -222,13 +237,14 @@ if __name__=='__main__':
     parser.add_argument('--container',default='proch-emulation')
     parser.add_argument('--window',default='0x200004')
     parser.add_argument('--profile',required=True,type=Path)
-    parser.add_argument('--chapter',choices=['a','ab','abc_m','abc_mk21'],default='a')
+    parser.add_argument('--chapter',choices=['a','ab','abc_m','abc_mk21','abc_mk22'],default='a')
     args=parser.parse_args();args.part='campaign-'+args.chapter
     d=CampaignDriver(args);d.run()
     (d.directory/(args.part+'-result.json')).write_text(json.dumps({
         'result':'PASS','checks':d.passed,'run_id':d.run_id,
         'application_sha256':d.profile['application_sha256'],'profile':str(args.profile),
-        'scope':('Q01-Q15 both heroes; Q16-Q20 M; Q21 K' if args.chapter=='abc_mk21' else
+        'scope':('Q01-Q15 both heroes; Q16-Q20 M; Q21-Q22 K' if args.chapter=='abc_mk22' else
+                 'Q01-Q15 both heroes; Q16-Q20 M; Q21 K' if args.chapter=='abc_mk21' else
                  'Q01-Q15 both heroes; Q16-Q20 M' if args.chapter=='abc_m' else
                  'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
                 ' native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},

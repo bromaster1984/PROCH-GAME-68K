@@ -495,3 +495,35 @@ i bariera C→D pozostają do implementacji i pełnego przetestowania.
 
 Następny krok: zaimplementować Q22 z resetem wyłącznie stanu układanki przy
 błędnym połączeniu, a potem Q23/Q24 z niezależnością podróży od Q22/Q23.
+
+## 2026-11-01 — etap 3k: natywne Q22, sieć i zaufanie
+
+Wykonano: Konstancja po Q21 może przejść przez L32 do L34, porozmawiać
+z sąsiadem, obejrzeć sieć, użyć I25 i połączyć końce w zadanej kolejności.
+Błędny wybór zeruje wyłącznie dwa bity połączeń, pozostawiając rozmowę,
+oględziny, igłę, inne zadania i przedmioty. Potwierdzenie wzoru odblokowuje
+odbiór I27 u sąsiada; dopiero wtedy Q22 kończy się i ustawia
+`PR_SAFE_COURIER`. Q22 można całkowicie pominąć. Podłączono wybory, przejścia
+i podpowiedzi do interfejsu Mac. `dist/` zawiera przetestowaną aplikację
+i oryginalny obraz HFS.
+
+Przetestowano: C host ASan/UBSan i walidator danych PASS; 9 testów Python
+PASS; cross-build Motorola 68000 PASS; kontrola MacBinary, zasobów i HFS
+PASS. Pełny natywny przebieg Q01–Q15 obu postaci, Q16–Q20 M i Q21–Q22 K
+w Mini vMac Plus/System 6.0.8/4 MB: PASS, 95 kontroli pikseli, w tym dwa
+błędne połączenia i wpis Q22 w dzienniku. Raport
+`tests/results/stage3-c-q22-native.json`, profil
+`/workspace/testing/stage3c-q22-candidate1`, SHA aplikacji
+`146675f3dd2636f0ae91fbd7dc8b0f379f0ddf53800bd6aa5cc4698527f8d3a1`.
+Zrzut `screenshots/stage3-c-q22-journal.png` ma 512×342/1-bit.
+
+Problemy i granice: Q23/Q24 oraz przejście C→D nadal nie istnieją.
+Opcjonalność Q22 względem Q24 jest udowodniona kontraktem i testem hostowym
+pominięcia, ale pełna ścieżka Q24 bez Q22 czeka na implementację Q24.
+Q20 w D, SE, zapis/odczyt, produkcyjne ilustracje, audio i pomiary pamięci
+również pozostają nieweryfikowane lub niewykonane.
+
+Następny krok: Q23 — złożenie listu, prywatne wspomnienie, jeden fizyczny
+egzemplarz u kuriera i doręczenie dopiero przy wejściu do D. Najpierw
+przygotować mapę stanów i testów bez zmiany reguł, następnie wdrożyć Q23;
+po nim Q24 z niezależnością od Q22/Q23.
