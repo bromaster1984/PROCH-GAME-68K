@@ -42,10 +42,17 @@ extern const PrSceneMeta pr_scenes[44];
 extern const uint8_t pr_edges[44][44];
 extern const uint8_t pr_quest_steps[41];
 extern const uint8_t pr_dependencies[41][5];
+typedef struct { uint16_t target;int16_t l,t,r,b;const char *name,*look; } PrHotspotMeta;
+extern const PrHotspotMeta pr_hotspots[44][8];
+extern const uint8_t pr_hotspot_count[44];
+extern const char *const pr_scene_names[44],*const pr_item_names[46],*const pr_item_look[46];
+extern const char *const pr_quest_names[41],*const pr_quest_hints[41][3];
+extern const char *const pr_fact_texts[256];
 '''
     header+='enum PrText {\n'+',\n'.join('PR_TEXT_'+name for name in texts)+',\nPR_TEXT_COUNT};\n'
     header+='extern const char *const pr_texts[PR_TEXT_COUNT];\n#endif\n'
     source='#include "campaign_data.h"\nconst PrSceneMeta pr_scenes[44]={\n'
+    source='#include "model.h"\n'+source
     source+=',\n'.join('{'+','.join(map(str,row))+'}' for row in meta)+'\n};\n'
     source+='const uint8_t pr_edges[44][44]={\n'
     source+=',\n'.join('{'+','.join(map(str,row))+'}' for row in edges)+'\n};\n'
@@ -59,6 +66,23 @@ extern const uint8_t pr_dependencies[41][5];
     source+='};\n'
     source+='const char *const pr_texts[PR_TEXT_COUNT]={\n'
     source+=',\n'.join('[PR_TEXT_'+k+']='+literal(v) for k,v in texts.items())+'\n};\n'
+    source+='const PrHotspotMeta pr_hotspots[44][8]={{{0}},\n'
+    for scene in sorted(scenes,key=lambda row:row['id']):
+        i=int(scene['id'][1:])
+        if len(scene['hotspots'])>8:raise ValueError('Too many hotspots')
+        source+='{'+','.join('{'+','.join([str(i*8+n),*map(str,h['rect']),literal(h['name']),literal(h['examine'])])+'}'
+                             for n,h in enumerate(scene['hotspots']))+'},\n'
+    source+='};\nconst uint8_t pr_hotspot_count[44]={0,'+','.join(str(len(s['hotspots'])) for s in sorted(scenes,key=lambda row:row['id']))+'};\n'
+    items=sorted(json.loads((ROOT/'items.json').read_text()),key=lambda row:row['id'])
+    for name,rows,key in [('pr_scene_names',sorted(scenes,key=lambda row:row['id']),'name'),
+                          ('pr_item_names',items,'name'),('pr_item_look',items,'look'),
+                          ('pr_quest_names',ordered,'title')]:
+        source+='const char *const '+name+'[]={"",'+','.join(literal(r[key]) for r in rows)+'};\n'
+    source+='const char *const pr_quest_hints[41][3]={{"","",""},\n'
+    source+=',\n'.join('{'+','.join(literal(h) for h in q['hints'])+'}' for q in ordered)+'};\n'
+    facts=json.loads((ROOT/'content/campaign_facts.json').read_text())
+    source+='const char *const pr_fact_texts[256]={\n'
+    source+=',\n'.join('[PR_FACT_'+k+']='+literal(v) for k,v in facts.items())+'};\n'
     (out/'campaign_data.h').write_text(header)
     (out/'campaign_data.c').write_text(source)
 

@@ -257,3 +257,28 @@ na Macu. `dist/` pozostaje przetestowaną demonstracją etapu 2b.
 Następny krok: reguły fazy B i włączenie kampanii do natywnego interfejsu,
 potem C–F oraz cztery pełne ścieżki. Zapis/odczyt, grafiki produkcyjne,
 dźwięki i test SE nadal niewykonane.
+
+## 2026-11-01 — etap 3c, zapis roboczy: natywny interfejs kampanii
+
+`PROCH_CAMPAIGN=ON` domyślnie łączy produkcyjne reguły z nowym UI. Są
+sceny i cele z JSON, jawne tematy, pojemniki z przeciąganiem, łączenie rzeczy,
+osobne historie, fakty i ukończone cele w dziennikach, pełne czytanie wpisu,
+podpowiedzi i przewijane panele. Stare UI etapu 2 dostępne przy opcji OFF.
+Grafiki nadal jawnie testowe. Zapis/wczytanie nadal nieaktywne.
+
+Cross-build całej aplikacji 68000 PASS; cztery testy C PASS. W natywnym UI
+przejście M do Q05 i piksele dziennika PASS. Pierwszy runner miał błędny
+wiersz dziennika; poprawiono na podstawie rzeczywistego zrzutu. Próba K
+ujawniła utratę widocznej własności rzeczy po spakowaniu do jeszcze stojącej
+walizki; pakowanie przenosi teraz również walizkę do K. Dodano asercję C.
+Poprawiono też odrysowanie celów zależnych od mikroczynności.
+
+Pełne powtórzenie Q01–Q08 na poprawionym buildzie **w toku**.
+Profil `/workspace/testing/stage3a-candidate2`, aplikacja SHA256
+`a9afaecc0600cff8ca4d7b6fc3f315a911ff8d4d67a5262c15ad9d0b03b98482`.
+Emulator `proch-emulation`, :99, okno 0x200004. Test
+`tools/test_native_campaign.py --profile ...` zaczyna od świeżej gry.
+`dist/` pozostaje etapu 2b do potwierdzenia wyniku nowego UI.
+
+Następny krok: dokończyć ten test, zapisać dowody/binaria, następnie reguły B
+i dalsze fazy. Nie utożsamiać tego etapu z kompletem Q01–Q40/T01–T04.

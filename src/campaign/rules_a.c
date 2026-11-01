@@ -177,6 +177,9 @@ static PrFeedback use(PrState *s,unsigned item,unsigned target)
     }
     if(item==1 && target==H(8,1) && pr_done(s,4)) {MARK(5,0);return SAY(Q05_SHOWN);}
     if((item==6 || item==7) && (target==PR_ITEM(8) || target==H(3,3))) {
+        /* Packing one's own suitcase carries the container too. Its contents
+         * must not temporarily lose ownership while the suitcase is in L03. */
+        pr_place_item(s,8,PR_INVENTORY_K);
         pr_place_item(s,item,PR_CONTAINER_BASE+8);MARK(6,item==6?3:4);return SAY(Q06_PACKED);
     }
     if(item==9 && target==H(28,2)) {

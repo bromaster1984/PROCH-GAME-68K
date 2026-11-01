@@ -106,6 +106,8 @@ static void k_path(void)
     denied(PR_TAKE,0,PR_ITEM(6));open_box(H(3,1));
     take(7);take(6); /* pickups before examination */
     look(PR_ITEM(6));use(7,H(3,3));use(6,H(3,3));
+    assert(pr_has_item(&game.current,PR_K,6) && pr_has_item(&game.current,PR_K,7));
+    assert(pr_has_item(&game.current,PR_K,8));
     choose(PR_DEPARTURE,C(6,1));
     assert(game.current.hero[PR_K].location==25 && pr_done(&game.current,6));
     assert(pr_has_item(&game.current,PR_K,6) && pr_has_item(&game.current,PR_K,7));

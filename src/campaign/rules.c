@@ -43,7 +43,7 @@ int pr_target_here(const PrState *s,unsigned target)
              pr_target_here(s,PR_ITEM(pos-PR_CONTAINER_BASE)) &&
              pr_container_is_open(s,PR_ITEM(pos-PR_CONTAINER_BASE)));
     }
-    if(target<352)return target/8==scene && target%8<3;
+    if(target<352)return target/8==scene && target%8<pr_hotspot_count[scene];
     switch(target) {
     case PR_VALVE:case PR_COMPRESSOR_BODY:
         return scene==7 && pr_action_done(s,4,1);
@@ -94,6 +94,7 @@ PrFeedback pr_act(PrGame *g,PrAction a)
         if(pr_topics(s,a.target,0,0))return pr_reply(PR_OK,PR_TEXT_CHOOSE_TOPIC,PR_DIALOG,a.target);
         return pr_reply(PR_DENIED,PR_TEXT_NO_KNOWLEDGE,PR_LOG,0);
     }
+    if(a.verb!=PR_GO && a.target==PR_HOTSPOT(3,3))a.target=PR_ITEM(8);
     if(a.verb==PR_CLOSE && is_container(a.target)) {
         set_open(s,a.target,0);
         return pr_reply(PR_OK,PR_TEXT_CLOSED,PR_LOG,0);

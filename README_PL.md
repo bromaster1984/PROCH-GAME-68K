@@ -6,6 +6,29 @@ i Konstancja Q21. Uruchomiony na emulowanym Plusie/4 MB/Systemie 6.0.8.
 Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
+Źródła domyślnie budują teraz początek kampanii Q01–Q08 (etap 3, trwa test UI).
+`dist/` do końca tego testu nadal zawiera zweryfikowany wycinek etapu 2.
+Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
+z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
+
+## Sterowanie początkiem kampanii
+
+Mikołaj zaczyna w gabinecie Koreckiego, Konstancja w swoim pokoju. Komendy
+i przyciski są obsługiwane jednoprzyciskową myszą. Rozmawiaj na postaci
+otwiera aktualnie dostępne tematy. Dokumenty i wpisy historii można czytać
+w całości z przewijaniem. Gra → Dziennik zawiera osobne fakty każdej osoby;
+kliknięcie wpisu otwiera pełny tekst. Gra → Podpowiedź stopniuje wskazówki.
+
+Otwórz szkatułkę/skrzynkę/kufer, potem przeciągnij rzecz do ekwipunku.
+Kliknięcie rzeczy w pojemniku ją ogląda. Użyj: wybierz rzecz, potem obiekt
+sceny lub drugą rzecz. Pakowanie fotografii/dokumentu do walizki zachowuje
+własność Konstancji. Dolne przyciski sceny udostępniają szczegóły zaworu,
+bramę i wyjazd. Tab przełącza poza otwartym oknem; Escape je zamyka.
+Panel Przejścia i ekwipunek mają przyciski przewijania.
+
+Zapis i wczytanie jeszcze nie są dostępne. Po Q05 i Q08 obie postacie
+przechodzą razem do B. Pozostałe zadania kampanii są nadal w implementacji.
+
 ## Pierwszy build
 
 Wymagane Docker, Git, Python 3 (Pillow do konwersji zrzutów) i kompilator C hosta

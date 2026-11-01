@@ -5,8 +5,10 @@ repo_dir=$PWD
 dist_dir=${PROCH_DIST_DIR:-dist}
 mode=${1:-source}
 smoke=${2:-OFF}
+campaign=${PROCH_CAMPAIGN:-ON}
 [[ $mode == source || $mode == bootstrap ]] || { echo 'Usage: build_mac.sh [source|bootstrap] [ON|OFF]' >&2; exit 2; }
 [[ $smoke == ON || $smoke == OFF ]] || exit 2
+[[ $campaign == ON || $campaign == OFF ]] || exit 2
 image=$(python3 -c 'import json; print(json.load(open("toolchain.lock.json"))["bootstrap_image"])')
 build_dir=${PROCH_TOOLCHAIN_BUILD:-/workspace/toolchains/Retro68-build}
 container_args=()
@@ -25,9 +27,9 @@ docker run --rm --network none --user "$(id -u):$(id -g)" --entrypoint /bin/bash
     -v "$repo_dir:/project" "${container_args[@]}" -w /project "$image" -lc '
         set -e
         cmake -S . -B "build/$1" -DCMAKE_TOOLCHAIN_FILE="$2/m68k-apple-macos/cmake/retro68.toolchain.cmake" \
-            -DPROCH_AUTOTEST="$3" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+            -DPROCH_AUTOTEST="$3" -DPROCH_CAMPAIGN="$4" -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
         cmake --build "build/$1" --parallel 4
-    ' -- "$target-$mode" "$prefix" "$smoke"
+    ' -- "$target-$mode" "$prefix" "$smoke" "$campaign"
 if [[ $smoke == OFF ]]; then
     python3 tools/check_artifacts.py "build/$target-$mode"
     mkdir -p "$dist_dir"
