@@ -1,5 +1,13 @@
 # PROCH — raport testów
 
+## Reguły fazy A (etap 3b)
+
+Q01–Q08: cztery przejścia przez `pr_act` PASS pod ASan/UBSan, obie kolejności
+M/K, Q02 wykonane/pominięte, przełączenia po każdym działaniu. Sprawdzono
+odmowy bez zmiany stanu, właściwe kroki naprawy i listu, wczesne podnoszenie,
+prywatną wiedzę i barierę faz. Cross-build biblioteki 68000 PASS (-Werror).
+To nie są jeszcze testy nowej kampanii w UI ani pełne T01–T04.
+
 ## 2026-11-01, etap 1 (w toku)
 
 - Host: Debian 13, x86_64, Docker 28.4.0.

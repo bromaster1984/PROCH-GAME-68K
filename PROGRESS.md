@@ -231,3 +231,29 @@ demonstracji. `dist/` pozostaje zweryfikowanym wycinkiem z etapu 2b (`46caf44`).
 Następny krok: deterministyczne reguły Q01–Q08, jawne tematy dialogów i akcje,
 testy całego początku przy obu kolejnościach M/K. Potem etapy B–F i integracja
 pełnego interfejsu/mapy. Serializacja i produkcyjne zasoby nadal pozostają.
+
+## 2026-11-01 — etap 3b: reguły początku Q01–Q08
+
+Biblioteka kampanii obsługuje publiczne akcje, jawne semantyczne cele,
+warunkowe tematy dialogowe, pojemniki i mikroczynności Q01–Q08. Są umowa,
+broszka, bilet, naprawa z czterema stanami I41, most/brama i koniec podróży;
+u K fotografia matki, pakowanie, Seroczyn, furtka i kontrolowany list.
+Teksty z 06 i etykiety z 02 są kompilowane do własnego kodowania PL.
+Zapis substep odzwierciedla kroki autorskie; dodatkowe akcje zachowują się
+niezależnie. List Q08 nie jest I28 z późniejszego zadania.
+
+Testy C/ASan/UBSan PASS: cztery pełne przejścia początku (M/K najpierw,
+adres zostawiony/pominięty). Runner używa wyłącznie działań i zapytań o tematy,
+nie kończy Q ani nie ustawia flag. Przełącza postacie po każdej czynności,
+sprawdza wczesne podniesienie rzeczy, błędne kolejności, brak mutacji po
+odmowie, fizyczną własność rzeczy, prywatną wiedzę i wspólną barierę A→B.
+Regresja trzech wcześniejszych programów C i 9 testów Python PASS.
+Biblioteka reguł kompiluje się dla 68000 z -Werror.
+
+Ograniczenie: to nadal testy reguł na hoście i cross-build biblioteki.
+Nowe Q nie są jeszcze w podłączonym UI, więc nie deklaruję ich przejścia
+na Macu. `dist/` pozostaje przetestowaną demonstracją etapu 2b.
+
+Następny krok: reguły fazy B i włączenie kampanii do natywnego interfejsu,
+potem C–F oraz cztery pełne ścieżki. Zapis/odczyt, grafiki produkcyjne,
+dźwięki i test SE nadal niewykonane.

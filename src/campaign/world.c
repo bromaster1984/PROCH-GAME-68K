@@ -14,6 +14,7 @@ int pr_scene_allowed(const PrState *s,unsigned scene)
             return scene==s->hero[PR_M].location && (scene==17 || scene==38);
         if(phase==PR_F && (scene==11 || scene==13 || scene==15 || scene==19 ||
                           scene==20 || scene==22 || scene==23))override=1;
+        if(phase==PR_A && scene==9 && pr_done(s,4))override=1;
         if((scene==6 || scene==7) && pr_done(s,5))return 0;
         if(scene==14 || scene==15)if(!pr_done(s,9))return 0;
         if(scene==20 && !pr_done(s,16))return 0;

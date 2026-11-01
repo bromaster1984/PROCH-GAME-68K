@@ -15,9 +15,10 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.h
                           ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.c
     COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/generate_campaign.py
             ${CMAKE_CURRENT_BINARY_DIR}/generated
-    DEPENDS tools/generate_campaign.py scenes.json quests.json)
+    DEPENDS tools/generate_campaign.py tools/generate_content.py content/campaign_texts.json scenes.json quests.json)
 # Build the production model separately until the full campaign is connected.
 add_library(PROCHCampaignCore STATIC src/campaign/model.c src/campaign/world.c
+            src/campaign/rules.c src/campaign/rules_a.c
             ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.c)
 target_include_directories(PROCHCampaignCore PRIVATE src/campaign ${CMAKE_CURRENT_BINARY_DIR}/generated)
 target_compile_features(PROCHCampaignCore PRIVATE c_std_99)

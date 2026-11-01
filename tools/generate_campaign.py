@@ -3,6 +3,7 @@
 from pathlib import Path
 import json
 import sys
+from generate_content import literal
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -31,6 +32,7 @@ def generate(directory):
         for link in row['links']:
             j=int(link[1:])
             if region(i)==region(j):edges[i][j]=edges[j][i]=1
+    texts=json.loads((ROOT/'content/campaign_texts.json').read_text())
     header='''/* Generated: authorship stays in the root JSON. */
 #ifndef PROCH_CAMPAIGN_DATA_H
 #define PROCH_CAMPAIGN_DATA_H
@@ -40,8 +42,9 @@ extern const PrSceneMeta pr_scenes[44];
 extern const uint8_t pr_edges[44][44];
 extern const uint8_t pr_quest_steps[41];
 extern const uint8_t pr_dependencies[41][5];
-#endif
 '''
+    header+='enum PrText {\n'+',\n'.join('PR_TEXT_'+name for name in texts)+',\nPR_TEXT_COUNT};\n'
+    header+='extern const char *const pr_texts[PR_TEXT_COUNT];\n#endif\n'
     source='#include "campaign_data.h"\nconst PrSceneMeta pr_scenes[44]={\n'
     source+=',\n'.join('{'+','.join(map(str,row))+'}' for row in meta)+'\n};\n'
     source+='const uint8_t pr_edges[44][44]={\n'
@@ -54,6 +57,8 @@ extern const uint8_t pr_dependencies[41][5];
         if len(deps)>4:raise ValueError('Increase the explicit dependency capacity')
         source+='{'+','.join(map(str,[len(deps)]+deps))+'},\n'
     source+='};\n'
+    source+='const char *const pr_texts[PR_TEXT_COUNT]={\n'
+    source+=',\n'.join('[PR_TEXT_'+k+']='+literal(v) for k,v in texts.items())+'\n};\n'
     (out/'campaign_data.h').write_text(header)
     (out/'campaign_data.c').write_text(source)
 
