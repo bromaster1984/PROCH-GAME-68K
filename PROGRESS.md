@@ -527,3 +527,26 @@ Następny krok: Q23 — złożenie listu, prywatne wspomnienie, jeden fizyczny
 egzemplarz u kuriera i doręczenie dopiero przy wejściu do D. Najpierw
 przygotować mapę stanów i testów bez zmiany reguł, następnie wdrożyć Q23;
 po nim Q24 z niezależnością od Q22/Q23.
+
+## 2026-11-01 — etap 3l: treści i mapa testów Q23
+
+Wykonano: uzupełniono brakującą etykietę pobrania zapasowego arkusza
+(`Q23_TAKE_EXTRA_PAPER`) i odpowiedź potwierdzającą pojedyncze pobranie
+(`Q23_PAPER_TAKEN`). Pozostałe teksty szkicu, właściwej treści, wspomnienia
+i przekazania już istniały, więc wykorzystano je bez duplikowania. Dodano
+`Q23_STATE_TEST_MATRIX.md` z przypadkami zależności Q22, I10 obecnego i
+brakującego, błędnej treści, braku wspomnienia, pojedynczego I28, dostawy
+dopiero w D i braku przedwczesnej wiedzy Mikołaja.
+
+Przetestowano: `python3 -m json.tool content/campaign_texts.json` PASS;
+`python3 tools/generate_campaign.py build/generated` PASS; `bash
+tools/test_host.sh` PASS (C/ASan/UBSan i walidator 40 Q / 43 lokacje /
+45 przedmiotów); 9 testów Python PASS; `git diff --check` PASS.
+
+Problemy i granice: nie zmieniano reguł, interfejsu ani `dist/`. Q23 nie jest
+zaimplementowane; brak testów runtime dla nowej treści. Dostawa w D, wiedza
+Mikołaja i SE pozostają do implementacji lub weryfikacji.
+
+Następny krok: wdrożyć Q23 zgodnie z mapą akcji i testów w osobnym etapie;
+przed zmianą routingu I28 i przejścia C→D wrócić do Sol. Q24 pozostaje
+poza tym etapem.
