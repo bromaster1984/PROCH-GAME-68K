@@ -74,3 +74,35 @@ rzeczywistego czarno-białego ekranu, nie wizualizacją planowanej gry.
 **Nadal niewykonane:** wymagany test SE/4 MB, SE/30/System7, fizyczny sprzęt,
 pomiar pamięci i czasów reakcji, pełny natywny interfejs, cała kampania oraz
 T01–T04, zapis/odczyt, produkcyjne ilustracje, audio i playtest długości.
+
+## Etap 2 — wycinek połączonego UI i silnika
+
+Natywna aplikacja demonstracji: **35968 B MacBinary**, fork zasobów 35801 B,
+HFS 819200 B. SHA256 aplikacji:
+`82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7`.
+Jest to dokładnie plik uruchomiony w Mini vMac Plus/System 6.0.8/4 MB,
+zachowany przed startem jako niezmienny `PROCH.bin` wraz z manifestem wejść.
+
+Pięć części testu UI: **PASS**. Surowy raport:
+`tests/results/stage2-native.json`. Sprawdzono przez rzeczywiste kliknięcia
+i odczyt pikseli własnego fontu:
+
+- Q09: rozmowa, przejścia, kluczyk, szuflada, pęk kluczy, Biblia pozostawiona
+  w pokoju, rower i wpis w dzienniku;
+- Q12: materiały, oba wejścia, znaczniki, jawny odpoczynek, nienaruszone
+  znaczniki i podniesienie koronki;
+- Q21: pozwolenie rybaka, skrzynia, tkanina/igła, trzy czynności przy stole,
+  założenie sukni; K ma własny dziennik i historię;
+- przełączanie zachowuje miejsca i postęp; modalna rozmowa blokuje Tab;
+- dłuższy dialog wyświetla wszystkie wiersze, historia pokazuje cały opis Q12.
+
+Testy wiążą wynik z sumą aplikacji i konkretnym profilem startu. Wczesny zrzut
+zrobiony podczas odrysowania miał niepełną linię; inne porównanie zasłonił
+kursor. Poprawiono runner: czeka na stabilną klatkę i odsuwa kursor przed
+porównaniem. Pełny opis sprawdzono ponownie na tych samych binariach.
+
+**Zakres:** fixture M w B i K w L33; brak całej osi A–F. Kontrolki zapisu są
+wyłączone. Brak produkcyjnych ilustracji i audio. Nie są to T01–T04, test SE
+ani fizycznego sprzętu. Pozostają pełne gesty (m.in. automatyczne podwójne
+kliknięcie), pełne dzienniki fabularne, pojemniki i mapa całej kampanii,
+serializacja oraz reszta wymagań specyfikacji.

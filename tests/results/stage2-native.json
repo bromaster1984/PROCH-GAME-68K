@@ -1,0 +1,98 @@
+{
+  "profile": {
+    "model": "Plus",
+    "ram_bytes": 4194304,
+    "rom_checksum": "4d1f8172",
+    "rom_ignored_trailer_bytes": 7504,
+    "rom_sha256": "dd908e2b65772a6b1f0c859c24e9a0d3dcde17b1c6a24f4abd8955846d7895e7",
+    "dc42_checksum": "816f85c8",
+    "system_sha256": "6861a10e435b378c17fbbfb68502dca6ce563d874bf2a575b13e3f08cd9a6c9e",
+    "application_sha256": "82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7",
+    "application_dsk_sha256": "d505476eac16a1e76091cea8025328281547286a39189ba6b02e54d607489573"
+  },
+  "results": [
+    {
+      "part": "q09",
+      "result": "PASS",
+      "checks": [
+        "Dziedziniec gorzelni",
+        "Chata rybaka",
+        "Dziedziniec gorzelni",
+        "Dziedziniec gorzelni",
+        "Korytarz stróżówki",
+        "Pokój Mikołaja",
+        "Dziedziniec gorzelni",
+        "Klucze zmarłego stróża"
+      ],
+      "run_id": "ef085501-fedd-4b42-9ee0-b463f81585bf",
+      "application_sha256": "82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7",
+      "profile": "/workspace/testing/stage2-final",
+      "scope": "Mini vMac Plus / System 6.0.8 / 4 MB, native UI, demo fixture"
+    },
+    {
+      "part": "q12",
+      "result": "PASS",
+      "checks": [
+        "Dziedziniec gorzelni",
+        "Warsztat i skład",
+        "Chata rybaka",
+        "Warsztat i skład",
+        "Pokój Mikołaja",
+        "Klucze zmarłego stróża",
+        "Nienaruszone wejścia"
+      ],
+      "run_id": "caf233a9-6406-451b-8856-9e8d58a6f7ca",
+      "application_sha256": "82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7",
+      "profile": "/workspace/testing/stage2-final",
+      "scope": "Mini vMac Plus / System 6.0.8 / 4 MB, native UI, demo fixture"
+    },
+    {
+      "part": "q21",
+      "result": "PASS",
+      "checks": [
+        "Chata rybaka",
+        "Nie zakończono jeszcze żadnej znanej sprawy.",
+        "Ten sam czas, inne miejsce.",
+        "Chata rybaka",
+        "Zwykła suknia",
+        "Pokój Mikołaja",
+        "Klucze zmarłego stróża",
+        "Nienaruszone wejścia"
+      ],
+      "run_id": "94da7ab7-f9ff-4c93-a35d-d557c42cb086",
+      "application_sha256": "82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7",
+      "profile": "/workspace/testing/stage2-final",
+      "scope": "Mini vMac Plus / System 6.0.8 / 4 MB, native UI, demo fixture"
+    },
+    {
+      "part": "long_dialogue",
+      "result": "PASS",
+      "checks": [
+        "Pokój Mikołaja",
+        "Chata rybaka",
+        "Zwykła suknia",
+        "Pokój Mikołaja",
+        "Dziedziniec gorzelni",
+        "W szufladzie są klucze. Pokój był Zenka. Rower też. Dbaj o rzeczy i o",
+        "siebie."
+      ],
+      "run_id": "a56332d3-a872-48b6-8fd0-f48080bc511a",
+      "application_sha256": "82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7",
+      "profile": "/workspace/testing/stage2-final",
+      "scope": "Mini vMac Plus / System 6.0.8 / 4 MB, native UI, demo fixture"
+    },
+    {
+      "part": "description_history",
+      "result": "PASS",
+      "checks": [
+        "Dziedziniec gorzelni",
+        "Papier cały. Nitka na miejscu.",
+        "Papier cały. Nitka na miejscu. A tego wczoraj tutaj nie było."
+      ],
+      "run_id": "20158f73-098f-45ff-aae8-62ec64287ed6",
+      "application_sha256": "82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7",
+      "profile": "/workspace/testing/stage2-final",
+      "scope": "Mini vMac Plus / System 6.0.8 / 4 MB, native UI, demo fixture"
+    }
+  ]
+}

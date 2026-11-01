@@ -11,9 +11,11 @@ import subprocess
 import time
 import uuid
 import hashlib
+import textwrap
 from PIL import Image
 from capture_screen import convert
 from generate_content import glyphs
+from generate_content import UI_TEXT, REPLIES
 
 
 class Driver:
@@ -41,12 +43,32 @@ class Driver:
         self.execute('xdotool','key','--clearmodifiers',key,'sleep',0.25)
 
     def capture(self,name='last'):
+        if name!='last':
+            previous=None
+            stable=0
+            deadline=time.monotonic()+15
+            while time.monotonic()<deadline:
+                im=self.capture()
+                pixels=im.tobytes()
+                stable=stable+1 if pixels==previous else 0
+                previous=pixels
+                if stable>=3:
+                    for suffix in ['.xwd','.png']:
+                        dest=self.directory/(name+suffix)
+                        temporary=self.directory/(name+suffix+'.stable.tmp')
+                        temporary.write_bytes((self.directory/('last'+suffix)).read_bytes())
+                        temporary.replace(dest)
+                    return im
+                time.sleep(0.25)
+            raise AssertionError('Framebuffer did not become stable: '+name)
         self.execute('xwd','-nobdrs','-silent','-id',self.args.window,
                      '-out','/testing/native-ui/'+name+'.xwd')
         convert(self.directory/(name+'.xwd'),self.directory/(name+'.png'))
         return Image.open(self.directory/(name+'.png')).convert('1')
 
     def expect(self,text,x=8,baseline=34):
+        # The emulated Mac cursor is part of the framebuffer; keep it off text.
+        self.execute('xdotool','mousemove','--window',self.args.window,505,330)
         deadline=time.monotonic()+12
         while True:
             im=self.capture()
@@ -130,10 +152,32 @@ class Driver:
         self.key('Tab'); self.expect('Pokój Mikołaja')
         self.journal('Klucze zmarłego stróża','Nienaruszone wejścia')
 
+    def long_dialogue(self):
+        self.expect('Pokój Mikołaja')
+        self.capture('q12-room')
+        self.key('Tab');self.expect('Chata rybaka')
+        self.capture('q21-hut');self.journal('Zwykła suknia')
+        self.key('Tab');self.expect('Pokój Mikołaja')
+        self.click(473,138);self.click(430,164);self.click(430,164)
+        self.expect('Dziedziniec gorzelni')
+        self.click(64,331);self.click(50,145);self.click(180,90)
+        for i,line in enumerate(textwrap.wrap(UI_TEXT['FLOREK_QUOTE'],width=70)):
+            self.expect(line,9,266+12*i)
+        self.capture('long-dialogue')
+
+    def description_history(self):
+        self.expect('Dziedziniec gorzelni')
+        self.click(200,267);self.click(80,235)
+        self.expect('Papier cały. Nitka na miejscu.',30,90)
+        self.click(100,90)
+        self.expect(REPLIES['Q12'],30,90)
+        self.capture('q12-description')
+        self.key('Escape')
+
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('part',choices=['q09','q12','q21'])
+    parser.add_argument('part',choices=['q09','q12','q21','long_dialogue','description_history'])
     parser.add_argument('--container',default='proch-emulation')
     parser.add_argument('--window',default='0x200004')
     parser.add_argument('--profile',required=True,type=Path,help='Prepared, running Mini vMac input directory')

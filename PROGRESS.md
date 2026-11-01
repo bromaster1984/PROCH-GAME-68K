@@ -177,3 +177,30 @@ zaktualizowany po końcowym teście UI.
 
 Następny krok: dokończyć końcowe testy UI trzech Q, utrwalić wyniki i binaria,
 potem kampania A–F i pełna logika Q01–Q40. SE nadal niezweryfikowany (ROM Plus).
+
+## 2026-11-01 — etap 2b: końcowe przejście demonstracji i dystrybucja
+
+Końcowy build UI (SHA256 `82ce97247d1e6ed3860a710d2cf726887da8a7b060239c269e3ca500ed063be7`)
+przeszedł Q09, Q12, Q21 oraz test dłuższego dialogu i pełnego opisu z historii
+w Mini vMac Plus/System 6.0.8/4 MB. Dowodem są odczyty pikseli dzienników,
+prywatnej historii K i pełnych tekstów. Testy nie wywołują wewnętrznych metod
+silnika ani nie ustawiają flag przez skróty. Używają klikania i klawiatury.
+
+Wykryto problem runnera: zrzut w trakcie odrysowania oraz kursor zasłaniający
+sprawdzaną literę. Poprawiono stabilizację klatki/położenie kursora, potwierdzono
+całą końcówkę Q12. Nie wyłączano asercji ani nie podmieniano tekstu.
+
+`dist/PROCH.bin` i `dist/PROCH.dsk` zaktualizowane dokładnie do przetestowanego
+snapshotu. Raport w `tests/results/stage2-native.json`, zrzuty `stage2-*`,
+instrukcje uruchomienia i powtórzenia w README_PL. Testy hostowe dwóch programów
+C (ASan/UBSan) i 9 testów Python PASS.
+
+Ograniczenia: gra nadal jest demonstracją; komplet Q01–Q40, fazy A–F, T01–T04,
+zapis/odczyt, końcowe grafiki i dźwięki nie są wykonane. Część gestów, wpisy
+faktograficzne dziennika i wszystkie pojemniki wymagają rozszerzenia w kampanii.
+Pośrednie substeps demonstracji muszą zostać doprecyzowane przed serializacją;
+dotychczas pełny stan czynności zachowują osobne flagi. SE nie został przetestowany.
+
+Następny etap 3: produkcyjny model kampanii i mapa/ograniczenia A–F, najpierw
+Q01–Q08 z testami obu kolejności postaci, potem pozostałe Q i cztery zakończenia.
+Zachować istniejące testy demonstracji jako regresję. Kod UI wysłano w `593e12a`.

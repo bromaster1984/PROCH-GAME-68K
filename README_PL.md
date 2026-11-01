@@ -1,8 +1,9 @@
 # PROCH — implementacja natywna
 
 Cel: Macintosh SE, Motorola 68000, 4 MB, System 6.0.8, ekran 512×342 1-bit.
-Obecnie: **etap techniczny, nie ukończona gra**. Uruchomiony na emulowanym
-Plusie/4 MB/Systemie 6.0.8. Status w `PROGRESS.md` i
+Obecnie: **grywalny wycinek techniczny, nie ukończona gra**: Mikołaj Q09/Q12
+i Konstancja Q21. Uruchomiony na emulowanym Plusie/4 MB/Systemie 6.0.8.
+Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
 ## Pierwszy build
@@ -43,10 +44,31 @@ i `PROCH_TOOLCHAIN_BUILD`. Dodatkowy test Toolbox: `bash tools/test_toolbox.sh
 source`, po instalacji Executor 2000 v0.1.0 z URL i sumą w locku. `bootstrap`
 jest jawną opcją budowania oficjalnym obrazem zamiast własnego toolchaina.
 
-Na czas testu technicznego: kliknięcie wzoru zmienia jego fragment. Plik →
-Zmien wzor wybiera drugi wzór. Plik → Wyjscie lub Command-Q kończy program.
-Szachownica jest wzorcem diagnostycznym. Własny font PL i jego mapowanie są
-opisane w `FONT_PL.md`; próbka liter jest widoczna na dole ekranu.
+## Sterowanie demonstracją
+
+Komenda, potem obiekt. Użyj: najpierw przedmiot w ekwipunku, potem cel.
+Przeciągnięcie z pojemnika do ekwipunku zabiera rzecz; kliknięcie jej ikony
+w pojemniku również. Biblię kliknij, by obejrzeć, lub przeciągnij, by zabrać
+(zabranie nie jest wymagane). Przedmiot z ekwipunku można przeciągnąć na obiekt
+lub własny portret. W panelu Przejścia kliknij nazwę dostępnej lokacji.
+Tab lub przycisk zmieniają bohatera, Escape zamyka okno/anuluje wybór.
+Gra → Dziennik (Command-J), Podpowiedź (Command-H), Pomoc → Sterowanie.
+Kliknięcie narracji otwiera historię aktywnego bohatera; kliknięcie wpisu
+otwiera pełny tekst z przyciskami przewijania.
+
+Mikołaj zaczyna w L11, Konstancja w L33. To jawna fixture dwóch fragmentów,
+nie początek kampanii A–F. Z Florkiem porozmawiaj o pokoju, w pokoju otwórz
+biurko, weź kluczyk, użyj go na biurku/szufladzie, otwórz szufladę, weź klucze
+i obejrzyj Biblię. Potem zapytaj Florka o rower. Materiały do Q12 są na stole
+w warsztacie. Drzwi i okno należy obejrzeć, użyć na nich znaczników, użyć łóżka,
+a rano obejrzeć oba wejścia i zabrać koronkę. Jako Konstancja porozmawiaj
+z rybakiem, otwórz skrzynię, użyj tkaniny i igły na stole, następnie przy pustym
+wyborze Użyj kliknij stół, wybierz krój, długość i szycie. Suknię użyj na portrecie.
+
+Plik → Nowa demonstracja resetuje wycinek. Plik → Wyjscie lub Command-Q kończy
+program. Zapis i wczytanie są nieaktywne. Prostokąty z podpisami są celowo
+oznaczonymi grafikami testowymi. Własny font PL opisuje `FONT_PL.md`.
+Do pierwszego testu szachownicy można wrócić przez `-DPROCH_BRINGUP=ON` w CMake.
 
 ## Wykonany test Plus / System 6
 
@@ -72,6 +94,31 @@ Do bezstratnej konwersji `xwd -nobdrs` służy `tools/capture_screen.py`.
 
 ROM-u ani systemu nie kopiujemy do `dist/`. Test Plusa nie zastępuje testu SE.
 
-Nie dołączono cudzych ROM-ów ani systemu. Sam build nie potwierdza działania
+## Powtarzanie testu UI
+
+Przygotowanie konkretnego builda z manifestem sum:
+
+```sh
+python3 tools/prepare_plus_inputs.py 'MAC PLUS' /workspace/testing/nowy-test build/mac-source
+```
+
+Uruchomić Mini vMac na tych kopiach, otworzyć aplikację w Finderze. W lokalnym
+środowisku testowym Xvfb=:99, kontenerze `proch-emulation` i oknie 0x200004:
+
+```sh
+python3 tools/test_native_demo.py q09 --profile /workspace/testing/nowy-test
+python3 tools/test_native_demo.py q12 --profile /workspace/testing/nowy-test
+python3 tools/test_native_demo.py q21 --profile /workspace/testing/nowy-test
+python3 tools/test_native_demo.py long_dialogue --profile /workspace/testing/nowy-test
+python3 tools/test_native_demo.py description_history --profile /workspace/testing/nowy-test
+```
+
+Zmiana nazwy kontenera/okna: `--container`, `--window`. Testy wymagają świeżego
+startu i kolejności powyżej. Wynik identyfikuje snapshot aplikacji, nie bieżący
+plik nadpisywany następnym buildem. Końcowe wyniki bieżącego wydania demonstracji
+są w `tests/results/stage2-native.json`; obrazy w `screenshots/stage2-*.png`.
+To testy trzech Q, nie czterech zakończeń całej gry.
+
+Pakiet `dist/` nie zawiera ROM-u ani systemu. Sam build nie potwierdza działania
 na Systemie 6.0.8. Minimalna partycja wynosi 1536 KiB, zalecana 2048 KiB;
 rzeczywiste zużycie i wolna sterta na 4 MB pozostają do pomiaru.

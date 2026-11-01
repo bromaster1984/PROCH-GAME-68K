@@ -2,6 +2,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 repo_dir=$PWD
+dist_dir=${PROCH_DIST_DIR:-dist}
 mode=${1:-source}
 smoke=${2:-OFF}
 [[ $mode == source || $mode == bootstrap ]] || { echo 'Usage: build_mac.sh [source|bootstrap] [ON|OFF]' >&2; exit 2; }
@@ -29,6 +30,6 @@ docker run --rm --network none --user "$(id -u):$(id -g)" --entrypoint /bin/bash
     ' -- "$target-$mode" "$prefix" "$smoke"
 if [[ $smoke == OFF ]]; then
     python3 tools/check_artifacts.py "build/$target-$mode"
-    mkdir -p dist
-    cp "build/$target-$mode/PROCH.bin" "build/$target-$mode/PROCH.dsk" dist/
+    mkdir -p "$dist_dir"
+    cp "build/$target-$mode/PROCH.bin" "build/$target-$mode/PROCH.dsk" "$dist_dir/"
 fi
