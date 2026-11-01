@@ -102,3 +102,44 @@ Następny krok: Mini vMac Plus + dostarczony System 6.0.8, uruchomienie aplikacj
 i rzeczywiste kliknięcia; zakończyć build narzędzi i powtórzyć natywne testy.
 Następnie font PL i podłączenie reguł demonstracji do interfejsu.
 Etap 1a wysłany na GitHub: `82500fd`.
+
+## 2026-11-01 — etap 1c: przypięty toolchain i test na Systemie 6.0.8; font PL
+
+Wykonano:
+- ukończono budowę Retro68 `2aa5c87e88771c6057f52bf830af9d440a5e4e36`
+  i Multiversal `580f3309649ad4c788c048be3dff2416d7ba49f3` ze źródeł,
+  bez PPC/Carbon. Naprawiono prawa odczytu wygenerowanego Multiverse.r;
+- zapisane skrypty `build_mac.sh source OFF` i `test_toolbox.sh source`
+  uruchomiono pomyślnie. Cache przypiętego toolchaina jest ponownie używany;
+- zbudowano Mini vMac `6860a9a7f372c461b25dc42974b191a453ebcfb2`, Plus,
+  4 MB, X11, bez powiększenia. System faktycznie potwierdzony oknem Findera:
+  System 6.0.8, Finder 6.1.8, Total Memory 4096K;
+- aplikacja uruchomiła się z HFS, zareagowała na rzeczywiste kliknięcie
+  (wszystkie 49 pikseli pędzla 7×7 odwrócone), Command-Q wróciło do Findera;
+- własne oryginalne glify 6×11, przesunięcie 7, interlinia 12, atlas i maska
+  1-bit, ASCII + komplet 18 polskich liter. Tytuły i próbka w aplikacji są
+  rysowane tym fontem przez CopyBits. Kompilator etykiet UTF-8 nie zastępuje
+  nieznanych znaków; mapowanie opisuje `FONT_PL.md`;
+- dodano narzędzia weryfikacji wejść emulatora oraz bezstratnych zrzutów.
+  `dist/` zawiera tylko aplikację i jej wolumin, bez ROM-u/systemu.
+
+Testy:
+- MC68000, ELF32 big endian, flagi `m68000`, potwierdzone readelf;
+- kompilacja C/Rez i MacBinary/HFS: PASS;
+- Executor 2000, najnowszy font: `PROCH_TOOLBOX_SMOKE_PASS`;
+- testy hostowe C ASan/UBSan renderera i reguł demonstracji: PASS;
+- 9 testów Python struktury aktualnego `dist/`, fontu, konwersji i błędnego
+  kodowania: PASS. Powtarzalna generacja nagłówków/atlasu;
+- zrzuty 512×342/1-bit: Plus/System 6, próbka PL oraz informacje systemowe.
+
+Ograniczenia: testowany był Plus, nie SE. Etap 1 nie ma jeszcze wymaganej
+weryfikacji SE/4 MB; potrzebny ROM SE. Nie testowano SE/30/System7 ani sprzętu.
+Nie mierzono wydajności i maksymalnej sterty po 200 przejściach. Dziewięć
+testów Python nie jest testami całej gry. Demonstrowane Q09/Q12/Q21 działają
+w engine na hoście, ale nie są jeszcze połączone z natywnym UI. Kampania,
+zapisy, produkcyjne grafiki i dźwięki pozostają niewykonane.
+
+Następny krok (etap 2): pełna geometria interfejsu, obsługa komend/ekwipunku/
+pojemników, wybór dwóch postaci i podłączenie przetestowanych reguł demonstracji.
+Następnie kompletna logika Q01–Q40 z czterema ścieżkami. Nie zaczynać od nowa.
+Poprzedni etap wysłano na GitHub: `7bacbb8`.

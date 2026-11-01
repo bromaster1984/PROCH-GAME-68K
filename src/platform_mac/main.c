@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "render_1bit.h"
+#include "font_mac.h"
 
 static WindowPtr window;
 static ProchBitmap pixels;
@@ -24,8 +25,7 @@ static const Rect scene = {39, 6, 247, 366};
 
 static void text(short x, short y, const char *s)
 {
-    MoveTo(x, y);
-    DrawText((Ptr)s, 0, (short)strlen(s));
+    proch_text(x, y, s);
 }
 
 static void draw(void)
@@ -46,7 +46,8 @@ static void draw(void)
     text(378, 111, clicks ? "Mysz: klik odebrany" : "Kliknij wzor");
     SetRect(&r, 4, 253, 508, 296); FrameRect(&r);
     text(9, 267, "Wzor testowy, nie ilustracja gry. Klik zmienia fragment bitmapy.");
-    text(9, 281, "Plik: wzor / wyjscie. Command-Q konczy. Bez wersji WWW.");
+    text(9, 279, "Plik: wzor / wyjscie. Command-Q konczy. Bez wersji WWW.");
+    text(9, 291, proch_font_sample());
 }
 
 static void click(Point global)

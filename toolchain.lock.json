@@ -6,5 +6,8 @@
   "source_build_options": ["--no-ppc", "--multiversal"],
   "target_options": ["-m68000", "-msoft-float"],
   "executor_test_release": "https://github.com/autc04/executor/releases/download/v0.1.0/Executor2000-0.1.0-Linux.tar.bz2",
-  "executor_test_sha256": "dbb73d0ff89f7f9f8876060ad8a2232025b654d3e8b91387433c198afbaa9615"
+  "executor_test_sha256": "dbb73d0ff89f7f9f8876060ad8a2232025b654d3e8b91387433c198afbaa9615",
+  "minivmac_repository": "https://github.com/minivmac/minivmac.git",
+  "minivmac_commit": "6860a9a7f372c461b25dc42974b191a453ebcfb2",
+  "minivmac_test_options": ["-t", "lx64", "-m", "Plus", "-mem", "4M", "-api", "xwn", "-sound", "0", "-speed", "1", "-magnify", "0", "-fullscreen", "0"]
 }

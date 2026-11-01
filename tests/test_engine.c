@@ -95,6 +95,7 @@ static void quest21(ProchState *s)
     assert(s->hero[HERO_M].journal[0] == (((uint32_t)1 << 8) | ((uint32_t)1 << 11)));
     before = *s;
     act(s, USE, SEW, 0); act(s, TAKE, TARGET_NONE, 24);
+    assert(act(s, TALK, FISHER, 0) == REPLY_FISHER);
     assert(memcmp(s, &before, sizeof(*s)) == 0);
 }
 

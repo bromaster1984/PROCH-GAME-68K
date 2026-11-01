@@ -156,7 +156,9 @@ enum ProchReply proch_action(ProchState *s, enum ProchVerb verb,
         }
     } else if (loc == 33) {
         if (verb == TALK && target == FISHER) {
-            s->fisher_permission = 1; s->quest[20].status = 1; reply = REPLY_FISHER;
+            s->fisher_permission = 1;
+            if (s->quest[20].status == 0) s->quest[20].status = 1;
+            reply = REPLY_FISHER;
         } else if (verb == OPEN && target == CHEST) {
             if (!s->fisher_permission) return REPLY_PERMISSION;
             s->chest_open = 1; reply = REPLY_DONE;
@@ -173,6 +175,7 @@ enum ProchReply proch_action(ProchState *s, enum ProchVerb verb,
         } else if (verb == USE && target == SEW && s->measured) {
             if (!proch_has(s, 24) || !proch_has(s, 25)) return REPLY_PERMISSION;
             s->item_location[24] = CONSUMED; s->item_location[26] = OWNER_K;
+            s->cloth_on_table = s->needle_on_table = 0;
             reply = REPLY_DRESS;
         } else if (verb == USE && target == PORTRAIT && item == 26) {
             s->item_location[26] = WORN_K; s->disguise = 1; reply = REPLY_WORN;

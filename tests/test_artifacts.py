@@ -1,9 +1,11 @@
 import importlib.util
 import struct
+import os
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+ARTIFACTS = Path(os.environ.get('PROCH_ARTIFACT_DIR', str(ROOT/'dist')))
 spec = importlib.util.spec_from_file_location('artifacts', ROOT / 'tools/check_artifacts.py')
 artifacts = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(artifacts)
@@ -12,7 +14,7 @@ spec.loader.exec_module(artifacts)
 class ArtifactChecks(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.blob = (ROOT / 'build/mac/PROCH.bin').read_bytes()
+        cls.blob = (ARTIFACTS / 'PROCH.bin').read_bytes()
 
     def test_generated_application_has_forks_and_partition(self):
         result = artifacts.macbinary(self.blob)
@@ -37,7 +39,7 @@ class ArtifactChecks(unittest.TestCase):
             artifacts.resources(b)
 
     def test_current_hfs_volume_header(self):
-        result = artifacts.check(ROOT / 'build/mac')
+        result = artifacts.check(ARTIFACTS)
         self.assertGreater(result['hfs_bytes'], result['bytes'])
 
 

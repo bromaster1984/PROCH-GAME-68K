@@ -26,11 +26,18 @@ fi
 }
 git -C "$source_dir" submodule update --init --depth 1
 [[ $(git -C "$source_dir/multiversal" rev-parse HEAD) == "$(read_lock multiversal_commit)" ]]
+if [[ ${1:-} != --refresh && -f "$build_dir/proch-source-commit" &&
+      $(cat "$build_dir/proch-source-commit") == "$commit" &&
+      -x "$build_dir/toolchain/bin/Rez" &&
+      -x "$build_dir/toolchain/bin/m68k-apple-macos-gcc" ]]; then
+    echo "Reusing pinned source toolchain: $build_dir (use --refresh to rebuild)"
+    exit 0
+fi
 # Network is unnecessary during compilation. Docker pull and Git retain TLS verification.
 docker image inspect "$image" >/dev/null 2>&1 || docker pull "$image"
 docker run --rm --network none --user "$(id -u):$(id -g)" --entrypoint /bin/bash \
     -v "$source_dir:/src/Retro68" -v "$build_dir:/build" -w /build \
     -e CMAKE_BUILD_PARALLEL_LEVEL=4 "$image" \
-    -lc '/src/Retro68/build-toolchain.bash --no-ppc --multiversal'
+    -lc '/src/Retro68/build-toolchain.bash --no-ppc --multiversal && chmod -R a+rX /build/toolchain'
 printf '%s\n' "$commit" > "$build_dir/proch-source-commit"
 echo "Toolchain source build complete: $build_dir"

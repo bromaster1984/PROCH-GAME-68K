@@ -42,3 +42,35 @@ Materiały autora z `MAC PLUS`: ROM Plus v3, zweryfikowana suma 0x4d1f8172
 pierwszych 131072 B; 7504 B za ROM-em nie są używane. DiskCopy 4.2:
 suma danych 0x816f85c8 zgodna. Przygotowanie kopii nie zmienia źródeł.
 Testy Plus/System 6 i SE/System 6 nadal oczekują na wykonanie.
+
+## Wynik aktualny: System 6.0.8 na Plusie, toolchain ze źródeł i font PL
+
+Retro68 i Multiversal z commitów w locku są zbudowane ze źródeł i użyte do
+aktualnego `dist/`. Pierwszy fork zasobów z tego toolchaina był identyczny
+z testowanym bootstrapem (SHA256
+`fbe019e048b274196b32ff4cc6bd5d89175ad6af90d3d19ead4de2f06b7497ef`).
+Po dodaniu fontu wykonano nowy build i nowe uruchomienie.
+
+Mini vMac, SHA `6860a9a7f372c461b25dc42974b191a453ebcfb2`, model **Plus**,
+68000, 4 MB, 512×342, bez powiększenia, ROM Plus v3. Źródłem systemu jest
+obraz dostarczony przez autora. Systemowy ekran potwierdził **System 6.0.8,
+Finder 6.1.8, 4096K** (`screenshots/system608-plus-4mb.png`).
+
+- uruchomienie natywnego APPL z HFS, okno, CopyBits i pozostawienie aplikacji
+  przez Command-Q: PASS;
+- rzeczywiste zdarzenie jednoprzyciskowej myszy: PASS. Różnica wszystkich
+  49 pikseli pędzla 7×7, porównana w zrzutach przed/po;
+- próbka własnego fontu z ĄąĆćĘęŁłŃńÓóŚśŹźŻż: wyświetlona w aplikacji
+  na angielskim systemie (`screenshots/font-pl-plus-system608.png`);
+- ELF32 big endian, Machine MC68000, flag `m68000`: PASS;
+- aktualny test natywny Executor 2000: PASS;
+- 9 testów Python i 2 programy testów C (ASan/UBSan): PASS. Dotyczą formatu
+  dystrybucji, fontu, renderera i trzech demonstracyjnych zadań.
+
+Zrzuty X11 mają wyłączoną ramkę gospodarza (`xwd -nobdrs`); konwerter odmawia
+skalowania, kadrowania i redukcji kolorów. PNG są bezstratnym zapisem
+rzeczywistego czarno-białego ekranu, nie wizualizacją planowanej gry.
+
+**Nadal niewykonane:** wymagany test SE/4 MB, SE/30/System7, fizyczny sprzęt,
+pomiar pamięci i czasów reakcji, pełny natywny interfejs, cała kampania oraz
+T01–T04, zapis/odczyt, produkcyjne ilustracje, audio i playtest długości.
