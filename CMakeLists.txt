@@ -11,6 +11,18 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/font.h
     COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/generate_content.py
             ${CMAKE_CURRENT_BINARY_DIR}/generated
     DEPENDS tools/generate_content.py scenes.json items.json quests.json)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.h
+                          ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.c
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/generate_campaign.py
+            ${CMAKE_CURRENT_BINARY_DIR}/generated
+    DEPENDS tools/generate_campaign.py scenes.json quests.json)
+# Build the production model separately until the full campaign is connected.
+add_library(PROCHCampaignCore STATIC src/campaign/model.c src/campaign/world.c
+            ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.c)
+target_include_directories(PROCHCampaignCore PRIVATE src/campaign ${CMAKE_CURRENT_BINARY_DIR}/generated)
+target_compile_features(PROCHCampaignCore PRIVATE c_std_99)
+target_compile_options(PROCHCampaignCore PRIVATE -m68000 -msoft-float -Os -Wall -Wextra -Werror
+                       -ffunction-sections -fdata-sections)
 if(PROCH_AUTOTEST OR PROCH_BRINGUP)
     set(PROCH_ENTRY src/platform_mac/main.c)
 else()

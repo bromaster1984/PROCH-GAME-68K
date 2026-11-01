@@ -106,3 +106,15 @@ wyłączone. Brak produkcyjnych ilustracji i audio. Nie są to T01–T04, test S
 ani fizycznego sprzętu. Pozostają pełne gesty (m.in. automatyczne podwójne
 kliknięcie), pełne dzienniki fabularne, pojemniki i mapa całej kampanii,
 serializacja oraz reszta wymagań specyfikacji.
+
+## Etap 3a — osobny model produkcyjny
+
+Trzeci program testów hostowych C/ASan/UBSan: PASS. Obejmuje własność
+przedmiotów z walizką i zakazem cykli, oddzielną wiedzę, bariery faz w obu
+kolejnościach postaci, wiadomości/doręczenia bez nadania wiedzy, ograniczenia
+mapy, pełny snapshot oraz podział wyników zakończeń. Model ma 2464 B na hoście;
+biblioteka kompiluje się na 68000 i mieści w asercji 4096 B na stan.
+
+W teście ustawiane są stany wejściowe modelu. Nie jest to przejście zadań
+Q01–Q40, nie potwierdza napisania tych reguł i nie zastępuje T01–T04.
+Biblioteka nie jest jeszcze używana przez dystrybuowaną demonstrację.

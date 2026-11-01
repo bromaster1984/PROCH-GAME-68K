@@ -204,3 +204,30 @@ dotychczas pełny stan czynności zachowują osobne flagi. SE nie został przete
 Następny etap 3: produkcyjny model kampanii i mapa/ograniczenia A–F, najpierw
 Q01–Q08 z testami obu kolejności postaci, potem pozostałe Q i cztery zakończenia.
 Zachować istniejące testy demonstracji jako regresję. Kod UI wysłano w `593e12a`.
+
+## 2026-11-01 — etap 3a: produkcyjny model kampanii (biblioteka)
+
+Dodano `src/campaign/`: pełny model faz A–F, stany trójwartościowe, flagi
+normatywne, własną wiedzę z poziomem pewności i dziennikami, jednoznaczną
+własność przedmiotów (w tym zawartość walizki), kolejkę fizycznych wiadomości,
+bariery faz oraz wyliczanie priorytetu czterech zakończeń. Cofnięcie odtwarza
+cały snapshot obu bohaterów. Są osobne snapshoty bezpieczeństwa i sprzed stawu.
+
+Mapa i zależności są kompilowane z JSON na hoście. Normalizowane są krawędzie
+lokalne, a nie podróże między regionami. Sprawdzono ograniczenia stróżówki,
+stawu K, biblioteki, fazy E M i nadpisania dostępu F wskazane w dokumencie 03.
+
+Testy modelu C/ASan/UBSan PASS: obie kolejności kończenia A, potwierdzenie C→D,
+brak automatycznej wiedzy M po doręczeniu listu, dostarczenie I45 po przełączeniu
+na K, brak cykli pojemników, własna wiedza i kompletne cofnięcie. Wszystkie
+kombinacje rozstrzygnięć zakończeń spełniają priorytet E04/E01/E02/E03.
+Model ma 2464 B na hoście; kompilacja 68000 biblioteki PASS z limitem 4 KiB
+na pojedynczy stan. Trzy snapshoty to nadal mała część budżetu 160 KiB.
+
+To testy modelu, **nie implementacja wszystkich Q ani T01–T04**. Biblioteka
+`PROCHCampaignCore` jest budowana, ale nie jest jeszcze podłączona zamiast
+demonstracji. `dist/` pozostaje zweryfikowanym wycinkiem z etapu 2b (`46caf44`).
+
+Następny krok: deterministyczne reguły Q01–Q08, jawne tematy dialogów i akcje,
+testy całego początku przy obu kolejnościach M/K. Potem etapy B–F i integracja
+pełnego interfejsu/mapy. Serializacja i produkcyjne zasoby nadal pozostają.
