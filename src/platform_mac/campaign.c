@@ -1,4 +1,4 @@
-/* Native campaign UI. Rectangles are explicitly marked stage-3 test artwork. */
+/* Native campaign UI. Finished scene art is integrated incrementally. */
 #include <Quickdraw.h>
 #include <Windows.h>
 #include <Menus.h>
@@ -11,6 +11,7 @@
 #include "campaign/rules.h"
 #include "campaign_data.h"
 #include "font_mac.h"
+#include "scene_art.h"
 
 enum { BOX_NONE,BOX_DIALOG,BOX_CONTAINER,BOX_DOCUMENT,BOX_JOURNAL,BOX_HINT,BOX_HISTORY };
 typedef struct { uint16_t target,text;short x,w; } Extra;
@@ -27,6 +28,17 @@ static Point down_point;
 #define T(name) pr_texts[PR_TEXT_##name]
 
 static void rect(Rect *r,short x,short y,short w,short h) {SetRect(r,x,y,x+w,y+h);}
+static void draw_scene_art(unsigned scene)
+{
+    const uint8_t *pixels=proch_scene_art(scene);
+    BitMap bitmap;Rect dest;
+    if(!pixels)return;
+    bitmap.baseAddr=(Ptr)pixels;
+    bitmap.rowBytes=46;
+    rect(&bitmap.bounds,0,0,360,208);
+    rect(&dest,6,39,360,208);
+    CopyBits(&bitmap,&window->portBits,&bitmap.bounds,&dest,srcCopy,NULL);
+}
 static int inside(Point p,short x,short y,short w,short h)
 {return p.h>=x && p.h<x+w && p.v>=y && p.v<y+h;}
 static void invalidate(void) {SetPort(window);InvalRect(&window->portRect);}
@@ -231,13 +243,17 @@ static void draw(void)
     SetPort(window);EraseRect(&window->portRect);
     rect(&r,4,23,364,226);FrameRect(&r);proch_text(8,34,pr_scene_names[scene]);
     rect(&r,6,39,360,208);FrameRect(&r);
-    for(i=0;i<pr_hotspot_count[scene];++i) {
-        const PrHotspotMeta *h=&pr_hotspots[scene][i];
-        if(scene==13 && i==3 && S.world.item_position[19]!=13)continue;
-        rect(&r,6+h->l,39+h->t,h->r-h->l,h->b-h->t);FrameRect(&r);
-        wrapped(r.left+3,r.top+12,(r.right-r.left-6)/7,3,h->name);
+    if(proch_scene_art(scene))draw_scene_art(scene);
+    else {
+        for(i=0;i<pr_hotspot_count[scene];++i) {
+            const PrHotspotMeta *h=&pr_hotspots[scene][i];
+            if(scene==13 && i==3 && S.world.item_position[19]!=13)continue;
+            rect(&r,6+h->l,39+h->t,h->r-h->l,h->b-h->t);FrameRect(&r);
+            wrapped(r.left+3,r.top+12,(r.right-r.left-6)/7,3,h->name);
+        }
+        proch_text(12,151,T(UI_TEST_ART));
     }
-    proch_text(12,151,T(UI_TEST_ART));n=extras(e);
+    n=extras(e);
     for(i=0;i<n;++i)button(e[i].x,230,e[i].w,17,pr_texts[e[i].text],0);
     rect(&r,372,23,136,102);FrameRect(&r);rect(&r,378,42,48,48);FrameRect(&r);
     proch_text(397,70,S.active==PR_M?"M":"K");

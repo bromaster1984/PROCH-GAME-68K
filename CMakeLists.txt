@@ -18,6 +18,10 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.h
             ${CMAKE_CURRENT_BINARY_DIR}/generated
     DEPENDS tools/generate_campaign.py tools/generate_content.py content/campaign_texts.json
             content/campaign_facts.json scenes.json quests.json items.json)
+add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/scene_art.c
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/tools/pack_scene_art.py
+            embed ${CMAKE_CURRENT_BINARY_DIR}/generated/scene_art.c
+    DEPENDS tools/pack_scene_art.py art/packed/L33.bin art/packed/L34.bin)
 # Build the production model separately until the full campaign is connected.
 add_library(PROCHCampaignCore STATIC src/campaign/model.c src/campaign/world.c
             src/campaign/rules.c src/campaign/rules_a.c src/campaign/rules_b.c
@@ -35,9 +39,10 @@ else()
     set(PROCH_ENTRY src/platform_mac/demo.c src/engine.c)
 endif()
 add_application(PROCH ${PROCH_ENTRY} src/render_1bit.c src/platform_mac/font_mac.c
-                ${CMAKE_CURRENT_BINARY_DIR}/generated/font.h src/platform_mac/proch.r
+                ${CMAKE_CURRENT_BINARY_DIR}/generated/font.h
+                ${CMAKE_CURRENT_BINARY_DIR}/generated/scene_art.c src/platform_mac/proch.r
                 CREATOR PRCH)
-target_include_directories(PROCH PRIVATE src ${CMAKE_CURRENT_BINARY_DIR}/generated)
+target_include_directories(PROCH PRIVATE src src/platform_mac ${CMAKE_CURRENT_BINARY_DIR}/generated)
 target_compile_features(PROCH PRIVATE c_std_99)
 target_compile_options(PROCH PRIVATE -m68000 -msoft-float -Os -Wall -Wextra
                        -Werror -ffunction-sections -fdata-sections)

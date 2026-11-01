@@ -3,6 +3,7 @@
 import argparse
 import json
 from pathlib import Path
+from PIL import Image
 from test_native_demo import Driver
 
 
@@ -75,6 +76,20 @@ class CampaignDriver(Driver):
         self.expect(title,30,98+44*index)
         self.capture(capture_name or 'campaign-a-'+title.split()[0])
         self.key('Escape')
+
+    def assert_scene_art(self,name):
+        """Compare actual emulator pixels with the production 1-bit asset."""
+        self.execute('xdotool','mousemove','--window',self.args.window,505,330)
+        image=self.capture('campaign-art-'+name)
+        expected=Image.open(
+            Path(__file__).resolve().parents[1]/'bg'/(name+'.png')).convert('1')
+        # Avoid the outer frame and the action strip overlay at y=230..246.
+        actual=image.crop((7,40,365,225))
+        reference=expected.crop((1,1,359,186))
+        if actual.tobytes()!=reference.tobytes():
+            raise AssertionError('Native scene bitmap differs from '+name)
+        self.passed.append(name+' art: exact 1-bit pixels')
+        print('PASS native scene pixels:',name,flush=True)
 
     def chapter_a(self):
         self.expect('Gabinet Koreckiego');self.key('Escape')
@@ -203,6 +218,7 @@ class CampaignDriver(Driver):
 
     def chapter_c_k_q21(self):
         self.key('Tab');self.expect('Chata rybaka')
+        if self.args.chapter=='abc_mk24':self.assert_scene_art('L33')
         self.talk(1);self.open(3)
         self.take_first();self.take_first();self.key('Escape')
         self.use(5,2);self.use(6,2)
@@ -213,6 +229,7 @@ class CampaignDriver(Driver):
     def chapter_c_k_q22(self):
         self.go(0,'Plaża z sieciami')
         self.go(1,'Przystań rybacka')
+        if self.args.chapter=='abc_mk24':self.assert_scene_art('L34')
         self.talk(1)
         self.inspect(2);self.expect('Trzy luźne końce',9,266)
         self.use(6,2);self.expect('Używam igły i nici',9,266)

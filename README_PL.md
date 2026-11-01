@@ -7,7 +7,9 @@ Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
 Źródła domyślnie budują ten początek kampanii (etap 3).
-`dist/` zawiera dokładnie przetestowany build `59e1ad37…93f9a2f7` z etapu 3p.
+`dist/` zawiera dokładnie przetestowany build `6bd4872f…f5953` z etapu 4a.
+Chata rybaka L33 i przystań L34 mają już oryginalne ilustracje 360×208/1-bit;
+pozostałe sceny zachowują grafikę testową.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
 
@@ -157,7 +159,10 @@ python3 tools/test_native_campaign.py --chapter abc_mk24 --profile /workspace/te
 
 Zmiana nazwy kontenera/okna: `--container`, `--window`. Test wymaga świeżej gry.
 Wynik identyfikuje snapshot aplikacji, nie plik nadpisywany następnym buildem.
-Aktualny raport to `tests/results/stage3-c-q24-native.json`; zrzuty Q24
+Aktualny raport to `tests/results/stage4a-art-native.json`; zrzuty ilustracji
+`screenshots/stage4a-L33.png` i `screenshots/stage4a-L34.png`. Test zawiera
+113 kontroli, w tym porównanie pikseli obu scen z obrazami źródłowymi.
+Poprzedni raport Q24 to `tests/results/stage3-c-q24-native.json`; zrzuty Q24
 i wejścia D: `screenshots/stage3-c-q24-journal.png`,
 `screenshots/stage3-d-entry.png`. Poprzednie Q23:
 `stage3-c-q23-native.json` i `stage3-c-q23-journal.png`. Q22:

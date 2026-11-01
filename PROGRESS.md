@@ -653,3 +653,33 @@ produkcyjne i pomiary pamięci pozostają do wykonania.
 
 Następny krok: pilotaż dwóch prawdziwych scen 1-bit L33/L34 i sprawdzenie
 ich czytelności oraz budżetu pamięci na Plusie; potem Q25 i faza D.
+
+## 2026-11-01 — etap 4a: pierwsze ilustracje L33/L34
+
+Wykonano: przygotowano oryginalne obrazy chaty rybaka i przystani, dostarczono
+wersje 360×208/1-bit oraz spakowano je w wiersze QuickDraw po 46 bajtów.
+Natywny interfejs rysuje obie sceny zamiast prostokątów testowych; obszary
+klikania i reguły Q21–Q24 pozostają bez zmian. Źródła, bitmapy, skrypt
+pakowania i opis odtwarzania zapisano w `art/` i `bg/`. Rozmiar obu bitmap
+to 19 136 B. Przetestowaną aplikację i HFS zapisano w `dist/`.
+
+Przetestowano: C host ASan/UBSan, walidator specyfikacji, 10 testów Python,
+kontrola PNG 360×208/mode 1 i zgodności spakowanych bitmap, cross-build 68000
+oraz kontrola MacBinary/HFS PASS. Świeży pełny przebieg Q01–Q24 w Mini vMac
+Plus/System 6.0.8/4 MB PASS: 113 kontroli, w tym dokładne porównanie pikseli
+L33/L34 na ekranie z plikami 1-bit. Raport `tests/results/stage4a-art-native.json`,
+zrzuty `screenshots/stage4a-L33.png` i `screenshots/stage4a-L34.png`
+(512×342/1-bit). Build, uruchomiona kopia i `dist/` mają SHA256
+`6bd4872f18d362fa7cee1e7f3dd06ba7eaf9cc07345472f66cc2bd50aacb5953`.
+MacBinary ma 106 496 B, fork zasobów 106 253 B; deklarowana partycja
+minimum 1536 KiB, preferowana 2048 KiB.
+
+Problemy i granice: sprawdzono działanie na emulowanym Plusie, nie na SE.
+Rzeczywista wolna sterta i czas rysowania nie są jeszcze zmierzone. L33 ma
+na razie obraz bazowy bez wariantów `alive`/`empty`; pozostałe sceny nadal
+mają grafikę diagnostyczną. Q25–Q40, dostępność Q20 w D, T01–T04,
+zapis/odczyt i audio pozostają do wykonania.
+
+Następny krok: rozpocząć mały etap Q25 i interakcję fazy D, utrzymując
+testy publicznych akcji; później dodać warianty L33 i kolejne ilustracje,
+zmierzyć pamięć/czas rysowania oraz wykonać test na Macintosh SE.

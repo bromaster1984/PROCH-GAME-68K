@@ -1,6 +1,27 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3p, Q24 i wejście do D
+## Bieżące wydanie: etap 4a, ilustracje L33/L34
+
+`dist/PROCH.bin` SHA256
+`6bd4872f18d362fa7cee1e7f3dd06ba7eaf9cc07345472f66cc2bd50aacb5953`.
+MacBinary 106 496 B, zasoby 106 253 B, HFS 819 200 B. Build,
+kopie z profilu startowego i `dist/` mają identyczny SHA; kontrola forków,
+zasobów i HFS PASS. Dwie bitmapy 360×208/1-bit zajmują łącznie 19 136 B.
+
+Mini vMac Plus/System 6.0.8/4 MB: pełny przebieg Q01–Q24 i wejście D PASS,
+113 kontroli. L33 i L34 zostały porównane piksel po pikselu z obrazami 1-bit;
+kliknięcia w rybaka, stół, sąsiada i sieć oraz przejścia działały w tym samym
+przebiegu. Raport `tests/results/stage4a-art-native.json`, zrzuty
+`screenshots/stage4a-L33.png` i `screenshots/stage4a-L34.png` (512×342/1-bit).
+Host C/ASan/UBSan, walidator specyfikacji, 10 testów Python i cross-build
+68000 PASS. Nie zmierzono jeszcze rzeczywistej wolnej pamięci ani czasu
+rysowania na Plusie lub SE. Pozostałe sceny mają grafikę testową;
+warianty L33 `alive`/`empty` czekają na opracowanie.
+
+Niewykonane: test SE, Q25–Q40, dostępność Q20 w D, T01–T04, zapis/odczyt,
+audio i pozostałe ilustracje.
+
+## Archiwum: etap 3p, Q24 i wejście do D
 
 `dist/PROCH.bin` SHA256
 `59e1ad37fb72e44d6a8a127a0ecdce3e6648a742b1146f64b3604f4b93f9a2f7`.
