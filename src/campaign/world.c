@@ -18,6 +18,7 @@ int pr_scene_allowed(const PrState *s,unsigned scene)
         if((scene==6 || scene==7) && pr_done(s,5))return 0;
         if(scene==14 || scene==15)if(!pr_done(s,9))return 0;
         if(scene==20 && !pr_done(s,16))return 0;
+        if(scene==19 && !pr_done(s,16))return 0;
         if(scene==21 && !pr_done(s,19))return 0;
         if((scene==22 || scene==23) && !pr_done(s,18))return 0;
         if(scene==24 && !(s->locks&PR_VISION))return 0;

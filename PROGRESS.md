@@ -347,3 +347,28 @@ Następny etap: C, Q16–Q24. Potrzebne biblioteka/portret/kronika, ścieżka/
 widzenie z zawsze dostępnym wyjściem, opcjonalna uczciwa rozmowa, szycie,
 sieć i prywatny list, podróż z alternatywną księgą adresów oraz jawne
 potwierdzenie C→D. Nadal pozostają Q25–Q40 i dalsze wymagania; SE niebadany.
+
+## 2026-11-01 — etap 3e: reguły M fazy C, Q16–Q19
+
+Wykonano: do produkcyjnego modelu dołączono rozmowę z Marianną, proboszczem
+i Krystyną, zaproszenie do pałacu, portret i drabinę, wskazówki katalogu oraz
+kroniki, mapę i widzenie nad stawem. Wiedza o Grecie ma osobne poziomy:
+tożsamość jest poznana, a legenda pozostaje podejrzeniem. Widzenie blokuje
+zmianę postaci, nie przenosi dawnych przedmiotów do ekwipunku i pozwala zawsze
+wyjść ku światłu, także bez wcześniejszego oglądania szczegółów.
+
+Przetestowano: publiczne akcje Q01–Q19 M w dwóch wariantach widzenia, wraz
+z odmową przedwczesnych działań, blokadą drabiny, niezależnością wiedzy K,
+identycznym ekwipunkiem przed/po widzeniu poza I23 i pozostaniem w fazie C
+do ukończenia ścieżki K. Testy hostowe C z ASan/UBSan oraz walidacja danych
+PASS; cross-build całej aplikacji 68000 Retro68 PASS.
+
+Problemy i granice: nowy odcinek jest sprawdzony tylko w modelu hostowym
+i przez kompilator 68000. Interfejs Mac nie pokazuje jeszcze przejść ani
+celów fazy C; w `dist/` nadal jest dokładnie natywnie przetestowany build
+Q01–Q15 (`b6cc3532...`). Nie wykonano przejścia Q16–Q19 w Mini vMac ani
+testu na SE. Q20–Q40, zapis/odczyt, końcowe ilustracje, audio i pomiary
+pamięci nadal pozostają do wykonania.
+
+Następny krok: podłączyć Q16–Q19 do natywnego UI i przetestować w Mini vMac,
+następnie dobudować pozostałe Q20–Q24 fazy C.

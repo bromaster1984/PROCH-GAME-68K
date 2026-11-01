@@ -21,6 +21,7 @@ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.h
 # Build the production model separately until the full campaign is connected.
 add_library(PROCHCampaignCore STATIC src/campaign/model.c src/campaign/world.c
             src/campaign/rules.c src/campaign/rules_a.c src/campaign/rules_b.c
+            src/campaign/rules_c.c
             ${CMAKE_CURRENT_BINARY_DIR}/generated/campaign_data.c)
 target_include_directories(PROCHCampaignCore PRIVATE src/campaign ${CMAKE_CURRENT_BINARY_DIR}/generated)
 target_compile_features(PROCHCampaignCore PRIVATE c_std_99)

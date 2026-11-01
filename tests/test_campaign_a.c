@@ -240,11 +240,60 @@ static void complete_ab(int k_first,int alternate)
     assert(!pr_knows(&game.current,PR_K,PR_FACT_UNBROKEN_MARKERS));
 }
 
+static void c_m_path(int inspect_vision)
+{
+    unsigned q,item;
+    uint16_t before_vision[PR_ITEMS+1];
+    complete_ab(0,0);
+    assert(game.current.active==PR_K);
+    step(PR_SWITCH,0,0);
+    denied(PR_GO,0,19);denied(PR_USE,19,H(18,1));
+    go(9);go(18);go(17);
+    choose(H(17,2),C(16,1));choose(H(17,1),C(16,2));
+    go(18);use(19,H(18,1));choose(H(18,1),C(16,3));
+    assert(pr_done(&game.current,16) && pr_has_item(&game.current,PR_M,20));
+    go(19);use(20,H(19,1));go(20);
+    denied(PR_USE,19,H(20,1));look(H(20,1));
+    step(PR_USE,H(20,2),H(20,1));choose(H(20,2),C(17,1));
+    denied(PR_GO,0,19);use(19,H(20,1));choose(H(20,2),C(17,2));
+    assert((game.current.world.scene_variant[20]&2)!=0);
+    choose(PR_LUDWIK,C(17,3));
+    assert(pr_knows(&game.current,PR_M,PR_FACT_GRETA_IDENTITY));
+    assert(!pr_knows(&game.current,PR_K,PR_FACT_GRETA_IDENTITY));
+    choose(H(20,3),C(17,4));choose(H(20,3),C(17,5));
+    assert(pr_done(&game.current,17) && pr_has_item(&game.current,PR_M,21));
+    use(21,H(20,4));choose(H(20,4),C(18,1));choose(H(20,4),C(18,2));
+    look(PR_CHRONICLE_PAGE);look(PR_CHRONICLE_MARGIN);
+    assert(game.current.hero[PR_M].confidence[PR_FACT_GRETA_LEGEND]==PR_SUSPECT);
+    choose(PR_CHRONICLE_MARGIN,C(18,3));
+    assert(pr_done(&game.current,18) && pr_has_item(&game.current,PR_M,22));
+    go(19);go(18);go(9);go(11);go(22);
+    denied(PR_GO,0,24);use(22,H(22,3));go(23);
+    look(H(23,1));look(H(23,2));
+    memcpy(before_vision,game.current.world.item_position,sizeof(before_vision));
+    choose(H(23,1),C(19,1));
+    assert(game.current.hero[PR_M].location==24 && (game.current.locks&PR_VISION));
+    denied(PR_SWITCH,0,0);denied(PR_TAKE,0,PR_ITEM(23));
+    denied(PR_GO,0,23);
+    if(inspect_vision) {look(H(24,2));look(PR_OLD_ARMS);}
+    step(PR_GO,0,H(24,3));
+    assert(game.current.hero[PR_M].location==22 && game.current.locks==0);
+    assert(pr_has_item(&game.current,PR_M,23) && pr_done(&game.current,19));
+    for(item=1;item<=PR_ITEMS;++item)if(item!=23)
+        assert(game.current.world.item_position[item]==before_vision[item]);
+    assert(pr_flag(&game.current,PR_POND_SEEN));
+    assert(pr_knows(&game.current,PR_M,PR_FACT_POND_HAZARD));
+    assert(!pr_knows(&game.current,PR_K,PR_FACT_POND_HAZARD));
+    for(q=16;q<=19;++q)assert(pr_done(&game.current,q));
+    assert(game.current.phase==PR_C); /* K has not completed Q24. */
+}
+
 int main(void)
 {
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
     complete_ab(0,0);complete_ab(0,1);complete_ab(1,0);complete_ab(1,1);
+    c_m_path(0);c_m_path(1);
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q15 action playthroughs, both M/K orders, optional address/Bible, Q11/Q12 order, both escapes/skip, shadow recovery");
+    puts("PASS: Q01-Q19 M action playthroughs, C vision direct/inspected exit, A/B variants and isolation");
     return 0;
 }

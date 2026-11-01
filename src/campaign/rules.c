@@ -58,6 +58,10 @@ int pr_target_here(const PrState *s,unsigned target)
     case PR_LETTER_DESK:return scene==25;
     case PR_DRAWER:case PR_ROOM_DOOR:return scene==13;
     case PR_PIER_LIGHTS:case PR_PIER_WALK:return scene==32;
+    case PR_LUDWIK:return scene==20 && actor==PR_M && pr_action_done(s,17,4) &&
+        !(s->world.scene_variant[20]&1);
+    case PR_CHRONICLE_PAGE:case PR_CHRONICLE_MARGIN:return scene==20 && actor==PR_M;
+    case PR_OLD_ARMS:return scene==24 && actor==PR_M;
     default:return 0;
     }
 }
@@ -65,7 +69,8 @@ unsigned pr_topics(const PrState *s,unsigned target,PrTopic *out,unsigned capaci
 {
     if(s->active>=PR_HEROES || !pr_target_here(s,target) || s->player_dead || s->ending)return 0;
     if(s->phase==PR_A)return pr_topics_a(s,target,out,capacity);
-    return s->phase==PR_B?pr_topics_b(s,target,out,capacity):0;
+    if(s->phase==PR_B)return pr_topics_b(s,target,out,capacity);
+    return s->phase==PR_C?pr_topics_c(s,target,out,capacity):0;
 }
 static int valid_choice(const PrState *s,PrAction a)
 {
@@ -86,7 +91,10 @@ PrFeedback pr_act(PrGame *g,PrAction a)
     PrFeedback f;
     int q12_was_done=pr_done(s,12);
     if(s->active>=PR_HEROES || s->player_dead || s->ending ||
-       (s->locks&(PR_TRANSITION|PR_VISION|PR_RESCUE)))
+       (s->locks&(PR_TRANSITION|PR_RESCUE)))
+        return pr_reply(PR_DENIED,PR_TEXT_BLOCKED,PR_LOG,0);
+    if((s->locks&PR_VISION) && (s->phase!=PR_C || s->active!=PR_M ||
+       (a.verb!=PR_LOOK && a.verb!=PR_GO && a.verb!=PR_SWITCH)))
         return pr_reply(PR_DENIED,PR_TEXT_BLOCKED,PR_LOG,0);
     if(a.verb==PR_SWITCH)
         return pr_reply(pr_switch_hero(s),s->locks?PR_TEXT_CLOSE_FIRST:PR_TEXT_SWITCHED,PR_LOG,0);
@@ -95,7 +103,8 @@ PrFeedback pr_act(PrGame *g,PrAction a)
     if(a.verb==PR_HIT && !(s->locks&PR_SHADOW))return pr_reply(PR_DENIED,PR_TEXT_VIOLENCE,PR_LOG,0);
     if(a.verb==PR_EAT)return pr_reply(PR_DENIED,PR_TEXT_INEDIBLE,PR_LOG,0);
     if(a.verb>PR_SWITCH)return pr_reply(PR_INVALID,PR_TEXT_NO_EFFECT,PR_LOG,0);
-    if(a.verb==PR_USE && !pr_has_item(s,s->active,a.source))
+    if(a.verb==PR_USE && !(a.source<=PR_ITEMS?pr_has_item(s,s->active,a.source):
+                           pr_target_here(s,a.source)))
         return pr_reply(PR_DENIED,PR_TEXT_NOT_MINE,PR_LOG,0);
     if(a.verb==PR_CHOOSE) {
         if(!valid_choice(s,a))return pr_reply(PR_DENIED,PR_TEXT_NO_KNOWLEDGE,PR_LOG,0);
@@ -111,7 +120,7 @@ PrFeedback pr_act(PrGame *g,PrAction a)
         return pr_reply(PR_OK,PR_TEXT_CLOSED,PR_LOG,0);
     }
     f=s->phase==PR_A?pr_rules_a(s,a):s->phase==PR_B?pr_rules_b(s,a):
-        pr_reply(PR_DENIED,PR_TEXT_NO_EFFECT,PR_LOG,0);
+        s->phase==PR_C?pr_rules_c(s,a):pr_reply(PR_DENIED,PR_TEXT_NO_EFFECT,PR_LOG,0);
     if(f.result==PR_OK) {
         if(a.verb==PR_OPEN && is_container(a.target)) {
             set_open(s,a.target,1);
@@ -119,6 +128,7 @@ PrFeedback pr_act(PrGame *g,PrAction a)
         }
         if(s->phase==PR_A)pr_refresh_a(s);
         else if(s->phase==PR_B)pr_refresh_b(s);
+        else if(s->phase==PR_C)pr_refresh_c(s);
         if(!q12_was_done && pr_done(s,12))f.text=PR_TEXT_Q12_COMPLETE;
         pr_advance_phase(s,0);
     }
