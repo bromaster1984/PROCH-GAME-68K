@@ -472,3 +472,26 @@ audio i pomiar pamięci czekają. Nie wykonano testu SE.
 Następny krok: Q22 — sieć z możliwością cofnięcia błędnego połączenia,
 potem opcjonalny list Q23 i podróż Q24. Przed zmianą silnika przygotować
 teksty, mapę akcji i przypadki testowe, zachowując opcjonalność Q22/Q23.
+
+## 2026-11-01 — etap 3j: przygotowanie treści i kontraktu Q22–Q24
+
+Wykonano: dodano polskie etykiety i odpowiedzi dla naprawy sieci, bezpiecznej
+drogi przez sąsiada, listu K do Izydora oraz podróży powrotnej. Teksty
+rozróżniają obie gałęzie adresu: wcześniej pozostawiony adres i księgę wysyłek
+za zgodą Izydora. Odpowiedź rybaka w Q24 mówi wprost, że pieniądze na podróż
+nie zależą od naprawy sieci. Dodano `Q22-Q24_IMPLEMENTATION_CONTRACT.md`
+z mapą akcji i przypadkami testowymi.
+
+Przetestowano: `python3 -m json.tool content/campaign_texts.json` PASS;
+`python3 tools/generate_campaign.py build/generated` PASS; `git diff --check`
+PASS; `bash tools/test_host.sh` PASS, łącznie walidator 40 zadań / 43 sceny /
+45 przedmiotów. Testy hostowe obejmują dotychczasowe Q01–Q21 i nie weryfikują
+nowych zachowań Q22–Q24.
+
+Problemy i granice: nowe klucze tekstowe i kontrakt nie są jeszcze podłączone
+do reguł ani natywnego UI. Nie zmieniano `dist/`; nie wykonano cross-builda
+ani testu emulatora dla tych tekstów. Sieć, list, obie gałęzie adresu, podróż
+i bariera C→D pozostają do implementacji i pełnego przetestowania.
+
+Następny krok: zaimplementować Q22 z resetem wyłącznie stanu układanki przy
+błędnym połączeniu, a potem Q23/Q24 z niezależnością podróży od Q22/Q23.
