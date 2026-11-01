@@ -447,3 +447,28 @@ ani na SE.
 
 Następny krok: podłączyć Q21 do UI i przejść je od nowej gry w Mini vMac;
 dopiero po takim teście aktualizować `dist/`. Potem Q22–Q24.
+
+## 2026-11-01 — etap 3i: natywne Q21 Konstancji
+
+Wykonano: w interfejsie Mac skrzynia pokazuje I24/I25 po zgodzie rybaka,
+stół otwiera kolejno wybór kroju, długości i szycia, a I26 można użyć na
+portrecie Konstancji. Podpowiedź w C kieruje do Q21. Do `dist/` zapisano
+testowany build i oryginalny obraz HFS; dołączono raport i zrzut dziennika.
+
+Przetestowano: pełny natywny przebieg Q01–Q15 obu postaci, Q16–Q20 M
+i Q21 K w Mini vMac Plus/System 6.0.8/4 MB: PASS, 86 kontroli obrazu.
+Profil `/workspace/testing/stage3c-q21-candidate1`, raport
+`tests/results/stage3-c-q21-native.json`, SHA aplikacji
+`f7c70232d10ebf26f64a7039eaefb1851755320e16445ac70e2d6b72a00b3180`.
+Build, uruchomiona kopia i `dist/` mają tę samą sumę; kontrola MacBinary,
+zasobów i HFS PASS. Zrzut `screenshots/stage3-c-q21-journal.png` ma
+512×342/1-bit. Test hostowy C/ASan/UBSan, walidacja danych, 9 testów
+Python i cross-build 68000 PASS.
+
+Problemy i granice: Q22–Q24, przejście do D i dostępność Q20 w D nie są
+zaimplementowane. Ilustracje nadal są testowymi prostokątami; zapis/odczyt,
+audio i pomiar pamięci czekają. Nie wykonano testu SE.
+
+Następny krok: Q22 — sieć z możliwością cofnięcia błędnego połączenia,
+potem opcjonalny list Q23 i podróż Q24. Przed zmianą silnika przygotować
+teksty, mapę akcji i przypadki testowe, zachowując opcjonalność Q22/Q23.

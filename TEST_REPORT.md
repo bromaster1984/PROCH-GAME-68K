@@ -1,8 +1,32 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3g, Q01–Q20 M w fazie C
+## Bieżące wydanie: etap 3i, Q21 Konstancji w fazie C
 
 `dist/PROCH.bin` SHA256
+`f7c70232d10ebf26f64a7039eaefb1851755320e16445ac70e2d6b72a00b3180`.
+80 512 B MacBinary, zasoby 80 313 B, HFS 819 200 B. Kontrola forków,
+zasobów i HFS PASS; suma aplikacji zgadza się z uruchomioną kopią.
+
+Mini vMac Plus/System 6.0.8/4 MB: pełny natywny przebieg Q01–Q15 obu
+postaci, Q16–Q20 Mikołaja i Q21 Konstancji PASS, 86 kontroli obrazu.
+Runner używa myszy i klawiatury. W Q21 sprawdził zgodę rybaka, otwarcie
+skrzyni, pobranie tkaniny i igły, szycie przy stole, założenie I26 na
+portrecie i wpis „Zwykła suknia”. Profil `stage3c-q21-candidate1`, raport
+`tests/results/stage3-c-q21-native.json`, zrzut dziennika
+`screenshots/stage3-c-q21-journal.png` (512×342, 1-bit).
+
+Host C/ASan/UBSan PASS: Q21 przez publiczne `pr_act`, także odmowy
+przedwczesnych działań, własność i niezużywanie I24/I25, noszenie I26,
+ustawienie `PR_DISGUISE` po założeniu oraz pozostanie w fazie C.
+Regresje Q01–Q20, 9 testów Python i cross-build 68000 PASS.
+
+Niezweryfikowane/niewykonane: Q22–Q40, dostępność Q20 w D,
+T01–T04, zapis/odczyt, produkcyjne ilustracje, audio, pomiary pamięci
+i test SE/sprzętu fizycznego.
+
+## Archiwum: etap 3g, Q01–Q20 M w fazie C
+
+Archiwalny `PROCH.bin` SHA256
 `bacef93fca4b43fcf455fd72a814ec5da869fb8ab8bb9d31b27e1824957dcdb6`.
 78 336 B MacBinary, zasoby 78 185 B, HFS 819 200 B. Kontrola forków,
 zasobów i HFS PASS. To pliki oryginalnego builda, a suma aplikacji zgadza

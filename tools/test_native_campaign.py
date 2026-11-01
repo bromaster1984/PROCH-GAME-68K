@@ -201,10 +201,20 @@ class CampaignDriver(Driver):
         self.use_late(2,1);self.talk(1,1)
         self.journal_title('Słowo uczciwe',8,0,'campaign-c-q20')
 
+    def chapter_c_k_q21(self):
+        self.key('Tab');self.expect('Chata rybaka')
+        self.talk(1);self.open(3)
+        self.take_first();self.take_first();self.key('Escape')
+        self.use(5,2);self.use(6,2)
+        self.talk(2);self.talk(2);self.talk(2)
+        self.source(7);self.click(400,65)
+        self.journal_title('Zwykła suknia',3,2,'campaign-c-q21')
+
     def run(self):
         self.chapter_a()
-        if self.args.chapter in ('ab','abc_m'):self.chapter_b()
-        if self.args.chapter=='abc_m':self.chapter_c_m()
+        if self.args.chapter in ('ab','abc_m','abc_mk21'):self.chapter_b()
+        if self.args.chapter in ('abc_m','abc_mk21'):self.chapter_c_m()
+        if self.args.chapter=='abc_mk21':self.chapter_c_k_q21()
 
 
 if __name__=='__main__':
@@ -212,12 +222,14 @@ if __name__=='__main__':
     parser.add_argument('--container',default='proch-emulation')
     parser.add_argument('--window',default='0x200004')
     parser.add_argument('--profile',required=True,type=Path)
-    parser.add_argument('--chapter',choices=['a','ab','abc_m'],default='a')
+    parser.add_argument('--chapter',choices=['a','ab','abc_m','abc_mk21'],default='a')
     args=parser.parse_args();args.part='campaign-'+args.chapter
     d=CampaignDriver(args);d.run()
     (d.directory/(args.part+'-result.json')).write_text(json.dumps({
         'result':'PASS','checks':d.passed,'run_id':d.run_id,
         'application_sha256':d.profile['application_sha256'],'profile':str(args.profile),
-        'scope':('Q01-Q15 both heroes; Q16-Q20 M' if args.chapter=='abc_m' else 'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
+        'scope':('Q01-Q15 both heroes; Q16-Q20 M; Q21 K' if args.chapter=='abc_mk21' else
+                 'Q01-Q15 both heroes; Q16-Q20 M' if args.chapter=='abc_m' else
+                 'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
                 ' native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},
         ensure_ascii=False,indent=2)+'\n')
