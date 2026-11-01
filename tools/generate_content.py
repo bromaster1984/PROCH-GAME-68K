@@ -8,6 +8,51 @@ ROOT = Path(__file__).resolve().parents[1]
 POLISH = 'ĄąĆćĘęŁłŃńÓóŚśŹźŻż'
 NORMALIZE = str.maketrans({'„':'"', '”':'"', '“':'"', '’':"'", '‘':"'",
                           '—':'-', '–':'-', '…':'...', '\u00a0':' '})
+UI_TEXT = {
+ 'DEMO':'PROCH - demonstracja techniczna', 'TEST_ART':'GRAFIKA TESTOWA',
+ 'M_NAME':'Mikołaj', 'M_SURNAME':'Goworek', 'K_NAME':'Konstancja', 'K_SURNAME':'Korecka',
+ 'SWITCH':'Zmień postać', 'INVENTORY':'Ekwipunek', 'EXITS':'Przejścia',
+ 'LOOK':'Obejrzyj', 'OPEN':'Otwórz', 'CLOSE':'Zamknij', 'USE':'Użyj',
+ 'TALK':'Rozmawiaj', 'GO':'Idź', 'HIT':'Uderz', 'EAT':'Spożyj',
+ 'START':'Porozmawiam z Florkiem o pokoju i rzeczach Zenka.',
+ 'CHOOSE_TARGET':'Wybierz cel użycia przedmiotu.', 'CLOSE_FIRST':'Najpierw zakończę rozmowę lub zamknę pojemnik.',
+ 'CONTENTS':'Zawartość', 'TAKE_HELP':'Kliknij, aby zabrać. Biblię obejrzyj; przeciągnij, aby zabrać.',
+ 'DRAWER':'Szuflada', 'CLOSED_DRAWER':'Zamknięta szuflada', 'ROOM_TOPIC':'O Zenku, pokoju i kluczach',
+ 'BIKE_TOPIC':'Czy mogę korzystać z roweru?', 'FISHER_TOPIC':'Potrzebuję prostego ubrania', 'END_TALK':'Zakończ rozmowę',
+ 'END_WINDOW':'Zamknij', 'SIMPLE_CUT':'Wybierz prosty krój', 'MARK_LENGTH':'Zaznacz długość według spódnicy',
+ 'SEW':'Zszyj suknię', 'SEW_TITLE':'Praca przy stole', 'JOURNAL':'Dziennik', 'HINT':'Podpowiedź',
+ 'NO_JOURNAL':'Nie zakończono jeszcze żadnej znanej sprawy.', 'COMPLETE':'Zakończono:',
+ 'NO_EXITS':'W tej demonstracji pozostaję w chacie.', 'HELP_TITLE':'Sterowanie',
+ 'HELP':'Komenda, potem obiekt. Użyj: przedmiot, potem cel. Przeciągnij rzecz z pojemnika do ekwipunku. Tab zmienia postać. Escape anuluje wybór lub zamyka okno. Kliknij opis, aby otworzyć historię. Gra zawiera na razie wycinek techniczny; zapis nie jest jeszcze dostępny.',
+ 'HISTORY':'Historia opisów', 'PREVIOUS':'Poprzednie', 'NEXT':'Następne',
+ 'NO_HINT':'Ten wycinek opowieści został przygotowany.',
+ 'FLOREK_QUOTE':'W szufladzie są klucze. Pokój był Zenka. Rower też. Dbaj o rzeczy i o siebie.',
+ 'FISHER_QUOTE':'W skrzyni jest materiał. Strój nie musi być piękny, żeby był twój.',
+ 'BIBLE_QUOTE':'Nie wszystko, co człowiek trzyma blisko, służy do walki.',
+ 'DOOR':'Drzwi pokoju', 'WINDOW':'Okno', 'DESK':'Biurko', 'BED':'Łóżko', 'LACE':'Koronka',
+ 'GATE':'Brama', 'BIKE':'Rower', 'TABLE':'Stół', 'ROPE':'Lina', 'HOOK':'Hak', 'LAMP':'Lampa',
+ 'SHADOW':'Cień', 'VAT':'Kadź', 'PIPE':'Rura', 'TRACES':'Ślady', 'FISHER':'Rybak', 'CHEST':'Skrzynia',
+}
+REPLIES = {
+ 'NO_EFFECT':'Nie widzę związku między tymi rzeczami.', 'DONE':'Gotowe.',
+ 'WRONG_HERO':'Nie mam tego przedmiotu.', 'LOCKED':'Najpierw trzeba to otworzyć właściwym kluczem.',
+ 'PERMISSION':'Najpierw potrzebuję pozwolenia lub dokładniejszych oględzin.',
+ 'FLOREK':UI_TEXT['FLOREK_QUOTE'], 'BIKE':'Możesz korzystać z roweru. Brama i warsztat są już dostępne.',
+ 'BIBLE':UI_TEXT['BIBLE_QUOTE'], 'DOOR':'Drzwi są drugim wejściem. Papierowy pasek pokaże, czy ktoś je otwierał.',
+ 'WINDOW':'Okno można oznaczyć nitką umocowaną woskiem.',
+ 'NO_REST':'Najpierw oznaczę oba wejścia: drzwi paskiem, okno nitką i woskiem.',
+ 'MORNING':'Nadszedł ranek. Sprawdzę oba znaczniki. Na podłodze leży coś jasnego.',
+ 'INTACT_DOOR':'Papier jest cały.', 'INTACT_WINDOW':'Nitka pozostaje na miejscu.',
+ 'LACE':'Drobny wzór. Nie wygląda na część roboczego ubrania.',
+ 'FISHER':UI_TEXT['FISHER_QUOTE'], 'CUT':'Prosty krój nie będzie zwracał uwagi.',
+ 'LENGTH':'Długość jest zaznaczona według starej spódnicy.', 'DRESS':'Suknia jest gotowa. Mogę ją założyć, używając na swoim portrecie.',
+ 'WORN':'To teraz mój strój.', 'Q09':'Klucze są u mnie. Mogę korzystać z bramy, hali i warsztatu.',
+ 'Q12':'Papier cały. Nitka na miejscu. A tego wczoraj tutaj nie było.',
+ 'Q21':'Chcę móc wyjść bez pytania, kto mnie zobaczy.',
+ 'SWITCHED':'Ten sam czas, inne miejsce. Moje rzeczy i wiedza pozostają przy mnie.',
+ 'BLOCKED':'Nie mogę teraz tędy przejść.', 'MOVED':'', 'TAKEN':'Zabieram przedmiot.', 'ALREADY':'To już zostało zrobione.',
+ 'VIOLENCE':'Przemoc nie rozwiąże tej rozmowy.', 'INEDIBLE':'To nie nadaje się do jedzenia.'
+}
 
 
 def encode(text):
@@ -102,12 +147,20 @@ def generate(directory):
     font_header += '#define PROCH_FONT_SAMPLE ' + literal('Mikołaj / Konstancja: '+' '.join(POLISH)) + '\n'
     (directory/'font.h').write_text(font_header)
     header = '/* Generated labels, encoded for the PROCH font. */\n'
-    scenes = json.loads((ROOT/'scenes.json').read_text())
-    items = json.loads((ROOT/'items.json').read_text())
-    quests = json.loads((ROOT/'quests.json').read_text())
-    for name, source, field in [('scene_names',scenes,'name'),('item_names',items,'name'),('quest_names',quests,'title')]:
+    scenes = sorted(json.loads((ROOT/'scenes.json').read_text()),key=lambda r:r['id'])
+    items = sorted(json.loads((ROOT/'items.json').read_text()),key=lambda r:r['id'])
+    quests = sorted(json.loads((ROOT/'quests.json').read_text()),key=lambda r:r['id'])
+    for name, source, field in [('scene_names',scenes,'name'),('item_names',items,'name'),
+                                ('item_descriptions',items,'look'),('quest_names',quests,'title')]:
         header += f'static const char *const {name}[] = {{"",\n'
-        header += ',\n'.join(literal(row[field]) for row in source) + '\n};\n'
+        header += ',\n'.join(literal((row['name']+'. '+row[field]) if name=='item_descriptions' else row[field]) for row in source) + '\n};\n'
+    header += 'static const char *const item_prompts[] = {"",\n'
+    header += ',\n'.join(literal(row['name']+'. '+UI_TEXT['CHOOSE_TARGET']) for row in items)+'\n};\n'
+    for key,value in UI_TEXT.items(): header += '#define T_'+key+' '+literal(value)+'\n'
+    header += 'static const char *const reply_texts[] = {\n'
+    header += ',\n'.join('[REPLY_'+key+'] = '+literal(value) for key,value in REPLIES.items())+'\n};\n'
+    header += 'static const char *const quest_hints[][3] = {{"","",""},\n'
+    header += ',\n'.join('{'+','.join(literal(v) for v in row['hints'])+'}' for row in quests)+'\n};\n'
     (directory/'content.h').write_text(header)
     (directory/'font.pbm').write_bytes(b'P4\n96 88\n'+atlas)
     (directory/'font-mask.pbm').write_bytes(b'P4\n96 88\n'+atlas)

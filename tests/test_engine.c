@@ -103,9 +103,20 @@ int main(void)
 {
     ProchState s, before;
     proch_demo_init(&s);
+    before=s;
+    assert(proch_action(&s,HIT,FLOREK,0)==REPLY_VIOLENCE);
+    assert(proch_action(&s,EAT,TARGET_NONE,12)==REPLY_INEDIBLE);
+    assert(memcmp(&s,&before,sizeof(s))==0);
     quest9(&s); quest12(&s); quest21(&s);
     s.switch_locked = 1; before = s;
     assert(proch_switch(&s) == REPLY_BLOCKED && memcmp(&s, &before, sizeof(s)) == 0);
+    proch_demo_init(&s);
+    proch_move(&s,12);proch_move(&s,13);
+    proch_action(&s,TAKE,TARGET_NONE,12);proch_action(&s,USE,DRAWER,12);
+    proch_action(&s,OPEN,DRAWER,0);proch_action(&s,TAKE,TARGET_NONE,14);
+    proch_move(&s,12);
+    assert(proch_action(&s,LOOK,BIBLE,0)==REPLY_BIBLE);
+    assert(s.item_location[14]==OWNER_M && (s.q09_bits&2));
     puts("PASS: Q09/Q12/Q21 demo rules, early pickup, isolation, switching, idempotence");
     return 0;
 }

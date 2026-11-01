@@ -143,3 +143,37 @@ Następny krok (etap 2): pełna geometria interfejsu, obsługa komend/ekwipunku/
 pojemników, wybór dwóch postaci i podłączenie przetestowanych reguł demonstracji.
 Następnie kompletna logika Q01–Q40 z czterema ścieżkami. Nie zaczynać od nowa.
 Poprzedni etap wysłano na GitHub: `7bacbb8`.
+
+## 2026-11-01 — etap 2a: natywne UI i demonstracja połączona z silnikiem
+
+Wykonano kod `src/platform_mac/demo.c`: docelowy układ 512×342, osiem komend,
+ekwipunek, przejścia, modalne pojemniki, rozmowy, dzienniki, trzy poziomy
+podpowiedzi, własna historia każdej postaci i pełny widok komunikatu z przewijaniem.
+Przeciąganie przedmiotów pojemnik→ekwipunek i ekwipunek→obiekt/portret.
+Tab i przycisk przełączają postać; modalne okna blokują przełączanie.
+Zmieniane obszary są unieważniane osobno, bez odrysowywania całego ekranu
+przy samej selekcji. Standardowy build wybiera teraz demonstrację;
+`PROCH_BRINGUP=ON` lub `PROCH_AUTOTEST=ON` zachowuje test początkowy.
+
+Reguły Q09/Q12/Q21 są podłączone do realnego UI. Wczesne podnoszenie działa,
+Biblia pozostaje opcjonalna, obejrzenie jej jest osobną czynnością. Grafiki
+to wyraźnie oznaczone prostokąty diagnostyczne, nie ilustracje wydania końcowego.
+Zapis/wczytanie są celowo nieaktywne, bo nie zostały jeszcze zaimplementowane.
+
+Testy: kompilacja 68000 z -Werror PASS, engine C/ASan/UBSan PASS, kodowanie
+i generacja fontu PASS. Pierwsze pełne przejście Q09/Q12/Q21 przez kliknięcia
+w Mini vMac Plus/System 6.0.8 PASS, potwierdzone pikselami dzienników.
+Po tej próbie poprawiono izolację historii i rysowanie dirty rects.
+**Końcowe powtórzenie na najnowszym buildzie jest w toku**; nie utożsamiać
+pierwszej próby z wynikiem aktualnego pliku. Narzędzie `test_native_demo.py`
+wiąże wynik z niezmiennym `PROCH.bin` i manifestem konkretnego startu emulatora.
+
+Aktualny test: `/workspace/testing/stage2-final`, emulator w kontenerze
+`proch-emulation`, DISPLAY=:99, okno 0x200004. Wyniki i surowe zrzuty:
+`/workspace/testing/native-ui`. Przed ewentualnym wznowieniem sprawdzić ekran
+i które Q zakończono; skrypty q09/q12/q21 uruchamia się kolejno na świeżym starcie.
+`dist/` nadal zawiera poprzedni zweryfikowany build z `019e929`; zostanie
+zaktualizowany po końcowym teście UI.
+
+Następny krok: dokończyć końcowe testy UI trzech Q, utrwalić wyniki i binaria,
+potem kampania A–F i pełna logika Q01–Q40. SE nadal niezweryfikowany (ROM Plus).

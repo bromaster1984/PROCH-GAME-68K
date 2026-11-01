@@ -109,11 +109,18 @@ enum ProchReply proch_action(ProchState *s, enum ProchVerb verb,
 {
     enum ProchReply reply = REPLY_NO_EFFECT;
     uint8_t loc = s->hero[s->active].location;
+    if (verb == HIT) return REPLY_VIOLENCE;
+    if (verb == EAT) return REPLY_INEDIBLE;
     if (verb == TAKE) {
+        if (proch_has(s, item)) return REPLY_ALREADY;
         if (!proch_can_take(s, item)) return REPLY_PERMISSION;
         s->item_location[item] = OWNER_M + s->active;
         reply = item == 19 ? REPLY_LACE : REPLY_TAKEN;
     } else if (verb == USE && item != 0 && !proch_has(s, item)) return REPLY_WRONG_HERO;
+    else if (verb == LOOK && target == BIBLE && s->active == HERO_M && proch_has(s, 14)) {
+        s->q09_bits |= BIBLE_SEEN;
+        reply = REPLY_BIBLE;
+    }
     else if (s->active == HERO_M) {
         if (loc == 11 && verb == TALK && target == ROOM_TOPIC) {
             s->q09_bits |= TALKED; reply = REPLY_FLOREK;

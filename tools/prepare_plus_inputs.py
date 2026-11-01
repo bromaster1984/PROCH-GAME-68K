@@ -17,7 +17,7 @@ def checksum_dc42(payload):
     return value
 
 
-def prepare(inputs, output):
+def prepare(inputs, output, application=None):
     inputs, output = Path(inputs), Path(output)
     rom = (inputs/'Mac-Plus.ROM').read_bytes()
     raw = rom[:131072]
@@ -44,9 +44,21 @@ def prepare(inputs, output):
               'rom_ignored_trailer_bytes':len(rom)-len(raw),
               'rom_sha256':hashlib.sha256(raw).hexdigest(),
               'dc42_checksum':f'{expected:08x}', 'system_sha256':hashlib.sha256(disk).hexdigest()}
+    if application is not None:
+        from check_artifacts import check
+        application=Path(application)
+        check(application)
+        for name in ['PROCH.bin','PROCH.dsk']:
+            data=(application/name).read_bytes()
+            target=output/name
+            if target.exists() and target.read_bytes()!=data:
+                raise ValueError('Preserve existing application test image; choose a new output directory')
+            target.write_bytes(data)
+        report['application_sha256']=hashlib.sha256((output/'PROCH.bin').read_bytes()).hexdigest()
+        report['application_dsk_sha256']=hashlib.sha256((output/'PROCH.dsk').read_bytes()).hexdigest()
     (output/'inputs.json').write_text(json.dumps(report,indent=2)+'\n')
     return report
 
 
 if __name__ == '__main__':
-    print(json.dumps(prepare(sys.argv[1],sys.argv[2]),indent=2))
+    print(json.dumps(prepare(sys.argv[1],sys.argv[2],sys.argv[3] if len(sys.argv)>3 else None),indent=2))
