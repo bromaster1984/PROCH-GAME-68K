@@ -24,12 +24,14 @@ void pr_refresh_c(PrState *s)
             if(q==19)pr_set_flag(s,PR_POND_SEEN,1);
         }
     }
+    pr_refresh_c_k(s);
 }
 
 unsigned pr_topics_c(const PrState *s,unsigned target,PrTopic *out,unsigned capacity)
 {
     unsigned n=0;
 #define ADD(q,i,label) do {if(out && n<capacity) {out[n].id=C(q,i);out[n].text=PR_TEXT_##label;}++n;}while(0)
+    if(s->active==PR_K)return pr_topics_c_k(s,target,out,capacity);
     if(s->active!=PR_M)return 0;
     if(target==H(17,2) && pr_done(s,13))ADD(16,1,Q16_MARIANNA);
     if(target==H(17,1) && HAS(16,0))ADD(16,2,Q16_PRIEST);
@@ -158,6 +160,7 @@ static PrFeedback go(PrState *s,unsigned target)
 }
 PrFeedback pr_rules_c(PrState *s,PrAction a)
 {
+    if(s->active==PR_K)return pr_rules_c_k(s,a);
     if(s->active!=PR_M)return DENY(NO_EFFECT);
     if(a.verb==PR_CHOOSE)return choose(s,a.target);
     if(a.verb==PR_LOOK)return look(s,a.target);

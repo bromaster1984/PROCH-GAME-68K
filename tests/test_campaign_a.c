@@ -303,12 +303,42 @@ static void c_m_path(int inspect_vision,int do_q20)
     }
 }
 
+static void c_k_q21(void)
+{
+    complete_ab(0,0);
+    assert(game.current.active==PR_K && game.current.hero[PR_K].location==33);
+    denied(PR_OPEN,0,H(33,3));denied(PR_TAKE,0,PR_ITEM(24));
+    denied(PR_CHOOSE,H(33,2),C(21,2));
+    choose(H(33,1),C(21,1));
+    denied(PR_TAKE,0,PR_ITEM(24));open_box(H(33,3));
+    take(25);take(24);
+    assert(pr_has_item(&game.current,PR_K,24) && pr_has_item(&game.current,PR_K,25));
+    assert(!pr_has_item(&game.current,PR_M,24));
+    denied(PR_CHOOSE,H(33,2),C(21,4));
+    denied(PR_USE,7,H(33,2));
+    use(25,H(33,2));use(24,H(33,2));
+    choose(H(33,2),C(21,2));choose(H(33,2),C(21,3));
+    assert(!pr_has_item(&game.current,PR_K,26));
+    choose(H(33,2),C(21,4));
+    assert(pr_has_item(&game.current,PR_K,26) && !pr_done(&game.current,21));
+    denied(PR_USE,24,PR_SELF_PORTRAIT);
+    use(26,PR_SELF_PORTRAIT);
+    assert(pr_done(&game.current,21) && pr_flag(&game.current,PR_DISGUISE));
+    assert(game.current.quest[20].substep==4);
+    assert(game.current.world.item_position[26]==PR_WORN_K);
+    assert(pr_has_item(&game.current,PR_K,24) && pr_has_item(&game.current,PR_K,25));
+    assert(game.current.phase==PR_C && !pr_done(&game.current,22));
+    step(PR_SWITCH,0,0);
+    assert(!pr_has_item(&game.current,PR_M,26));
+}
+
 int main(void)
 {
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
     complete_ab(0,0);complete_ab(0,1);complete_ab(1,0);complete_ab(1,1);
     c_m_path(0,0);c_m_path(1,0);c_m_path(0,1);
+    c_k_q21();
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q20 M action playthroughs, optional Q20 skip, C vision, A/B variants and isolation");
+    puts("PASS: Q01-Q20 M, Q21 K action playthroughs, optional Q20 skip, C vision, A/B variants and isolation");
     return 0;
 }

@@ -62,6 +62,7 @@ int pr_target_here(const PrState *s,unsigned target)
         !(s->world.scene_variant[20]&1);
     case PR_CHRONICLE_PAGE:case PR_CHRONICLE_MARGIN:return scene==20 && actor==PR_M;
     case PR_OLD_ARMS:return scene==24 && actor==PR_M;
+    case PR_SELF_PORTRAIT:return actor==PR_K;
     default:return 0;
     }
 }
@@ -83,7 +84,8 @@ static int is_container(unsigned target)
 {
     return target==PR_HOTSPOT(3,1) || target==PR_HOTSPOT(7,3) ||
         target==PR_HOTSPOT(25,1) || target==PR_ITEM(8) || target==PR_HOTSPOT(3,3) ||
-        target==PR_HOTSPOT(13,1) || target==PR_DRAWER || target==PR_HOTSPOT(15,1);
+        target==PR_HOTSPOT(13,1) || target==PR_DRAWER || target==PR_HOTSPOT(15,1) ||
+        target==PR_HOTSPOT(33,3);
 }
 PrFeedback pr_act(PrGame *g,PrAction a)
 {

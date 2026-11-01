@@ -426,3 +426,24 @@ końcowe ilustracje, audio i pomiary pamięci nadal pozostają do zrobienia.
 
 Następny krok: ścieżka K Q21–Q24 w C. Później dodać Q20 także w D przed
 rozmową w ogrodzie i przetestować oba punkty dostępu.
+
+## 2026-11-01 — etap 3h: model Q21 Konstancji
+
+Wykonano: oddzielono reguły K w fazie C od reguł M; Q21 prowadzi od zgody
+rybaka przez skrzynię z I24/I25, dwa użycia na stole, wybór kroju i długości,
+szycie I26 oraz założenie sukni. I24/I25 pozostają własnością K, I26 ma stan
+noszony, a flaga `PR_DISGUISE` ustawia się po założeniu. Nie dodano przejścia
+C→D ani reguł Q22–Q24.
+
+Przetestowano: publiczne akcje `pr_act` z odmową zbyt wczesnego otwarcia,
+zabrania i szycia, właściwym ukończeniem, własnością rzeczy, flagą i stanem
+fazy C. Host C/ASan/UBSan i walidator danych PASS. Cross-build całej aplikacji
+Motorola 68000 PASS.
+
+Problemy i granice: interfejs Mac nie obsługuje jeszcze skrzyni, wyboru przy
+stole ani założenia I26 na portret. `dist/` nadal zawiera natywnie sprawdzony
+build Q01–Q20 z etapu 3g. Q21 nie jest jeszcze przetestowane w emulatorze Plus
+ani na SE.
+
+Następny krok: podłączyć Q21 do UI i przejść je od nowej gry w Mini vMac;
+dopiero po takim teście aktualizować `dist/`. Potem Q22–Q24.

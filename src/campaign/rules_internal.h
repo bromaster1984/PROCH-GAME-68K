@@ -17,4 +17,7 @@ void pr_refresh_b(PrState *s);
 PrFeedback pr_rules_c(PrState *s,PrAction a);
 unsigned pr_topics_c(const PrState *s,unsigned target,PrTopic *out,unsigned capacity);
 void pr_refresh_c(PrState *s);
+PrFeedback pr_rules_c_k(PrState *s,PrAction a);
+unsigned pr_topics_c_k(const PrState *s,unsigned target,PrTopic *out,unsigned capacity);
+void pr_refresh_c_k(PrState *s);
 #endif

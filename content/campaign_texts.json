@@ -229,5 +229,16 @@
   "Q20_RELATION_REPLY": "Mikołaj: Jestem związany z Konstancją. Powinienem był powiedzieć to od razu.",
   "Q20_BROOCH_REPLY": "Pokazuję broszkę Konstancji. Krystyna rozumie, że mówię o prawdziwej osobie, nie wymyślonej wymówce.",
   "Q20_HONEST_REPLY": "Krystyna: Powinien pan był powiedzieć wcześniej. Mikołaj: Mówię teraz. Konstancja nie może stać się tematem, który omijamy. Krystyna: Rozumiem. Choć nie jest to dla mnie obojętne.",
+  "Q21_ASK": "Czy ma pan ubranie do pracy i podróży?",
+  "Q21_ASK_REPLY": "Rybak: W skrzyni jest materiał. Strój nie musi być piękny, żeby był twój. Konstancja: Chcę móc wyjść bez pytania, kto mnie zobaczy.",
+  "Q21_CUT": "Wybierz prosty krój",
+  "Q21_LENGTH": "Zaznacz długość według starej spódnicy",
+  "Q21_SEW": "Zszyj prostą suknię",
+  "Q21_CUT_REPLY": "Prosty krój pozwoli swobodnie się poruszać.",
+  "Q21_LENGTH_REPLY": "Zaznaczam długość, porównując materiał ze starą spódnicą.",
+  "Q21_FABRIC_SET": "Układam tkaninę na stole do szycia.",
+  "Q21_NEEDLE_SET": "Igła i nić leżą przy materiale. Mogę wybrać krój.",
+  "Q21_SEWN": "Szyję zwykłą suknię. Jest gotowa do założenia.",
+  "Q21_DRESSED": "Zakładam prostą suknię. Mogę podróżować w ubraniu do pracy, bez zwracania uwagi.",
   "UI_LUDWIK": "Ludwik", "UI_PAGE_27": "Karta 27", "UI_MARGIN": "Margines", "UI_ARMS": "Uzbrojenie"
 }
