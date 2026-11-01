@@ -106,7 +106,8 @@ static unsigned contents(unsigned char *items)
 static unsigned exits(unsigned char *dest)
 {
     unsigned i,n=0,from=HERO.location;
-    if(S.phase>PR_B)return 0;
+    if(S.phase>PR_C || (S.phase==PR_C && S.active==PR_K))return 0;
+    if(S.locks&PR_VISION) {dest[0]=22;return 1;}
     for(i=1;i<=PR_SCENES;++i)if(pr_local_edge(from,i) && pr_scene_allowed(&S,i)) {
         if(S.phase==PR_A && S.active==PR_M && ((from==5 && i==6) || (from==6 && i==5) ||
            (from==6 && i==7 && !pr_done(&S,3)) || (from==8 && i==9) || from==9))continue;
@@ -130,6 +131,12 @@ static unsigned extras(Extra *out)
     if(scene==26)ADD(PR_OPENED_ENVELOPE,UI_ENVELOPE);
     if(scene==13) {ADD(PR_DRAWER,UI_DRAWER);ADD(PR_ROOM_DOOR,UI_DOOR);}
     if(scene==32)ADD(PR_PIER_LIGHTS,UI_PIER);
+    if(scene==20 && S.phase==PR_C) {
+        ADD(PR_LUDWIK,UI_LUDWIK);
+        if(S.quest[17].actions&(1u<<2))ADD(PR_CHRONICLE_PAGE,UI_PAGE_27);
+        if(S.quest[17].actions&(1u<<3))ADD(PR_CHRONICLE_MARGIN,UI_MARGIN);
+    }
+    if(scene==24)ADD(PR_OLD_ARMS,UI_ARMS);
 #undef ADD
     return n;
 }
@@ -257,10 +264,14 @@ static void switch_hero(void)
 static void target_click(unsigned target)
 {
     if(!target) {narrate(T(NO_EFFECT));return;}
+    if(target==PR_HOTSPOT(20,2) && verb==PR_USE && !selected) {
+        selected=(unsigned char)target;narrate(T(UI_CHOOSE_TARGET));return;
+    }
     if(target==PR_DEPARTURE || target==PR_LETTER_DESK)act(PR_TALK,0,target);
     else if(target==PR_HOTSPOT(13,3) && verb==PR_USE && !selected)act(PR_TALK,0,target);
     else if(target==PR_HOTSPOT(13,4) && S.world.item_position[19]==13 && verb==PR_USE && !selected)act(PR_TAKE,0,PR_ITEM(19));
-    else if(target==PR_TAVERN_APPROACH && verb==PR_GO)act(PR_GO,0,target);
+    else if((target==PR_TAVERN_APPROACH || target==PR_HOTSPOT(24,3)) && verb==PR_GO)
+        act(PR_GO,0,target);
     else act(verb,verb==PR_USE?selected:0,target);
     if(verb==PR_USE)selected=0;
 }
@@ -316,7 +327,6 @@ static void click(Point p)
         n=exits(dest);
         for(i=0;i<3 && HERO.map_scroll*3+i<n;++i)if(inside(p,376,150+i*26,128,25)) {
             act(PR_GO,0,dest[HERO.map_scroll*3+i]);selected=0;
-            if(S.phase>PR_B)narrate(T(UI_STAGE_LIMIT));
             return;
         }
     }
@@ -358,9 +368,13 @@ static void menu_command(long value)
     if(menu==129 && item==1)open_box(BOX_JOURNAL,0);
     if(menu==129 && item==2) {
         unsigned level;
-        if(S.active==PR_M) {q=S.phase==PR_B?9:1;while(q<=13 && (q==2 || pr_done(&S,q)))++q;}
+        if(S.active==PR_M) {
+            q=S.phase==PR_C?16:S.phase==PR_B?9:1;
+            while(q<=(S.phase==PR_C?19:13) && (q==2 || pr_done(&S,q)))++q;
+        }
         else {q=S.phase==PR_B?14:6;while(q<=15 && pr_done(&S,q))++q;}
-        if(S.phase>PR_B || q>15 || (S.active==PR_M && q>13) ||
+        if(S.phase>PR_C || (S.phase==PR_C && (S.active==PR_K || q>19)) ||
+           (q>15 && S.phase!=PR_C) || (S.active==PR_M && S.phase!=PR_C && q>13) ||
            (S.phase==PR_A && ((S.active==PR_M && q>5) || (S.active==PR_K && q>8))))document(T(UI_NO_HINT));
         else {level=S.quest[q-1].hint_level;document(pr_quest_hints[q][level]);box=BOX_HINT;if(level<2)++S.quest[q-1].hint_level;}
     }

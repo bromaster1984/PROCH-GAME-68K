@@ -1,13 +1,13 @@
 # PROCH — implementacja natywna
 
 Cel: Macintosh SE, Motorola 68000, 4 MB, System 6.0.8, ekran 512×342 1-bit.
-Obecnie: **grywalne fazy A–B, Q01–Q15, nie ukończona gra**.
+Obecnie: **grywalne Q01–Q15 obu postaci oraz Q16–Q19 Mikołaja; gra nieukończona**.
 Przetestowany na emulowanym Plusie/4 MB/Systemie 6.0.8.
 Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
-Źródła domyślnie budują początek kampanii Q01–Q15 (etap 3).
-`dist/` zawiera dokładnie przetestowany build `b6cc3532…6df60b` z etapu 3d.
+Źródła domyślnie budują ten początek kampanii (etap 3).
+`dist/` zawiera dokładnie przetestowany build `76da6b3a…b5a41` z etapu 3f.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
 
@@ -33,7 +33,11 @@ Koronkę można przeciągnąć do ekwipunku. Przy cieniu przełączenie jest
 zablokowane do wyjścia; uderzenie resetuje scenę, zachowując rzeczy.
 Scena Ireny ma ostrzeżenie i skrócenie opisu. Rozmawiaj na linii brzegu
 otwiera wybór kierunku po obejrzeniu świateł. Po Q13 i Q15 rozpoczyna się C;
-pozostałe zadania kampanii są nadal w implementacji.
+Mikołaj może dalej rozmawiać w plebanii, porównać koronkę z portretem po
+ustawieniu drabiny, czytać kronikę i dotrzeć nad staw. W widzeniu należy
+zamknąć tekst, obejrzeć szczegóły i wybrać światło; wyjście działa także
+bez oglądania szczegółów. Konstancja w C i pozostałe zadania kampanii są
+nadal w implementacji.
 
 ## Pierwszy build
 
@@ -135,12 +139,14 @@ Uruchomić Mini vMac na tych kopiach, otworzyć aplikację w Finderze. W lokalny
 środowisku testowym Xvfb=:99, kontenerze `proch-emulation` i oknie 0x200004:
 
 ```sh
-python3 tools/test_native_campaign.py --chapter ab --profile /workspace/testing/nowy-test
+python3 tools/test_native_campaign.py --chapter abc_m --profile /workspace/testing/nowy-test
 ```
 
 Zmiana nazwy kontenera/okna: `--container`, `--window`. Test wymaga świeżej gry.
 Wynik identyfikuje snapshot aplikacji, nie plik nadpisywany następnym buildem.
-Aktualny raport to `tests/results/stage3-ab-native.json`; zrzuty `stage3-b-*.png`.
+Aktualny raport to `tests/results/stage3-c-m-native.json`; zrzut Q19:
+`screenshots/stage3-c-q19-journal.png`. Poprzednie Q01–Q15:
+`stage3-ab-native.json` i `stage3-b-*.png`.
 To test początku, nie czterech zakończeń całej gry. Starszy runner
 `tools/test_native_demo.py` sprawdza etapy q09, q12, q21, long_dialogue,
 description_history w tej kolejności, wyłącznie po zbudowaniu opcji

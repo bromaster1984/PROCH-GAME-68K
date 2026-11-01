@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Play chapter A through native mouse/key events; never set engine flags."""
+"""Play implemented chapters through native mouse/key events; never set engine flags."""
 import argparse
 import json
 from pathlib import Path
@@ -44,6 +44,22 @@ class CampaignDriver(Driver):
 
     def use(self,index,target):
         self.source(index);self.spot(target)
+
+    def source_late(self,index):
+        """Select an item from either of the first two inventory pages."""
+        self.inventory();self.click(405,239)
+        if index>=9:self.click(470,239)
+        self.verb(3);slot=index%9
+        self.click(390+(slot%3)*36,165+(slot//3)*26)
+
+    def use_late(self,index,target):
+        self.source_late(index);self.spot(target)
+
+    def extra(self,index,verb=0):
+        self.verb(verb);self.click(50+118*index,238)
+
+    def talk_extra(self,index,topic=0):
+        self.extra(index,4);self.click(100,90+34*topic)
 
     def open(self,index):
         self.verb(1);self.spot(index)
@@ -153,9 +169,37 @@ class CampaignDriver(Driver):
         self.key('Tab');self.expect('Dziedziniec gorzelni')
         self.journal_title('Imię w ciemności',5,1)
 
+    def chapter_c_m(self):
+        self.expect('Dziedziniec gorzelni')
+        self.go(0,'Droga i most w Wąglanach')
+        self.go(3,'Plac przy kościele');self.go(1,'Plebania')
+        self.talk(2);self.talk(1)
+        self.go(0,'Plac przy kościele')
+        self.use_late(7,1);self.talk(1)
+        self.go(2,'Hall pałacu w Białaczowie')
+        self.use_late(8,1);self.go(1,'Biblioteka')
+        self.inspect(1);self.verb(3);self.spot(2);self.spot(1)
+        self.talk(2);self.use_late(7,1);self.talk(2)
+        self.talk_extra(0)
+        self.talk(3);self.talk(3,1)
+        self.use_late(9,4);self.talk(4);self.talk(4,1)
+        self.extra(1);self.key('Escape');self.extra(2);self.talk_extra(2)
+        self.go(0,'Hall pałacu w Białaczowie')
+        self.go(0,'Plac przy kościele');self.go(0,'Droga i most w Wąglanach')
+        self.go(2,'Dziedziniec gorzelni');self.go(4,'Leśna ścieżka')
+        self.use_late(10,3);self.go(1,'Brzeg stawu')
+        self.inspect(1);self.inspect(2);self.talk(1)
+        self.expect('Sięgając po koronkę, Mikołaj ślizga się na pniu.',30,90)
+        self.key('Escape');self.expect('Widzenie dawnego obozu')
+        self.inspect(2);self.extra(0)
+        self.verb(5);self.spot(3)
+        self.expect('Leśna ścieżka')
+        self.journal_title('Ślad prowadzi do wody',7,2)
+
     def run(self):
         self.chapter_a()
-        if self.args.chapter=='ab':self.chapter_b()
+        if self.args.chapter in ('ab','abc_m'):self.chapter_b()
+        if self.args.chapter=='abc_m':self.chapter_c_m()
 
 
 if __name__=='__main__':
@@ -163,11 +207,12 @@ if __name__=='__main__':
     parser.add_argument('--container',default='proch-emulation')
     parser.add_argument('--window',default='0x200004')
     parser.add_argument('--profile',required=True,type=Path)
-    parser.add_argument('--chapter',choices=['a','ab'],default='a')
+    parser.add_argument('--chapter',choices=['a','ab','abc_m'],default='a')
     args=parser.parse_args();args.part='campaign-'+args.chapter
     d=CampaignDriver(args);d.run()
     (d.directory/(args.part+'-result.json')).write_text(json.dumps({
         'result':'PASS','checks':d.passed,'run_id':d.run_id,
         'application_sha256':d.profile['application_sha256'],'profile':str(args.profile),
-        'scope':('Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+' native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},
+        'scope':('Q01-Q15 both heroes; Q16-Q19 M' if args.chapter=='abc_m' else 'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
+                ' native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},
         ensure_ascii=False,indent=2)+'\n')

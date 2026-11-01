@@ -1,8 +1,33 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3d, fazy A–B
+## Bieżące wydanie: etap 3f, Q01–Q19 M
 
 `dist/PROCH.bin` SHA256
+`76da6b3a8364211d0f6a5d115c561e4268e8892d9343bd622bba94da120b5a41`.
+77 184 B MacBinary, zasoby 77 051 B, HFS 819 200 B. Kontrola forków,
+zasobów i HFS PASS. To pliki oryginalnego builda, a suma aplikacji zgadza
+się z kopią uruchomioną w emulatorze.
+
+Mini vMac Plus/System 6.0.8/4 MB: pełne natywne przejście Q01–Q15 obu
+postaci, następnie Q16–Q19 Mikołaja PASS, 80 kontroli pikseli. Runner używa
+myszy i klawiatury, nie zmienia stanu silnika. Profil `stage3c-m-final`,
+raport `tests/results/stage3-c-m-native.json`, zrzut dziennika
+`screenshots/stage3-c-q19-journal.png` (512×342, 1-bit).
+Sprawdzono wejście do biblioteki, portret i drabinę, wskazówki katalogu,
+kronikę, trasę nad staw, widzenie, wyjście ku światłu i wpis Q19.
+
+Host C/ASan/UBSan PASS: dwa warianty Q16–Q19, w tym wyjście z widzenia
+od razu, niezależność wiedzy K, blokada zmiany bohatera, zachowanie rzeczy
+oraz pozostanie w fazie C. Pozostałe regresje C i 9 testów Python PASS.
+Cross-build pełnej aplikacji 68000 PASS.
+
+Niezweryfikowane/niewykonane: Q20–Q40, cała ścieżka K w fazie C,
+T01–T04, zapis/odczyt, produkcyjne ilustracje, audio, pomiary pamięci
+i test SE/sprzętu fizycznego. Plus nie zastępuje SE.
+
+## Archiwum: etap 3d, fazy A–B
+
+Archiwalny `PROCH.bin` SHA256
 `b6cc3532f2a31ff9709552e0f3574e4bfad99f3cbfac5d1648a868b3aa6df60b`.
 70 400 B MacBinary, zasoby 70 163 B; HFS 819 200 B. Kontrola artefaktów PASS.
 Końcowe przejście Q01–Q15 w Mini vMac Plus/System 6.0.8/4 MB PASS,
@@ -16,13 +41,13 @@ Q15 z odwrotem od molo i wejściem obojga do C. To jedna kolejność natywna;
 cztery przejścia hostowe obejmują też odwrotną kolejność M/K i Q11/Q12,
 Biblię zabraną, wariant early i pełny opis Ireny. Regresje C i 9 Python PASS.
 
-Niezweryfikowane/niewykonane: Q16–Q40, T01–T04, produkcyjne ilustracje,
+Niezweryfikowane w tym snapshocie: Q16–Q40, T01–T04, produkcyjne ilustracje,
 audio, zapis/odczyt, profilowanie pamięci i test SE/sprzętu fizycznego.
 Poniżej pozostają historyczne wyniki wcześniejszych snapshotów.
 
 ## Archiwum: etap 3c, początek kampanii
 
-`dist/PROCH.bin`: SHA256
+Archiwalny `PROCH.bin`: SHA256
 `a9afaecc0600cff8ca4d7b6fc3f315a911ff8d4d67a5262c15ad9d0b03b98482`.
 58 880 B MacBinary, fork zasobów 58 726 B; HFS 819 200 B. Kontrola forków,
 zasobów CODE/DATA/RELA/SIZE i nagłówka HFS PASS. Zawartość aplikacji dokładnie
@@ -97,10 +122,10 @@ pierwszych 131072 B; 7504 B za ROM-em nie są używane. DiskCopy 4.2:
 suma danych 0x816f85c8 zgodna. Przygotowanie kopii nie zmienia źródeł.
 Testy Plus/System 6 i SE/System 6 nadal oczekują na wykonanie.
 
-## Wynik aktualny: System 6.0.8 na Plusie, toolchain ze źródeł i font PL
+## Archiwum: System 6.0.8 na Plusie, toolchain ze źródeł i font PL
 
 Retro68 i Multiversal z commitów w locku są zbudowane ze źródeł i użyte do
-aktualnego `dist/`. Pierwszy fork zasobów z tego toolchaina był identyczny
+ówczesnego `dist/`. Pierwszy fork zasobów z tego toolchaina był identyczny
 z testowanym bootstrapem (SHA256
 `fbe019e048b274196b32ff4cc6bd5d89175ad6af90d3d19ead4de2f06b7497ef`).
 Po dodaniu fontu wykonano nowy build i nowe uruchomienie.
@@ -117,7 +142,7 @@ Finder 6.1.8, 4096K** (`screenshots/system608-plus-4mb.png`).
 - próbka własnego fontu z ĄąĆćĘęŁłŃńÓóŚśŹźŻż: wyświetlona w aplikacji
   na angielskim systemie (`screenshots/font-pl-plus-system608.png`);
 - ELF32 big endian, Machine MC68000, flag `m68000`: PASS;
-- aktualny test natywny Executor 2000: PASS;
+- test natywny Executor 2000 z tego etapu: PASS;
 - 9 testów Python i 2 programy testów C (ASan/UBSan): PASS. Dotyczą formatu
   dystrybucji, fontu, renderera i trzech demonstracyjnych zadań.
 

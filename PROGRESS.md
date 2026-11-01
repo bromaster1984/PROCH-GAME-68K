@@ -372,3 +372,30 @@ pamięci nadal pozostają do wykonania.
 
 Następny krok: podłączyć Q16–Q19 do natywnego UI i przetestować w Mini vMac,
 następnie dobudować pozostałe Q20–Q24 fazy C.
+
+## 2026-11-01 — etap 3f: natywne Q16–Q19 Mikołaja
+
+Wykonano: panel przejść udostępnia trasę fazy C Mikołaja, biblioteka pokazuje
+Ludwika, kartę kroniki i margines, drabinę można wskazać jako źródło Użyj.
+W widzeniu przycisk Przejścia oraz światło prowadzą bezpiecznie na ścieżkę.
+Podpowiedzi wybierają teraz właściwe Q16–Q19. Zapisano dokładnie testowane
+`PROCH.bin` i oryginalny obraz HFS do `dist/`, raport i zrzut dziennika Q19.
+
+Przetestowano: pełny natywny przebieg od nowej gry Q01–Q15 obu postaci,
+następnie Q16–Q19 M w Mini vMac Plus/System 6.0.8/4 MB: PASS, 80 kontroli
+obrazu. Profil `/workspace/testing/stage3c-m-final`, raport
+`tests/results/stage3-c-m-native.json`, SHA aplikacji
+`76da6b3a8364211d0f6a5d115c561e4268e8892d9343bd622bba94da120b5a41`.
+Suma builda, kopii uruchomionej i `dist/` jest identyczna; kontrola MacBinary,
+forków zasobów i HFS PASS. Host C/ASan/UBSan, walidator i 9 testów Python PASS.
+Zrzut `screenshots/stage3-c-q19-journal.png` ma 512×342 i tryb 1-bit.
+
+Problemy i granice: pierwsza próba runnera wybrała pusty slot zamiast I19;
+druga nie zamknęła okna kroniki. Po poprawkach skryptu końcowy pełny przebieg
+przeszedł bez przerwy. Te dwie próby nie wykazały błędu gry. Q20–Q24 i reszta
+kampanii, zapis/odczyt, produkcyjne ilustracje, audio, pomiary pamięci oraz
+test SE nadal niewykonane. Nie utożsamiać testu Plus ze zgodnością SE.
+
+Następny krok: opcjonalne Q20, potem ścieżka K Q21–Q24 i potwierdzenie C→D.
+Przy realizacji prostego Q20 nie zmieniać zasad drabiny, widzenia ani kodu UI
+fazy B; zachować osobny mały etap i test publicznych akcji.
