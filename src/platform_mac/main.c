@@ -81,11 +81,45 @@ static void command(long selection)
 #endif
 
 #ifdef PROCH_AUTOTEST
+static OSErr test_file(ConstStringPtr name, const void *data, long bytes)
+{
+    short ref;
+    OSErr error = FSOpen(name, 0, &ref);
+    long written = bytes;
+    if (error != noErr) {
+        error = Create(name, 0, 'PRCH', 'TEXT');
+        if (error == noErr) error = FSOpen(name, 0, &ref);
+    }
+    if (error != noErr) return error;
+    error = SetEOF(ref, 0);
+    if (error == noErr) error = FSWrite(ref, &written, data);
+    if (written != bytes) error = ioErr;
+    if (FSClose(ref) != noErr) error = ioErr;
+    return error;
+}
+
+static OSErr screenshot(void)
+{
+    /* Capture the actual 1-bit QuickDraw framebuffer, with no host reconstruction. */
+    static const char header[] = "P4\n512 342\n";
+    short ref;
+    long bytes = 512L / 8 * 342;
+    OSErr error;
+    if ((qd.screenBits.rowBytes & 0x3fff) != 64) return paramErr;
+    error = test_file((ConstStringPtr)"\pSCREEN.PBM", header, sizeof(header) - 1);
+    if (error != noErr) return error;
+    error = FSOpen((ConstStringPtr)"\pSCREEN.PBM", 0, &ref);
+    if (error != noErr) return error;
+    error = SetFPos(ref, fsFromLEOF, 0);
+    if (error == noErr) error = FSWrite(ref, &bytes, qd.screenBits.baseAddr);
+    if (bytes != 21888) error = ioErr;
+    if (FSClose(ref) != noErr) error = ioErr;
+    return error;
+}
+
 /* Test-only executable. Run through LaunchAPPL to read the `out` data fork. */
 static int smoke(void)
 {
-    short ref;
-    long size;
     OSErr error;
     Point p;
     const char *result;
@@ -94,18 +128,11 @@ static int smoke(void)
     ok = window != NULL && window->portRect.right == 512 &&
          window->portRect.bottom == 342 && bitmap.rowBytes == 46;
     ok = ok && !GetPixel(6, 39) && GetPixel(7, 39);
+    ok = ok && screenshot() == noErr;
     SetPt(&p, 7, 39); LocalToGlobal(&p); click(p); draw();
     ok = ok && clicks == 1 && !GetPixel(7, 39);
     result = ok ? "PROCH_TOOLBOX_SMOKE_PASS\n" : "PROCH_TOOLBOX_SMOKE_FAIL\n";
-    error = FSOpen((ConstStringPtr)"\pout", 0, &ref);
-    if (error != noErr) {
-        error = Create((ConstStringPtr)"\pout", 0, 'PRCH', 'TEXT');
-        if (error == noErr) error = FSOpen((ConstStringPtr)"\pout", 0, &ref);
-    }
-    if (error != noErr) return 2;
-    size = (long)strlen(result);
-    error = FSWrite(ref, &size, result);
-    if (FSClose(ref) != noErr) return 2;
+    error = test_file((ConstStringPtr)"\pout", result, (long)strlen(result));
     FlushVol(NULL, 0);
     return ok && error == noErr ? 0 : 1;
 }

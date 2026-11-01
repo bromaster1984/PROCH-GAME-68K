@@ -23,3 +23,22 @@ reakcji. Nie ma jeszcze logiki Q ani przejść E01–E04, fontu PL, produkcyjnyc
 ilustracji, zapisu/odczytu i audio. Brak zrzutów ekranu działającego emulatora.
 
 Żaden wynik walidatora ani testu hostowego nie jest przedstawiany jako test SE.
+
+## Aktualizacja: Toolbox i engine demonstracji
+
+Executor 2000 v0.1.0 (suma archiwum w locku), parametry `-bpp 1 -size 512x342
+-memory 4M -applzone 2M -nosound -nobrowser`: **PASS**. Test sprawdził geometrię,
+polaryzację pikseli po CopyBits i syntetyczne wywołanie funkcji kliknięcia.
+Wynik: `PROCH_TOOLBOX_SMOKE_PASS`. Wyeksportowano rzeczywisty framebuffer
+w PBM; konwersja do PNG nie zmienia pikseli. To reimplementacja Toolbox,
+nie emulacja ROM-u SE i nie System 6.0.8.
+
+Test engine host C + ASan/UBSan: PASS, demonstracyjne Q09/Q12 i fragment Q21,
+z przełączaniem po każdej czynności, wczesnym zebraniem przedmiotów, pozostawioną
+Biblią, niewspółdzielonymi ekwipunkami/wiedzą oraz idempotencją nagród.
+Fixture jawnie łączy wycinek M z B i K z C; nie testuje osi etapów pełnej gry.
+
+Materiały autora z `MAC PLUS`: ROM Plus v3, zweryfikowana suma 0x4d1f8172
+pierwszych 131072 B; 7504 B za ROM-em nie są używane. DiskCopy 4.2:
+suma danych 0x816f85c8 zgodna. Przygotowanie kopii nie zmienia źródeł.
+Testy Plus/System 6 i SE/System 6 nadal oczekują na wykonanie.

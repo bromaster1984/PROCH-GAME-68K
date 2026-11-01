@@ -66,3 +66,39 @@ i obrazu Systemu 6.0.8; poproszono o ścieżki, bez zatrzymywania prac hostowych
 Następny krok: uruchomić test Toolbox w Executor 2000 (osobny wynik, nie SE),
 dokończyć toolchain ze źródeł, przebudować aplikację i rozpocząć wycinek Q09/Q12.
 Pierwszy zapis etapu 0 został wysłany na GitHub: `0b03963`.
+
+## 2026-11-01 — etap 1b / początek 2: uruchomienie Toolbox i reguły demonstracji
+
+Wykonano:
+- testowa odmiana aplikacji sprawdza rzeczywisty CopyBits/GetPixel, geometrię
+  okna i funkcję obsługi kliknięcia, zapisuje framebuffer QuickDraw do PBM;
+- zrzut `screenshots/etap1-executor2000.png` to bezstratna konwersja ekranu
+  testowego 512×342, 1-bit (bez rekonstrukcji i retuszu);
+- dodano skrypty budowania toolchaina/aplikacji i testu Toolbox;
+- rozpoczęto engine C: niezależne miejsca, własność przedmiotów, wiedza,
+  dzienniki i przełączanie. Deterministyczne reguły demonstracyjne Q09/Q12
+  oraz Q21 w L33. To mieszana fixture etapów do testów, nie początek kampanii.
+  Engine nie jest jeszcze podłączony do interfejsu natywnego;
+- scalono `origin/main` z materiałami `MAC PLUS` dostarczonymi przez autora.
+
+Testy:
+- Executor 2000 v0.1.0, 4M, applzone 2M, 512×342, bpp1:
+  `PROCH_TOOLBOX_SMOKE_PASS`. Wywołanie kliknięcia jest syntetyczne; rzeczywista
+  jednoprzyciskowa obsługa myszy wymaga osobnego testu emulatora;
+- test hostowy engine C + ASan/UBSan: PASS. Pełne demonstracyjne Q09/Q12/Q21,
+  przełączanie po każdej czynności, wcześniejsze podnoszenie, opcjonalna Biblia,
+  brak współdzielenia ekwipunku/wiedzy, brak duplikacji nagród i wpisów;
+- zapisany `build_mac.sh bootstrap ON`: PASS;
+- ROM dostarczony jako Mac-Plus.ROM ma 7504 dodatkowe bajty. Osobną kopię
+  pierwszych 128 KiB zweryfikowano oryginalną sumą ROM 0x4d1f8172;
+- obraz DiskCopy 4.2 rozpakowano poza repozytorium po sprawdzeniu sumy danych
+  0x816f85c8. Pliki źródłowe pozostały niezmienione.
+
+Problemy: to ROM Macintosh Plus, nie SE. Trwa budowanie Mini vMac Plus/4 MB
+oraz kończenie własnego toolchaina. Nie ogłaszamy jeszcze zgodności System 6.
+Font PL i kompletne UI pozostają do zrobienia, podobnie reszta kampanii.
+
+Następny krok: Mini vMac Plus + dostarczony System 6.0.8, uruchomienie aplikacji
+i rzeczywiste kliknięcia; zakończyć build narzędzi i powtórzyć natywne testy.
+Następnie font PL i podłączenie reguł demonstracji do interfejsu.
+Etap 1a wysłany na GitHub: `82500fd`.
