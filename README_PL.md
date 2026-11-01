@@ -46,8 +46,9 @@ pozwalają odebrać I27. Błędne połączenie cofa tylko układankę. Q22 jest
 opcjonalne. Q23 pozwala napisać „Żyję”, dodać wspomnienie broszki i przekazać
 jeden egzemplarz listu sąsiadowi. Przed D koperta czeka u kuriera; po wejściu
 do D trafia do Florka. Mikołaj poznaje jej treść dopiero w Q26. Q23 przeszło
-test w emulatorze Plus. Q20 jest dostępne tylko w C; dostępność Q20 w D oraz
-Q24 pozostają do wdrożenia.
+test w emulatorze Plus. Q20 jest dostępne tylko w C; dostępność Q20 w D
+pozostaje do wdrożenia. Q24 ma sprawdzone reguły hostowe, ale nie ma jeszcze
+pełnego przebiegu w interfejsie Mac.
 
 ## Pierwszy build
 

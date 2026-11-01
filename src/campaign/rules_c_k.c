@@ -12,6 +12,7 @@ void pr_refresh_c_k(PrState *s)
     static const uint32_t q21[]={1,7,255,511};
     static const uint32_t q22[]={1,3,63,127};
     static const uint32_t q23[]={1,3,7,15};
+    static const uint32_t q24[]={1,3,15,63,319};
     unsigned i;
     if(!pr_done(s,21)) {
         for(i=0;i<pr_quest_steps[21];++i)
@@ -39,6 +40,12 @@ void pr_refresh_c_k(PrState *s)
             pr_finish(s,23,2);
             pr_set_flag(s,PR_LETTER_SENT,1);
         }
+    }
+    if(pr_done(s,21) && !pr_done(s,24)) {
+        for(i=0;i<pr_quest_steps[24];++i)
+            if((s->quest[23].actions&q24[i])!=q24[i])break;
+        s->quest[23].substep=(uint8_t)i;
+        if(i==pr_quest_steps[24])pr_finish(s,24,2);
     }
 }
 
@@ -77,6 +84,21 @@ unsigned pr_topics_c_k(const PrState *s,unsigned target,PrTopic *out,unsigned ca
         if(target==H(34,1) && HAS(23,2) && !pr_done(s,23) &&
            pr_has_item(s,PR_K,28))ADD(23,5,Q23_SEND);
     }
+    if(pr_done(s,21)) {
+        if(target==H(33,1) && !HAS(24,0))ADD(24,1,Q24_ASK);
+        if(target==H(33,1) && HAS(24,0) && !HAS(24,1))
+            ADD(24,2,Q24_TAKE_FARE);
+        if(target==H(35,1) && HAS(24,2) && !HAS(24,3))
+            ADD(24,3,Q24_TICKET);
+        if(target==H(4,1) && HAS(24,3) && !HAS(24,4))
+            ADD(24,4,Q24_ASK_IZYDOR);
+        if(target==H(4,1) && HAS(24,4) && !HAS(24,5) && !HAS(24,6))
+            ADD(24,5,Q24_LEDGER);
+        if(target==H(5,3) && HAS(24,5) && !HAS(24,8))
+            ADD(24,6,Q24_TRAVEL);
+        if(target==H(8,2) && pr_done(s,24) && pr_done(s,19))
+            ADD(24,7,Q24_CONFIRM_D);
+    }
 #undef ADD
     return n;
 }
@@ -113,6 +135,24 @@ static PrFeedback choose(PrState *s,unsigned target)
                             PR_ROUTE_NEIGHBOUR_IZYDOR_FLOREK,PR_D)!=PR_OK)
             return DENY(BLOCKED);
         MARK(23,3);return SAY(Q23_SENT_REPLY);
+    case C(24,1):MARK(24,0);return SAY(Q24_ASK_REPLY);
+    case C(24,2):
+        pr_place_item(s,29,PR_INVENTORY_K);MARK(24,1);
+        return SAY(Q24_FARE_REPLY);
+    case C(24,3):
+        MARK(24,3);pr_story_move(s,5);return SAY(Q24_TICKET_REPLY);
+    case C(24,4):
+        MARK(24,4);
+        if(pr_flag(s,PR_ADDRESS_LEFT)) {
+            MARK(24,5);return SAY(Q24_ADDRESS_KNOWN);
+        }
+        return SAY(Q24_NO_ADDRESS);
+    case C(24,5):MARK(24,6);return SAY(Q24_LEDGER_REPLY);
+    case C(24,6):
+        MARK(24,8);pr_story_move(s,8);return SAY(Q24_ARRIVAL);
+    case C(24,7):
+        if(pr_advance_phase(s,1)!=PR_OK)return DENY(BLOCKED);
+        return SAY(Q24_PHASE_D);
     default:return DENY(NO_EFFECT);
     }
 wrong_link:
@@ -149,6 +189,9 @@ static PrFeedback use(PrState *s,unsigned source,unsigned target)
     }
     if(source==28 && target==H(34,1) && pr_done(s,22) && HAS(23,2) &&
        !pr_done(s,23))return choose(s,C(23,5));
+    if(source==7 && target==H(35,1) && HAS(24,1) && !HAS(24,2)) {
+        MARK(24,2);return SAY(Q24_DOCUMENT_SHOWN);
+    }
     return DENY(NO_EFFECT);
 }
 
@@ -160,12 +203,22 @@ PrFeedback pr_rules_c_k(PrState *s,PrAction a)
         if(a.target==H(34,2) && pr_done(s,21) && HAS(22,0) && !pr_done(s,22)) {
             MARK(22,1);return SAY(Q22_NET);
         }
+        if(a.target==H(4,2) && HAS(24,6) && !HAS(24,5)) {
+            MARK(24,7);MARK(24,5);return SAY(Q24_ADDRESS_FOUND);
+        }
         return SAY(OBSERVED);
     }
     if(a.verb==PR_USE)return use(s,a.source,a.target);
     if(a.verb==PR_GO) {
-        if(!pr_done(s,21) || a.target<32 || a.target>34 ||
-           pr_move_local(s,a.target)!=PR_OK)return DENY(BLOCKED);
+        unsigned from=s->hero[PR_K].location;
+        if(!pr_done(s,21))return DENY(BLOCKED);
+        if(from>=32 && from<=35) {
+            if(a.target<32 || a.target>35 || (a.target==35 && !HAS(24,1)))
+                return DENY(BLOCKED);
+        } else if(from==4 || from==5) {
+            if(!HAS(24,3) || (a.target!=4 && a.target!=5))return DENY(BLOCKED);
+        } else return DENY(BLOCKED);
+        if(pr_move_local(s,a.target)!=PR_OK)return DENY(BLOCKED);
         return SAY(MOVED);
     }
     if(a.verb==PR_TAKE && a.target>PR_ITEM(0) && a.target<=PR_ITEM(PR_ITEMS))

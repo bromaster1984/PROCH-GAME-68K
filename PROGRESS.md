@@ -603,3 +603,27 @@ pamięci pozostają niewykonane lub nieweryfikowane.
 
 Następny krok: Q24 — powrót Konstancji do Warszawy i Wąglan, niezależnie
 od Q22/Q23. Przed implementacją bramki C→D i kolejnej podróży wrócić do Sol.
+
+## 2026-11-01 — etap 3o: hostowe reguły Q24 i bramka C→D
+
+Wykonano: po Q21 rybak niezależnie od Q22/Q23 daje I29 na podróż. K może
+przejść do L35, pokazać I07 i kupić bilet do Warszawy. U Izydora w L04
+adres Wąglan wynika z pozostawionego wcześniej adresu albo, za jego zgodą,
+z księgi wysyłek. Powrót do L08 kończy Q24. Dopiero po ukończeniu Q19 i Q24
+osobny wybór gracza potwierdza C→D; wtedy oczekujący I28 trafia do Florka.
+
+Przetestowano: publiczne `pr_act` przechodzi Q24 przy obu wartościach
+`PR_ADDRESS_LEFT`, bez Q22/Q23 oraz z ukończonym Q22. Zintegrowany przebieg
+Q23→Q24 potwierdza pojedynczy list u kuriera przed D i u Florka po
+potwierdzeniu. Brak Q19 i wywołanie bez potwierdzenia nie zmieniają fazy;
+I07/I29 pozostają u K. C host ASan/UBSan i walidator danych PASS; 9 testów
+Python PASS; JSON i `git diff --check` PASS; cross-build 68000 PASS.
+
+Problemy i granice: nowe reguły nie mają jeszcze pełnego testu natywnego;
+interfejs Mac nie udostępnia przejść L35, L04 i L05 dla K w fazie C.
+`dist/` nadal zawiera sprawdzony build Q23. Dalsze zadania fazy D,
+SE i pomiary pamięci pozostają do wykonania.
+
+Następny krok: podłączyć trasę Q24 i jawne potwierdzenie do natywnego UI,
+przejść obie gałęzie hostowo oraz jedną od nowej gry w Mini vMac. Po PASS
+zaktualizować `dist/`; następnie rozpocząć pilotaż prawdziwej grafiki L33/L34.

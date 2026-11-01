@@ -303,9 +303,9 @@ static void c_m_path(int inspect_vision,int do_q20)
     }
 }
 
-static void c_k_q21(void)
+static void c_k_q21(int address)
 {
-    complete_ab(0,0);
+    complete_ab(0,address);
     assert(game.current.active==PR_K && game.current.hero[PR_K].location==33);
     denied(PR_OPEN,0,H(33,3));denied(PR_TAKE,0,PR_ITEM(24));
     denied(PR_CHOOSE,H(33,2),C(21,2));
@@ -335,7 +335,7 @@ static void c_k_q21(void)
 static void c_k_q22(int skip)
 {
     PrState expected;
-    c_k_q21();
+    c_k_q21(0);
     step(PR_SWITCH,0,0);
     assert(game.current.active==PR_K && game.current.phase==PR_C);
     denied(PR_CHOOSE,H(33,2),C(23,2));
@@ -377,6 +377,65 @@ static void c_k_q22(int skip)
     assert(pr_has_item(&game.current,PR_K,25) && !pr_done(&game.current,23));
     denied(PR_CHOOSE,H(34,1),C(22,5));
     go(32);go(33);
+}
+
+static void q24_actions(int address)
+{
+    PrState before;
+    assert(game.current.active==PR_K && game.current.hero[PR_K].location==33);
+    assert(pr_done(&game.current,21) && !pr_done(&game.current,24));
+    denied(PR_CHOOSE,H(33,1),C(24,2));
+    go(32);go(34);denied(PR_GO,0,35);go(32);go(33);
+    choose(H(33,1),C(24,1));
+    assert(!pr_has_item(&game.current,PR_K,29));
+    choose(H(33,1),C(24,2));
+    assert(pr_has_item(&game.current,PR_K,29));
+    go(32);go(34);go(35);
+    denied(PR_CHOOSE,H(35,1),C(24,3));
+    denied(PR_USE,11,H(35,1));
+    use(7,H(35,1));choose(H(35,1),C(24,3));
+    assert(game.current.hero[PR_K].location==5);
+    assert(pr_has_item(&game.current,PR_K,7) && pr_has_item(&game.current,PR_K,29));
+    go(4);
+    before=game.current;look(H(4,2));
+    assert(memcmp(&before,&game.current,sizeof(before))==0);
+    choose(H(4,1),C(24,4));
+    if(address) {
+        assert(game.current.quest[23].actions&(1u<<5));
+        denied(PR_CHOOSE,H(4,1),C(24,5));
+    } else {
+        assert(!(game.current.quest[23].actions&(1u<<5)));
+        choose(H(4,1),C(24,5));look(H(4,2));
+    }
+    assert(pr_flag(&game.current,PR_ADDRESS_LEFT)==address);
+    go(5);choose(H(5,3),C(24,6));
+    assert(pr_done(&game.current,24) && game.current.quest[23].substep==5);
+    assert(game.current.hero[PR_K].location==8 && game.current.phase==PR_C);
+    denied(PR_CHOOSE,H(8,2),C(24,7));
+}
+
+static void q24_gate(void)
+{
+    PrState before=game.current;
+    assert(pr_advance_phase(&game.current,0)==PR_WAITING);
+    assert(memcmp(&before,&game.current,sizeof(before))==0);
+    /* Q19 belongs to M: supply that prerequisite in this gate fixture. */
+    pr_finish(&game.current,19,1);
+    before=game.current;
+    assert(pr_advance_phase(&game.current,0)==PR_CONFIRMATION);
+    assert(memcmp(&before,&game.current,sizeof(before))==0);
+    choose(H(8,2),C(24,7));
+    assert(game.current.phase==PR_D && game.current.hero[PR_K].location==8);
+    assert(game.current.hero[PR_M].location==13);
+    assert(pr_has_item(&game.current,PR_K,7) && pr_has_item(&game.current,PR_K,29));
+}
+
+static void c_k_q24(int address,int with_q22)
+{
+    if(with_q22)c_k_q22(0);
+    else {c_k_q21(address);step(PR_SWITCH,0,0);}
+    assert(pr_done(&game.current,22)==with_q22 && !pr_done(&game.current,23));
+    q24_actions(address);q24_gate();
 }
 
 static void c_k_q23(int missing_paper,int use_letter)
@@ -422,13 +481,8 @@ static void c_k_q23(int missing_paper,int use_letter)
     assert(!pr_flag(&game.current,PR_M_KNOWS_ALIVE));
     assert(!pr_knows(&game.current,PR_M,PR_FACT_ALIVE));
     if(!missing_paper) {
-        /* Q24 is not implemented yet: satisfy its gate only in this model fixture. */
-        pr_finish(&game.current,19,1);pr_finish(&game.current,24,2);
-        before=game.current;
-        assert(pr_advance_phase(&game.current,0)==PR_CONFIRMATION);
-        assert(memcmp(&before,&game.current,sizeof(before))==0);
-        assert(pr_advance_phase(&game.current,1)==PR_OK);
-        assert(game.current.phase==PR_D);
+        step(PR_SWITCH,0,0);go(32);go(33);
+        q24_actions(0);q24_gate();
         assert(game.current.world.item_position[28]==PR_FLOREK);
         assert(game.current.messages[0].state==PR_MSG_DELIVERED);
         assert(!pr_flag(&game.current,PR_M_KNOWS_ALIVE));
@@ -441,10 +495,11 @@ int main(void)
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
     complete_ab(0,0);complete_ab(0,1);complete_ab(1,0);complete_ab(1,1);
     c_m_path(0,0);c_m_path(1,0);c_m_path(0,1);
-    c_k_q21();
+    c_k_q21(0);
     c_k_q22(1);c_k_q22(0);
     c_k_q23(0,0);c_k_q23(1,1);
+    c_k_q24(0,0);c_k_q24(1,0);c_k_q24(0,1);
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q20 M, Q21-Q23 K action playthroughs, optional Q20/Q22 skip, C vision, A/B variants and isolation");
+    puts("PASS: Q01-Q20 M, Q21-Q24 K action playthroughs, optional Q20/Q22/Q23 skip, C vision, A/B variants and isolation");
     return 0;
 }

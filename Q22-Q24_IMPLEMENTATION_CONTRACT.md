@@ -1,8 +1,8 @@
 # Faza C K — kontrakt implementacyjny Q22–Q24
 
 Kontrakt na podstawie `02_QUESTY.md`, `06_DIALOGI_I_ZAKONCZENIA.md`,
-`items.json` i `scenes.json`. Q22 wdrożono w etapie 3k; reguły Q23 mają
-testy hostowe od etapu 3m, a natywna weryfikacja Q23 i Q24 pozostają do zrobienia.
+`items.json` i `scenes.json`. Q22 i Q23 są sprawdzone natywnie, a reguły Q24
+mają testy hostowe od etapu 3o. Natywna weryfikacja Q24 pozostaje do zrobienia.
 
 ## Q22 — sieć i zaufanie (L34, po Q21)
 

@@ -20,7 +20,10 @@ Host C/ASan/UBSan PASS: publiczne `pr_act` sprawdza Q23 oraz regresje Q01–Q22;
 wiedzy przed Q26. Ten test dostawy używa testowego spełnienia bramki Q24,
 bo Q24 nie jest jeszcze zaimplementowane.
 
-Niezweryfikowane/niewykonane: natywna dostawa I28 w D, Q24–Q40,
+Źródła etapu 3o przechodzą hostowy test Q24 obu gałęzi adresu, podróży bez
+Q22/Q23 i potwierdzenia C→D. `dist/` nadal zawiera natywnie sprawdzone Q23.
+
+Niezweryfikowane/niewykonane: natywna dostawa I28 w D, natywne Q24, Q25–Q40,
 dostępność Q20 w D, T01–T04, zapis/odczyt, produkcyjne ilustracje, audio,
 całkowite zużycie pamięci i test SE.
 
