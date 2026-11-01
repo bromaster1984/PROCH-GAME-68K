@@ -1,6 +1,26 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3c, początek kampanii
+## Bieżące wydanie: etap 3d, fazy A–B
+
+`dist/PROCH.bin` SHA256
+`b6cc3532f2a31ff9709552e0f3574e4bfad99f3cbfac5d1648a868b3aa6df60b`.
+70 400 B MacBinary, zasoby 70 163 B; HFS 819 200 B. Kontrola artefaktów PASS.
+Końcowe przejście Q01–Q15 w Mini vMac Plus/System 6.0.8/4 MB PASS,
+63 kontrole pikseli, bez wywołań wewnętrznego silnika. Profil `stage3b-final`,
+raport `tests/results/stage3-ab-native.json`, obrazy `stage3-b-*.png`.
+
+Nowe kontrole: Q09 ze szufladą i Biblią pozostawioną, Q10/Q11 z zeznaniem,
+Q12 z widoczną koronką i przeciąganiem, Q13 z odrzuceniem, zachowaniem
+rzeczy i blokadą Tab, Q14 z ostrzeżeniem, pominięciem opisu i konfrontacją,
+Q15 z odwrotem od molo i wejściem obojga do C. To jedna kolejność natywna;
+cztery przejścia hostowe obejmują też odwrotną kolejność M/K i Q11/Q12,
+Biblię zabraną, wariant early i pełny opis Ireny. Regresje C i 9 Python PASS.
+
+Niezweryfikowane/niewykonane: Q16–Q40, T01–T04, produkcyjne ilustracje,
+audio, zapis/odczyt, profilowanie pamięci i test SE/sprzętu fizycznego.
+Poniżej pozostają historyczne wyniki wcześniejszych snapshotów.
+
+## Archiwum: etap 3c, początek kampanii
 
 `dist/PROCH.bin`: SHA256
 `a9afaecc0600cff8ca4d7b6fc3f315a911ff8d4d67a5262c15ad9d0b03b98482`.

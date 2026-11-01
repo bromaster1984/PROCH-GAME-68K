@@ -301,9 +301,9 @@ Następny krok: reguły Q09–Q15 fazy B w modelu produkcyjnym (stary wycinek
 pozostaje regresją), potem C–F i pełne ścieżki. Zapis, grafiki produkcyjne,
 audio, pomiary pamięci i test SE nadal czekają. Gra nie jest ukończona.
 
-## 2026-11-01 — etap 3d, zapis roboczy: reguły Q09–Q15
+## 2026-11-01 — etap 3d: reguły hostowe Q09–Q15 (przed testem natywnym)
 
-Produkcjny silnik i UI obsługują fazę B: szufladę, klucze/Biblię, Tolka,
+Produkcyjny silnik i UI obsługują fazę B: szufladę, klucze/Biblię, Tolka,
 Marysię/zeznanie, znaczniki i noc, cień z blokadą i odrzuceniem bez utraty
 rzeczy; po stronie K ostrzeżenie/skrócenie ataku, pakowanie, dwa warianty
 ucieczki, molo/bezpieczny odwrót i ratunek rybaka. Znaczniki pozostają
@@ -316,10 +316,10 @@ obie kolejności M/K i Q11/Q12, Biblia zabrana/zostawiona, obie ucieczki
 i skrócenie opisu, błędne rozmowy, odrzucenie przez cień i blokada zmiany.
 Cross-build aplikacji 68000 PASS. Dotychczasowe regresje PASS.
 
-Test natywny nowej fazy jest dopiero przygotowywany. `dist/` nadal oznacza
+W chwili tego wpisu test natywny był w przygotowaniu, a `dist/` nadal oznaczał
 zweryfikowane Q01–Q08 z `d6e6124`, nie przypisywać mu wyników Q09–Q15.
 Następny krok: natywne przejście A+B na świeżym profilu, poprawki jeśli
-potrzebne, potem faza C. Q16–Q40, zapisy i końcowe zasoby nadal niewykonane.
+potrzebne, potem faza C. Ten status roboczy zamyka końcowy wpis poniżej.
 
 Końcowe powtórzenie 3d: profil `/workspace/testing/stage3b-final`, SHA aplikacji
 `b6cc3532f2a31ff9709552e0f3574e4bfad99f3cbfac5d1648a868b3aa6df60b`,
@@ -328,3 +328,22 @@ Pierwsze A+B PASS na poprzednim snapshotcie. Następnie poprawiono fakt
 o obu znacznikach: pojawia się dopiero po obu oględzinach, z osobną asercją C.
 Podsumowanie Q12 pojawia się po wszystkich warunkach, niezależnie od tego,
 czy koronkę zabrano przed oględzinami, czy po nich. `dist/` nadal etapu 3c.
+
+## 2026-11-01 — etap 3d ukończony: natywne przejście A+B
+
+Końcowy poprawiony snapshot z `af64764` przeszedł Q01–Q15: 63 kontrole
+pikseli w Plus/System 6.0.8/4 MB. Raport `stage3-ab-native.json`, zrzuty
+`stage3-b-*.png`. Sprawdzono cień z odrzuceniem i blokadą, ostrzeżenie/
+skrót Ireny, konfrontację, odwrót od molo i wspólne wejście do C.
+`dist/` zawiera dokładnie ten build, SHA
+`b6cc3532f2a31ff9709552e0f3574e4bfad99f3cbfac5d1648a868b3aa6df60b`;
+HFS skopiowano z oryginalnego builda po weryfikacji manifestu, nie z sesji.
+Forki/zasoby/HFS PASS. Hostowe warianty opisano w poprzednim wpisie.
+Przy zamknięciu sprawdzono `git diff --check`, integralność MacBinary/HFS,
+SHA256 aplikacji oraz zgodność sumy z raportem natywnym. Raport zawiera PASS
+i 63 kontrole; cztery zrzuty fazy B są dołączone.
+
+Następny etap: C, Q16–Q24. Potrzebne biblioteka/portret/kronika, ścieżka/
+widzenie z zawsze dostępnym wyjściem, opcjonalna uczciwa rozmowa, szycie,
+sieć i prywatny list, podróż z alternatywną księgą adresów oraz jawne
+potwierdzenie C→D. Nadal pozostają Q25–Q40 i dalsze wymagania; SE niebadany.

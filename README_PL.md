@@ -1,14 +1,13 @@
 # PROCH — implementacja natywna
 
 Cel: Macintosh SE, Motorola 68000, 4 MB, System 6.0.8, ekran 512×342 1-bit.
-Obecnie: **grywalny początek Q01–Q08, nie ukończona gra**.
+Obecnie: **grywalne fazy A–B, Q01–Q15, nie ukończona gra**.
 Przetestowany na emulowanym Plusie/4 MB/Systemie 6.0.8.
 Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
-Źródła domyślnie budują początek kampanii Q01–Q08 (etap 3).
-Reguły Q09–Q15 są już w źródłach i przechodzą testy hostowe; test UI trwa.
-`dist/` zawiera dokładnie przetestowany build `a9afaecc…b98482` z etapu 3c.
+Źródła domyślnie budują początek kampanii Q01–Q15 (etap 3).
+`dist/` zawiera dokładnie przetestowany build `b6cc3532…6df60b` z etapu 3d.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
 
@@ -28,7 +27,13 @@ bramę i wyjazd. Tab przełącza poza otwartym oknem; Escape je zamyka.
 Panel Przejścia i ekwipunek mają przyciski przewijania.
 
 Zapis i wczytanie jeszcze nie są dostępne. Po Q05 i Q08 obie postacie
-przechodzą razem do B. Pozostałe zadania kampanii są nadal w implementacji.
+przechodzą razem do B. W pokoju M przyciski Szuflada/Drzwi udostępniają
+szczegóły, Użyj na łóżku bez wybranej rzeczy otwiera wybór odpoczynku.
+Koronkę można przeciągnąć do ekwipunku. Przy cieniu przełączenie jest
+zablokowane do wyjścia; uderzenie resetuje scenę, zachowując rzeczy.
+Scena Ireny ma ostrzeżenie i skrócenie opisu. Rozmawiaj na linii brzegu
+otwiera wybór kierunku po obejrzeniu świateł. Po Q13 i Q15 rozpoczyna się C;
+pozostałe zadania kampanii są nadal w implementacji.
 
 ## Pierwszy build
 
@@ -130,12 +135,12 @@ Uruchomić Mini vMac na tych kopiach, otworzyć aplikację w Finderze. W lokalny
 środowisku testowym Xvfb=:99, kontenerze `proch-emulation` i oknie 0x200004:
 
 ```sh
-python3 tools/test_native_campaign.py --profile /workspace/testing/nowy-test
+python3 tools/test_native_campaign.py --chapter ab --profile /workspace/testing/nowy-test
 ```
 
 Zmiana nazwy kontenera/okna: `--container`, `--window`. Test wymaga świeżej gry.
 Wynik identyfikuje snapshot aplikacji, nie plik nadpisywany następnym buildem.
-Aktualny raport to `tests/results/stage3-a-native.json`; zrzuty `stage3-a-*.png`.
+Aktualny raport to `tests/results/stage3-ab-native.json`; zrzuty `stage3-b-*.png`.
 To test początku, nie czterech zakończeń całej gry. Starszy runner
 `tools/test_native_demo.py` sprawdza etapy q09, q12, q21, long_dialogue,
 description_history w tej kolejności, wyłącznie po zbudowaniu opcji
