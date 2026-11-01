@@ -1,8 +1,31 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3n, Q23 Konstancji w fazie C
+## Bieżące wydanie: etap 3p, Q24 i wejście do D
 
 `dist/PROCH.bin` SHA256
+`59e1ad37fb72e44d6a8a127a0ecdce3e6648a742b1146f64b3604f4b93f9a2f7`.
+MacBinary 87 168 B, zasoby 86 950 B, HFS 819 200 B. Kontrola forków,
+zasobów i HFS PASS; SHA uruchomionej kopii, builda i `dist/` jest identyczny.
+
+Mini vMac Plus/System 6.0.8/4 MB: pełny przebieg Q01–Q15 obu postaci,
+Q16–Q20 Mikołaja, Q21–Q24 Konstancji i osobne potwierdzenie C→D PASS,
+111 kontroli pikseli. Runner sprawdził trasę przez Sopot i Warszawę,
+ustalenie adresu u Izydora, wpis Q24 oraz otwarcie fazy D w pokoju Mikołaja.
+Raport `tests/results/stage3-c-q24-native.json`, zrzuty
+`screenshots/stage3-c-q24-journal.png` i `screenshots/stage3-d-entry.png`
+(512×342, 1-bit).
+
+Host C/ASan/UBSan PASS: Q24 przez publiczne `pr_act` z obiema drogami adresu,
+pominięciem Q22/Q23 i potwierdzeniem C→D; zintegrowana dostawa I28 do
+Florka po D. 9 testów Python i cross-build 68000 PASS. W natywnym UI nie ma
+jeszcze interakcji Florka w D; sprawdzenie własności I28 pozostaje hostowe.
+
+Niezweryfikowane/niewykonane: Q25–Q40, dostępność Q20 w D, T01–T04,
+zapis/odczyt, produkcyjne ilustracje, audio, pomiary pamięci i test SE.
+
+## Archiwum: etap 3n, Q23 Konstancji w fazie C
+
+Archiwalny `PROCH.bin` SHA256
 `c580ace9fa28f3dcffee79dfbe1e01227da91eaf23ddd80236944d80fe030d3a`.
 MacBinary 85 376 B, zasoby 85 126 B, HFS 819 200 B. Kontrola forków,
 zasobów i HFS PASS; suma aplikacji zgadza się z uruchomioną kopią.

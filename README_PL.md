@@ -1,13 +1,13 @@
 # PROCH — implementacja natywna
 
 Cel: Macintosh SE, Motorola 68000, 4 MB, System 6.0.8, ekran 512×342 1-bit.
-Obecnie: **grywalne Q01–Q15 obu postaci, Q16–Q20 Mikołaja i Q21–Q23 Konstancji w C; gra nieukończona**.
+Obecnie: **grywalne Q01–Q15 obu postaci, Q16–Q20 Mikołaja i Q21–Q24 Konstancji w C; gra nieukończona**.
 Przetestowany na emulowanym Plusie/4 MB/Systemie 6.0.8.
 Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
 Źródła domyślnie budują ten początek kampanii (etap 3).
-`dist/` zawiera dokładnie przetestowany build `c580ace9…fe030d3a` z etapu 3n.
+`dist/` zawiera dokładnie przetestowany build `59e1ad37…93f9a2f7` z etapu 3p.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
 
@@ -46,9 +46,11 @@ pozwalają odebrać I27. Błędne połączenie cofa tylko układankę. Q22 jest
 opcjonalne. Q23 pozwala napisać „Żyję”, dodać wspomnienie broszki i przekazać
 jeden egzemplarz listu sąsiadowi. Przed D koperta czeka u kuriera; po wejściu
 do D trafia do Florka. Mikołaj poznaje jej treść dopiero w Q26. Q23 przeszło
-test w emulatorze Plus. Q20 jest dostępne tylko w C; dostępność Q20 w D
-pozostaje do wdrożenia. Q24 ma sprawdzone reguły hostowe, ale nie ma jeszcze
-pełnego przebiegu w interfejsie Mac.
+test w emulatorze Plus. Po Q21 rybak daje I29 niezależnie od Q22/Q23;
+Konstancja kupuje bilet, ustala adres u Izydora i wraca do Opoczna.
+Osobne potwierdzenie uruchamia D, gdy Mikołaj ukończył Q19. Q24 i wejście
+do D przeszły test w emulatorze Plus. Rozgrywka zadań D oraz dostępność
+Q20 w D czekają na implementację.
 
 ## Pierwszy build
 
@@ -150,13 +152,15 @@ Uruchomić Mini vMac na tych kopiach, otworzyć aplikację w Finderze. W lokalny
 środowisku testowym Xvfb=:99, kontenerze `proch-emulation` i oknie 0x200004:
 
 ```sh
-python3 tools/test_native_campaign.py --chapter abc_mk23 --profile /workspace/testing/nowy-test
+python3 tools/test_native_campaign.py --chapter abc_mk24 --profile /workspace/testing/nowy-test
 ```
 
 Zmiana nazwy kontenera/okna: `--container`, `--window`. Test wymaga świeżej gry.
 Wynik identyfikuje snapshot aplikacji, nie plik nadpisywany następnym buildem.
-Aktualny raport to `tests/results/stage3-c-q23-native.json`; zrzut Q23:
-`screenshots/stage3-c-q23-journal.png`. Poprzednie Q22:
+Aktualny raport to `tests/results/stage3-c-q24-native.json`; zrzuty Q24
+i wejścia D: `screenshots/stage3-c-q24-journal.png`,
+`screenshots/stage3-d-entry.png`. Poprzednie Q23:
+`stage3-c-q23-native.json` i `stage3-c-q23-journal.png`. Q22:
 `stage3-c-q22-native.json` i `stage3-c-q22-journal.png`. Q21:
 `stage3-c-q21-native.json` i `stage3-c-q21-journal.png`. Q16–Q20:
 `stage3-c-m-q20-native.json` i `stage3-c-q20-journal.png`. Q16–Q19:

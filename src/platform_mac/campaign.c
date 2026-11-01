@@ -110,7 +110,12 @@ static unsigned exits(unsigned char *dest)
     if(S.phase>PR_C || (S.phase==PR_C && S.active==PR_K && !pr_done(&S,21)))return 0;
     if(S.locks&PR_VISION) {dest[0]=22;return 1;}
     for(i=1;i<=PR_SCENES;++i)if(pr_local_edge(from,i) && pr_scene_allowed(&S,i)) {
-        if(S.phase==PR_C && S.active==PR_K && (i<32 || i>34))continue;
+        if(S.phase==PR_C && S.active==PR_K) {
+            if(from>=32 && from<=35) {
+                if(i<32 || i>35 || (i==35 && !(S.quest[23].actions&(1u<<1))))continue;
+            } else if((from==4 || from==5) && (i!=4 && i!=5))continue;
+            else if(from!=4 && from!=5)continue;
+        }
         if(S.phase==PR_A && S.active==PR_M && ((from==5 && i==6) || (from==6 && i==5) ||
            (from==6 && i==7 && !pr_done(&S,3)) || (from==8 && i==9) || from==9))continue;
         if(S.active==PR_K && from==2 && i==4)continue;
@@ -380,10 +385,13 @@ static void menu_command(long value)
             q=S.phase==PR_C?16:S.phase==PR_B?9:1;
             while(q<=(S.phase==PR_C?19:13) && (q==2 || pr_done(&S,q)))++q;
         }
-        else {q=S.phase==PR_C?21:S.phase==PR_B?14:6;
-            while(q<=(S.phase==PR_C?23:15) && pr_done(&S,q))++q;}
+        else if(S.phase==PR_C) {
+            q=!pr_done(&S,21)?21:!pr_done(&S,24)?24:
+              !pr_done(&S,22)?22:!pr_done(&S,23)?23:25;
+        } else {q=S.phase==PR_B?14:6;
+            while(q<=15 && pr_done(&S,q))++q;}
         if(S.phase>PR_C || (S.phase==PR_C &&
-           (S.active==PR_M ? q>19 : q>23)) ||
+           (S.active==PR_M ? q>19 : q>24)) ||
            (q>15 && S.phase!=PR_C) || (S.active==PR_M && S.phase!=PR_C && q>13) ||
            (S.phase==PR_A && ((S.active==PR_M && q>5) || (S.active==PR_K && q>8))))document(T(UI_NO_HINT));
         else {level=S.quest[q-1].hint_level;document(pr_quest_hints[q][level]);box=BOX_HINT;if(level<2)++S.quest[q-1].hint_level;}

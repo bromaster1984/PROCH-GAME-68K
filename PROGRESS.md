@@ -627,3 +627,29 @@ SE i pomiary pamięci pozostają do wykonania.
 Następny krok: podłączyć trasę Q24 i jawne potwierdzenie do natywnego UI,
 przejść obie gałęzie hostowo oraz jedną od nowej gry w Mini vMac. Po PASS
 zaktualizować `dist/`; następnie rozpocząć pilotaż prawdziwej grafiki L33/L34.
+
+## 2026-11-01 — etap 3p: natywne Q24 i wejście do D
+
+Wykonano: panel Przejścia pozwala K po otrzymaniu I29 wejść do L35,
+przemieścić się w Warszawie między L05 i L04 oraz zatwierdzić przejście
+C→D po ukończeniu Q24 i Q19. Podpowiedź priorytetowo wskazuje wymagane
+Q24 po Q21. Runner `abc_mk24` przechodzi od nowej gry do początku D.
+Przetestowaną aplikację i oryginalny obraz HFS zapisano w `dist/`.
+
+Przetestowano: C host ASan/UBSan, walidator danych i 9 testów Python PASS;
+cross-build Motorola 68000 PASS. Świeży natywny przebieg w Mini vMac
+Plus/System 6.0.8/4 MB PASS, 111 kontroli pikseli. Raport
+`tests/results/stage3-c-q24-native.json`, profil
+`/workspace/testing/stage3c-q24-candidate1`, SHA aplikacji
+`59e1ad37fb72e44d6a8a127a0ecdce3e6648a742b1146f64b3604f4b93f9a2f7`.
+Suma builda, kopii uruchomionej i `dist/` jest identyczna; kontrola
+MacBinary/zasobów/HFS PASS. Zrzuty Q24 i startu D mają 512×342/1-bit.
+
+Problemy i granice: natywny test obejmuje gałąź wcześniejszego adresu;
+wariant z księgą oraz podróż bez Q22/Q23 są sprawdzone hostowo. W D
+nie ma jeszcze zadań Q25–Q40 ani interakcji z Florkiem; I28 po wejściu D
+sprawdzono na hoście. Macintosh SE, zapis/odczyt, audio, ilustracje
+produkcyjne i pomiary pamięci pozostają do wykonania.
+
+Następny krok: pilotaż dwóch prawdziwych scen 1-bit L33/L34 i sprawdzenie
+ich czytelności oraz budżetu pamięci na Plusie; potem Q25 i faza D.

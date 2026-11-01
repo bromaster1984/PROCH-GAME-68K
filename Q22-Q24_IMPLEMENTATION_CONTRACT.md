@@ -1,8 +1,8 @@
 # Faza C K — kontrakt implementacyjny Q22–Q24
 
 Kontrakt na podstawie `02_QUESTY.md`, `06_DIALOGI_I_ZAKONCZENIA.md`,
-`items.json` i `scenes.json`. Q22 i Q23 są sprawdzone natywnie, a reguły Q24
-mają testy hostowe od etapu 3o. Natywna weryfikacja Q24 pozostaje do zrobienia.
+`items.json` i `scenes.json`. Q22–Q24 i wejście do D sprawdzono natywnie
+na Plusie w etapie 3p; test SE oraz rozgrywka fazy D pozostają do wykonania.
 
 ## Q22 — sieć i zaufanie (L34, po Q21)
 
