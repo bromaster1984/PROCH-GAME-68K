@@ -1,13 +1,13 @@
 # PROCH — implementacja natywna
 
 Cel: Macintosh SE, Motorola 68000, 4 MB, System 6.0.8, ekran 512×342 1-bit.
-Obecnie: **grywalny wycinek techniczny, nie ukończona gra**: Mikołaj Q09/Q12
-i Konstancja Q21. Uruchomiony na emulowanym Plusie/4 MB/Systemie 6.0.8.
+Obecnie: **grywalny początek Q01–Q08, nie ukończona gra**.
+Przetestowany na emulowanym Plusie/4 MB/Systemie 6.0.8.
 Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
-Źródła domyślnie budują teraz początek kampanii Q01–Q08 (etap 3, trwa test UI).
-`dist/` do końca tego testu nadal zawiera zweryfikowany wycinek etapu 2.
+Źródła domyślnie budują początek kampanii Q01–Q08 (etap 3).
+`dist/` zawiera dokładnie przetestowany build `a9afaecc…b98482` z etapu 3c.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
 
@@ -67,7 +67,7 @@ i `PROCH_TOOLCHAIN_BUILD`. Dodatkowy test Toolbox: `bash tools/test_toolbox.sh
 source`, po instalacji Executor 2000 v0.1.0 z URL i sumą w locku. `bootstrap`
 jest jawną opcją budowania oficjalnym obrazem zamiast własnego toolchaina.
 
-## Sterowanie demonstracją
+## Historyczna demonstracja etapu 2 (PROCH_CAMPAIGN=OFF)
 
 Komenda, potem obiekt. Użyj: najpierw przedmiot w ekwipunku, potem cel.
 Przeciągnięcie z pojemnika do ekwipunku zabiera rzecz; kliknięcie jej ikony
@@ -129,18 +129,16 @@ Uruchomić Mini vMac na tych kopiach, otworzyć aplikację w Finderze. W lokalny
 środowisku testowym Xvfb=:99, kontenerze `proch-emulation` i oknie 0x200004:
 
 ```sh
-python3 tools/test_native_demo.py q09 --profile /workspace/testing/nowy-test
-python3 tools/test_native_demo.py q12 --profile /workspace/testing/nowy-test
-python3 tools/test_native_demo.py q21 --profile /workspace/testing/nowy-test
-python3 tools/test_native_demo.py long_dialogue --profile /workspace/testing/nowy-test
-python3 tools/test_native_demo.py description_history --profile /workspace/testing/nowy-test
+python3 tools/test_native_campaign.py --profile /workspace/testing/nowy-test
 ```
 
-Zmiana nazwy kontenera/okna: `--container`, `--window`. Testy wymagają świeżego
-startu i kolejności powyżej. Wynik identyfikuje snapshot aplikacji, nie bieżący
-plik nadpisywany następnym buildem. Końcowe wyniki bieżącego wydania demonstracji
-są w `tests/results/stage2-native.json`; obrazy w `screenshots/stage2-*.png`.
-To testy trzech Q, nie czterech zakończeń całej gry.
+Zmiana nazwy kontenera/okna: `--container`, `--window`. Test wymaga świeżej gry.
+Wynik identyfikuje snapshot aplikacji, nie plik nadpisywany następnym buildem.
+Aktualny raport to `tests/results/stage3-a-native.json`; zrzuty `stage3-a-*.png`.
+To test początku, nie czterech zakończeń całej gry. Starszy runner
+`tools/test_native_demo.py` sprawdza etapy q09, q12, q21, long_dialogue,
+description_history w tej kolejności, wyłącznie po zbudowaniu opcji
+`PROCH_CAMPAIGN=OFF`. Jego archiwum znajduje się w `stage2-native.json`.
 
 Pakiet `dist/` nie zawiera ROM-u ani systemu. Sam build nie potwierdza działania
 na Systemie 6.0.8. Minimalna partycja wynosi 1536 KiB, zalecana 2048 KiB;

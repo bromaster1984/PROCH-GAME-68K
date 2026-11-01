@@ -282,3 +282,21 @@ Emulator `proch-emulation`, :99, okno 0x200004. Test
 
 Następny krok: dokończyć ten test, zapisać dowody/binaria, następnie reguły B
 i dalsze fazy. Nie utożsamiać tego etapu z kompletem Q01–Q40/T01–T04.
+
+## 2026-11-01 — etap 3c ukończony: test UI początku i dystrybucja
+
+Pełne powtórzenie Q01–Q08 po poprawkach PASS: 31 kontroli pikseli w Mini vMac
+Plus/4 MB/System 6.0.8. Runner używa rzeczywistej myszy i klawiatury.
+Wynik `tests/results/stage3-a-native.json`; trzy zrzuty `stage3-a-*.png`.
+M przechodzi umowę, broszkę, adres, pociąg/naprawę/przyjazd; K pakowanie,
+Seroczyn i kontrolę listu. Dopiero obie gotowe ścieżki uruchamiają fazę B.
+Powrót na M potwierdza zachowany dziennik. Testy hostowe i 9 Python PASS.
+
+`dist/` zaktualizowano do dokładnie przetestowanej aplikacji i oryginalnego
+obrazu HFS builda (nie do dysku zmodyfikowanego przez emulator). SHA aplikacji
+`a9afaecc0600cff8ca4d7b6fc3f315a911ff8d4d67a5262c15ad9d0b03b98482`.
+Forki/zasoby/HFS PASS. Źródła UI zapisano i wysłano w `f8d29aa`.
+
+Następny krok: reguły Q09–Q15 fazy B w modelu produkcyjnym (stary wycinek
+pozostaje regresją), potem C–F i pełne ścieżki. Zapis, grafiki produkcyjne,
+audio, pomiary pamięci i test SE nadal czekają. Gra nie jest ukończona.

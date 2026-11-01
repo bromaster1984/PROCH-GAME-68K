@@ -1,5 +1,31 @@
 # PROCH — raport testów
 
+## Bieżące wydanie: etap 3c, początek kampanii
+
+`dist/PROCH.bin`: SHA256
+`a9afaecc0600cff8ca4d7b6fc3f315a911ff8d4d67a5262c15ad9d0b03b98482`.
+58 880 B MacBinary, fork zasobów 58 726 B; HFS 819 200 B. Kontrola forków,
+zasobów CODE/DATA/RELA/SIZE i nagłówka HFS PASS. Zawartość aplikacji dokładnie
+odpowiada snapshotowi uruchomionemu w profilu `stage3a-candidate2`.
+
+Mini vMac Plus/4 MB/System 6.0.8: pełna sekwencja działań Q01–Q08 PASS.
+Runner klika i przeciąga, nie ma dostępu do stanu silnika. 31 kontroli pikseli:
+pełne czytanie umowy, wpis Q01, dojście przez naprawę do Opoczna i Q05,
+ścieżka Konstancji z pakowaniem, Seroczynem i listem, wejście obu do B oraz
+ponowny odczyt dziennika M. Surowy wynik `tests/results/stage3-a-native.json`,
+zrzuty `screenshots/stage3-a-*.png`. Nie badano tu kolejności K jako pierwszej;
+obie kolejności i opcjonalny adres pokrywają cztery przejścia hostowe.
+
+W próbach wykryto i poprawiono własność zawartości walizki podczas pakowania
+oraz odrysowanie celów po zmianie mikroczynności. Runner miał także błędny
+wiersz dziennika, poprawiony po inspekcji rzeczywistego ekranu. Końcowe pełne
+powtórzenie PASS wykonano po poprawkach, na nowym profilu.
+
+Nadal niewykonane: pełne Q09–Q40 w modelu kampanii, cztery zakończenia
+T01–T04, zapis/odczyt, produkcyjne ilustracje, audio i profilowanie pamięci.
+Nie ma potwierdzenia działania na SE ani sprzęcie fizycznym. Historyczne
+raporty poniżej zachowują zakres ówczesnych wersji.
+
 ## Reguły fazy A (etap 3b)
 
 Q01–Q08: cztery przejścia przez `pr_act` PASS pod ASan/UBSan, obie kolejności
