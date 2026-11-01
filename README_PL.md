@@ -1,13 +1,13 @@
 # PROCH — implementacja natywna
 
 Cel: Macintosh SE, Motorola 68000, 4 MB, System 6.0.8, ekran 512×342 1-bit.
-Obecnie: **grywalne Q01–Q15 obu postaci oraz Q16–Q19 Mikołaja; gra nieukończona**.
+Obecnie: **grywalne Q01–Q15 obu postaci oraz Q16–Q20 Mikołaja w C; gra nieukończona**.
 Przetestowany na emulowanym Plusie/4 MB/Systemie 6.0.8.
 Status w `PROGRESS.md` i
 `TEST_REPORT.md`. Specyfikacja autora pozostaje w plikach `00_`–`08_` i JSON.
 
 Źródła domyślnie budują ten początek kampanii (etap 3).
-`dist/` zawiera dokładnie przetestowany build `76da6b3a…b5a41` z etapu 3f.
+`dist/` zawiera dokładnie przetestowany build `bacef93f…57dcdb6` z etapu 3g.
 Do budowania historycznej demonstracji służy `PROCH_CAMPAIGN=OFF`;
 z innym katalogiem `PROCH_DIST_DIR`, aby nie nadpisać aktualnej dystrybucji.
 
@@ -36,8 +36,9 @@ otwiera wybór kierunku po obejrzeniu świateł. Po Q13 i Q15 rozpoczyna się C;
 Mikołaj może dalej rozmawiać w plebanii, porównać koronkę z portretem po
 ustawieniu drabiny, czytać kronikę i dotrzeć nad staw. W widzeniu należy
 zamknąć tekst, obejrzeć szczegóły i wybrać światło; wyjście działa także
-bez oglądania szczegółów. Konstancja w C i pozostałe zadania kampanii są
-nadal w implementacji.
+bez oglądania szczegółów. Po Q19 Mikołaj może wrócić do Krystyny, powiedzieć
+jej o Konstancji i ukończyć opcjonalne Q20. Q20 jest obecnie dostępne tylko
+w C; jego dostępność w D oraz Konstancja w C pozostają do implementacji.
 
 ## Pierwszy build
 
@@ -144,8 +145,9 @@ python3 tools/test_native_campaign.py --chapter abc_m --profile /workspace/testi
 
 Zmiana nazwy kontenera/okna: `--container`, `--window`. Test wymaga świeżej gry.
 Wynik identyfikuje snapshot aplikacji, nie plik nadpisywany następnym buildem.
-Aktualny raport to `tests/results/stage3-c-m-native.json`; zrzut Q19:
-`screenshots/stage3-c-q19-journal.png`. Poprzednie Q01–Q15:
+Aktualny raport to `tests/results/stage3-c-m-q20-native.json`; zrzut Q20:
+`screenshots/stage3-c-q20-journal.png`. Poprzednie Q16–Q19:
+`stage3-c-m-native.json` i `stage3-c-q19-journal.png`. Q01–Q15:
 `stage3-ab-native.json` i `stage3-b-*.png`.
 To test początku, nie czterech zakończeń całej gry. Starszy runner
 `tools/test_native_demo.py` sprawdza etapy q09, q12, q21, long_dialogue,

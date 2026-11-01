@@ -399,3 +399,30 @@ test SE nadal niewykonane. Nie utożsamiać testu Plus ze zgodnością SE.
 Następny krok: opcjonalne Q20, potem ścieżka K Q21–Q24 i potwierdzenie C→D.
 Przy realizacji prostego Q20 nie zmieniać zasad drabiny, widzenia ani kodu UI
 fazy B; zachować osobny mały etap i test publicznych akcji.
+
+## 2026-11-01 — etap 3g: opcjonalne Q20 w fazie C
+
+Wykonano: Mikołaj może porozmawiać z Krystyną o Warszawie, nazwać związek
+z Konstancją, pokazać broszkę I03 i złożyć uczciwą deklarację. Tematy
+udostępniają się po kolei, a Q17 jest warunkiem wstępnym. Flaga
+`PR_HONEST_KRYSTYNA` ustawia się dopiero przy ostatnim wyborze; I03 pozostaje
+w ekwipunku. Q20 nie jest warunkiem dalszej fazy C.
+
+Przetestowano: host C/ASan/UBSan przez `pr_act`: pełne Q20 oraz dwie ścieżki
+pomijające zadanie; nieprawidłowe rozmowy i użycie I01 nie zmieniają stanu,
+flaga nie ustawia się przed ostatnim wyborem, broszka nie jest zużywana.
+Dziewięć testów Python PASS. Cross-build pełnej aplikacji 68000 PASS.
+Mini vMac Plus/System 6.0.8/4 MB: pełny natywny przebieg Q01–Q15 obu postaci,
+Q16–Q20 M PASS, 84 kontrole obrazu. Profil `/workspace/testing/stage3c-q20-final2`,
+raport `tests/results/stage3-c-m-q20-native.json`, SHA aplikacji
+`bacef93fca4b43fcf455fd72a814ec5da869fb8ab8bb9d31b27e1824957dcdb6`.
+Testowana kopia, build i `dist/` mają tę samą sumę. Kontrola forków/HFS PASS;
+zrzut wpisu Q20 `screenshots/stage3-c-q20-journal.png` ma 512×342/1-bit.
+
+Problemy i granice: rozmowa Q20 jest zaimplementowana i przetestowana tylko
+w fazie C. Jej dostępność w D, wymagana specyfikacją, pozostaje do wdrożenia;
+kod D nie był zmieniany. Nie wykonano testu SE. Q21–Q40, zapis/odczyt,
+końcowe ilustracje, audio i pomiary pamięci nadal pozostają do zrobienia.
+
+Następny krok: ścieżka K Q21–Q24 w C. Później dodać Q20 także w D przed
+rozmową w ogrodzie i przetestować oba punkty dostępu.

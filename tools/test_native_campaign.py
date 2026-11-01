@@ -69,11 +69,11 @@ class CampaignDriver(Driver):
                      'mousedown',1,'sleep',0.16,'mousemove','--window',self.args.window,
                      390,210,'sleep',0.16,'mouseup',1,'sleep',0.3)
 
-    def journal_title(self,title,page,index):
+    def journal_title(self,title,page,index,capture_name=None):
         self.key('alt+j')
         for _ in range(page):self.click(180,235)
         self.expect(title,30,98+44*index)
-        self.capture('campaign-a-'+title.split()[0])
+        self.capture(capture_name or 'campaign-a-'+title.split()[0])
         self.key('Escape')
 
     def chapter_a(self):
@@ -195,6 +195,11 @@ class CampaignDriver(Driver):
         self.verb(5);self.spot(3)
         self.expect('Leśna ścieżka')
         self.journal_title('Ślad prowadzi do wody',7,2)
+        self.go(0,'Dziedziniec gorzelni');self.go(0,'Droga i most w Wąglanach')
+        self.go(3,'Plac przy kościele')
+        self.talk(1,1);self.talk(1,1)
+        self.use_late(2,1);self.talk(1,1)
+        self.journal_title('Słowo uczciwe',8,0,'campaign-c-q20')
 
     def run(self):
         self.chapter_a()
@@ -213,6 +218,6 @@ if __name__=='__main__':
     (d.directory/(args.part+'-result.json')).write_text(json.dumps({
         'result':'PASS','checks':d.passed,'run_id':d.run_id,
         'application_sha256':d.profile['application_sha256'],'profile':str(args.profile),
-        'scope':('Q01-Q15 both heroes; Q16-Q19 M' if args.chapter=='abc_m' else 'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
+        'scope':('Q01-Q15 both heroes; Q16-Q20 M' if args.chapter=='abc_m' else 'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
                 ' native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},
         ensure_ascii=False,indent=2)+'\n')

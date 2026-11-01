@@ -222,5 +222,12 @@
   "Q19_ARMS": "Stara broń i elementy uzbrojenia należą do widzenia. Pozostawiam je na miejscu.",
   "Q19_LIGHT": "Między drzewami widać światło. To bezpieczna droga wyjścia z widzenia.",
   "Q19_RETURN": "Idę ku światłu. Po drodze oglądam torbę i stare uzbrojenie, ale niczego nie zabieram. Wracam na leśną ścieżkę. Zapisuję ostrzeżenie o korzeniach i uskoku przy stawie.",
+  "Q20_WARSAW": "Chce pani wiedzieć, co robiłem w Warszawie?",
+  "Q20_RELATION": "Jestem związany z Konstancją",
+  "Q20_HONEST": "Nie chcę budować przyjaźni na kłamstwie",
+  "Q20_WARSAW_REPLY": "Krystyna pyta o Warszawę. Opowiadam, że zostawiłem tam kogoś bliskiego i nie powinienem był przemilczeć tego przy naszym spotkaniu.",
+  "Q20_RELATION_REPLY": "Mikołaj: Jestem związany z Konstancją. Powinienem był powiedzieć to od razu.",
+  "Q20_BROOCH_REPLY": "Pokazuję broszkę Konstancji. Krystyna rozumie, że mówię o prawdziwej osobie, nie wymyślonej wymówce.",
+  "Q20_HONEST_REPLY": "Krystyna: Powinien pan był powiedzieć wcześniej. Mikołaj: Mówię teraz. Konstancja nie może stać się tematem, który omijamy. Krystyna: Rozumiem. Choć nie jest to dla mnie obojętne.",
   "UI_LUDWIK": "Ludwik", "UI_PAGE_27": "Karta 27", "UI_MARGIN": "Margines", "UI_ARMS": "Uzbrojenie"
 }

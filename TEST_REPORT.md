@@ -1,29 +1,38 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3f, Q01–Q19 M
+## Bieżące wydanie: etap 3g, Q01–Q20 M w fazie C
 
 `dist/PROCH.bin` SHA256
-`76da6b3a8364211d0f6a5d115c561e4268e8892d9343bd622bba94da120b5a41`.
-77 184 B MacBinary, zasoby 77 051 B, HFS 819 200 B. Kontrola forków,
+`bacef93fca4b43fcf455fd72a814ec5da869fb8ab8bb9d31b27e1824957dcdb6`.
+78 336 B MacBinary, zasoby 78 185 B, HFS 819 200 B. Kontrola forków,
 zasobów i HFS PASS. To pliki oryginalnego builda, a suma aplikacji zgadza
 się z kopią uruchomioną w emulatorze.
 
 Mini vMac Plus/System 6.0.8/4 MB: pełne natywne przejście Q01–Q15 obu
-postaci, następnie Q16–Q19 Mikołaja PASS, 80 kontroli pikseli. Runner używa
-myszy i klawiatury, nie zmienia stanu silnika. Profil `stage3c-m-final`,
-raport `tests/results/stage3-c-m-native.json`, zrzut dziennika
-`screenshots/stage3-c-q19-journal.png` (512×342, 1-bit).
+postaci, następnie Q16–Q20 Mikołaja PASS, 84 kontrole pikseli. Runner używa
+myszy i klawiatury, nie zmienia stanu silnika. Profil `stage3c-q20-final2`,
+raport `tests/results/stage3-c-m-q20-native.json`, zrzut dziennika
+`screenshots/stage3-c-q20-journal.png` (512×342, 1-bit).
 Sprawdzono wejście do biblioteki, portret i drabinę, wskazówki katalogu,
-kronikę, trasę nad staw, widzenie, wyjście ku światłu i wpis Q19.
+kronikę, trasę nad staw, widzenie, wyjście ku światłu, rozmowę o Warszawie,
+pokazanie broszki I03 i wpis „Słowo uczciwe”.
 
-Host C/ASan/UBSan PASS: dwa warianty Q16–Q19, w tym wyjście z widzenia
-od razu, niezależność wiedzy K, blokada zmiany bohatera, zachowanie rzeczy
-oraz pozostanie w fazie C. Pozostałe regresje C i 9 testów Python PASS.
-Cross-build pełnej aplikacji 68000 PASS.
+Host C/ASan/UBSan PASS: pełne Q16–Q20 oraz dwa przejścia pomijające Q20.
+Sprawdzono błędne akcje bez zmian stanu, zachowanie I03, flagę dopiero po
+ostatniej deklaracji, niezależność wiedzy K i pozostanie w fazie C.
+Pozostałe regresje C i 9 testów Python PASS. Cross-build pełnej aplikacji
+68000 PASS.
 
-Niezweryfikowane/niewykonane: Q20–Q40, cała ścieżka K w fazie C,
+Niezweryfikowane/niewykonane: dostępność Q20 w D (wymagana specyfikacją),
+Q21–Q40, cała ścieżka K w fazie C,
 T01–T04, zapis/odczyt, produkcyjne ilustracje, audio, pomiary pamięci
 i test SE/sprzętu fizycznego. Plus nie zastępuje SE.
+
+## Archiwum: etap 3f, Q01–Q19 M
+
+`PROCH.bin` SHA256 `76da6b3a8364211d0f6a5d115c561e4268e8892d9343bd622bba94da120b5a41`,
+80 natywnych kontroli Q01–Q15 obu postaci i Q16–Q19 M. Raport
+`tests/results/stage3-c-m-native.json`.
 
 ## Archiwum: etap 3d, fazy A–B
 

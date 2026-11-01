@@ -50,6 +50,11 @@ unsigned pr_topics_c(const PrState *s,unsigned target,PrTopic *out,unsigned capa
     if(target==PR_CHRONICLE_MARGIN && HAS(18,4))ADD(18,3,Q18_TRACE);
     if(target==H(23,1) && HAS(19,0) && HAS(19,1) && HAS(19,2) && !HAS(19,3))
         ADD(19,1,Q19_REACH);
+    if(target==H(18,1) && pr_done(s,17) && !pr_done(s,20)) {
+        if(!HAS(20,0))ADD(20,1,Q20_WARSAW);
+        if(HAS(20,0) && !HAS(20,1))ADD(20,2,Q20_RELATION);
+        if(HAS(20,2))ADD(20,3,Q20_HONEST);
+    }
 #undef ADD
     return n;
 }
@@ -83,6 +88,11 @@ static PrFeedback choose(PrState *s,unsigned target)
     case C(19,1):
         MARK(19,3);s->locks|=PR_VISION;pr_story_move(s,24);
         return pr_reply(PR_OK,PR_TEXT_Q19_SLIP,PR_CUTSCENE,0);
+    case C(20,1):MARK(20,0);return SAY(Q20_WARSAW_REPLY);
+    case C(20,2):MARK(20,1);return SAY(Q20_RELATION_REPLY);
+    case C(20,3):
+        MARK(20,3);pr_set_flag(s,PR_HONEST_KRYSTYNA,1);pr_finish(s,20,1);
+        return SAY(Q20_HONEST_REPLY);
     default:return DENY(NO_EFFECT);
     }
 }
@@ -123,6 +133,9 @@ static PrFeedback use(PrState *s,unsigned source,unsigned target)
     }
     if(source==22 && target==H(22,3) && pr_done(s,18)) {
         MARK(19,0);return SAY(Q19_TRACKED);
+    }
+    if(source==3 && target==H(18,1) && HAS(20,1) && !HAS(20,2)) {
+        MARK(20,2);return SAY(Q20_BROOCH_REPLY);
     }
     return DENY(NO_EFFECT);
 }

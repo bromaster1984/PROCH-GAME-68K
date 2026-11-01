@@ -240,7 +240,7 @@ static void complete_ab(int k_first,int alternate)
     assert(!pr_knows(&game.current,PR_K,PR_FACT_UNBROKEN_MARKERS));
 }
 
-static void c_m_path(int inspect_vision)
+static void c_m_path(int inspect_vision,int do_q20)
 {
     unsigned q,item;
     uint16_t before_vision[PR_ITEMS+1];
@@ -286,14 +286,29 @@ static void c_m_path(int inspect_vision)
     assert(!pr_knows(&game.current,PR_K,PR_FACT_POND_HAZARD));
     for(q=16;q<=19;++q)assert(pr_done(&game.current,q));
     assert(game.current.phase==PR_C); /* K has not completed Q24. */
+    assert(!pr_done(&game.current,20) && !pr_flag(&game.current,PR_HONEST_KRYSTYNA));
+    if(do_q20) {
+        go(11);go(9);go(18);
+        denied(PR_CHOOSE,H(18,1),C(20,2));
+        denied(PR_USE,1,H(18,1));
+        choose(H(18,1),C(20,1));choose(H(18,1),C(20,2));
+        assert(!pr_done(&game.current,20) && !pr_flag(&game.current,PR_HONEST_KRYSTYNA));
+        denied(PR_USE,1,H(18,1));
+        use(3,H(18,1));
+        assert(pr_has_item(&game.current,PR_M,3));
+        assert(!pr_done(&game.current,20) && !pr_flag(&game.current,PR_HONEST_KRYSTYNA));
+        choose(H(18,1),C(20,3));
+        assert(pr_done(&game.current,20) && pr_flag(&game.current,PR_HONEST_KRYSTYNA));
+        assert(pr_has_item(&game.current,PR_M,3));
+    }
 }
 
 int main(void)
 {
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
     complete_ab(0,0);complete_ab(0,1);complete_ab(1,0);complete_ab(1,1);
-    c_m_path(0);c_m_path(1);
+    c_m_path(0,0);c_m_path(1,0);c_m_path(0,1);
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q19 M action playthroughs, C vision direct/inspected exit, A/B variants and isolation");
+    puts("PASS: Q01-Q20 M action playthroughs, optional Q20 skip, C vision, A/B variants and isolation");
     return 0;
 }
