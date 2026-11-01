@@ -1,6 +1,7 @@
 # Q23 — mapa stanów i przypadków testowych
 
-Przygotowanie treści, bez reguł silnika. Kolejność narracyjna: warunek Q22,
+Kontrakt akceptacyjny; reguły Q23 przetestowano na hoście w etapie 3m.
+Kolejność narracyjna: warunek Q22,
 papier i szkic, właściwa treść, prywatne wspomnienie broszki, przekazanie
 sąsiadowi. Używać istniejących `Q23_WRITE`, `Q23_WORDS`, `Q23_MEMORY`,
 `Q23_SEND` i odpowiedzi `Q23_DRAFT_REPLY`, `Q23_MEMORY_REPLY`,
@@ -12,7 +13,7 @@ wspólnej odpowiedzi `NO_EFFECT`.
 | Stan lub przypadek | Przygotowanie i akcje | Oczekiwany wynik |
 | --- | --- | --- |
 | Brak Q22 | K próbuje otworzyć tematy Q23 w L33/L34 lub przekazać list | Tematy niedostępne; stan, przedmioty i flagi bez zmian. |
-| I10 obecne | Po Q22 rozpocznij szkic przez `Q23_WRITE`; wybierz `Q23_WORDS` | Szkic powstaje na posiadanym papierze; I10 nie jest wymaganiem do żadnej innej gałęzi Q23. |
+| I10 obecne | Po Q22 rozpocznij szkic przez `Q23_WRITE`; wybierz `Q23_WORDS` | Szkic powstaje na posiadanym papierze; nie pobiera się zapasu z L33. |
 | I10 brak | W L33 wybierz `Q23_TAKE_EXTRA_PAPER`, potem napisz szkic | Dostępny jest jeden czysty arkusz; pobranie nie blokuje listu i zapas można uzupełnić ponownie. |
 | Błędna treść | Po szkicu wybierz inną treść lub spróbuj wysłać przed poprawną treścią | Wspólne `NO_EFFECT`; brak I28, `PR_LETTER_SENT` i ukończenia Q23. |
 | Brak wspomnienia | Przy poprawnej treści pomiń `Q23_MEMORY` i spróbuj przekazać | Przekazanie niedostępne lub odrzucone; brak I28 i zmian stanu zadania. |

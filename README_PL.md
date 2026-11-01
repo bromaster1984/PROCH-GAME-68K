@@ -44,7 +44,8 @@ przez plażę prowadzi do przystani: rozmowa z sąsiadem, oględziny sieci, I25,
 połączenie lewego końca ze środkowym i środkowego z prawym oraz zatwierdzenie
 pozwalają odebrać I27. Błędne połączenie cofa tylko układankę. Q22 jest
 opcjonalne. Q20 jest obecnie dostępne tylko w C; jego dostępność w D oraz
-Q23–Q24 pozostają do wdrożenia.
+Q23 ma reguły sprawdzone na hoście, lecz nie został jeszcze przetestowany
+w emulatorze; Q24 pozostaje do wdrożenia.
 
 ## Pierwszy build
 

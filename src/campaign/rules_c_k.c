@@ -11,6 +11,7 @@ void pr_refresh_c_k(PrState *s)
 {
     static const uint32_t q21[]={1,7,255,511};
     static const uint32_t q22[]={1,3,63,127};
+    static const uint32_t q23[]={1,3,7,15};
     unsigned i;
     if(!pr_done(s,21)) {
         for(i=0;i<pr_quest_steps[21];++i)
@@ -28,6 +29,15 @@ void pr_refresh_c_k(PrState *s)
         if(i==pr_quest_steps[22]) {
             pr_finish(s,22,2);
             pr_set_flag(s,PR_SAFE_COURIER,1);
+        }
+    }
+    if(pr_done(s,22) && !pr_done(s,23)) {
+        for(i=0;i<pr_quest_steps[23];++i)
+            if((s->quest[22].actions&q23[i])!=q23[i])break;
+        s->quest[22].substep=(uint8_t)i;
+        if(i==pr_quest_steps[23]) {
+            pr_finish(s,23,2);
+            pr_set_flag(s,PR_LETTER_SENT,1);
         }
     }
 }
@@ -54,6 +64,19 @@ unsigned pr_topics_c_k(const PrState *s,unsigned target,PrTopic *out,unsigned ca
             if(HAS(22,3) && HAS(22,4))ADD(22,4,Q22_CONFIRM);
         }
     }
+    if(pr_done(s,22)) {
+        if(target==H(33,2)) {
+            if(!pr_has_item(s,PR_K,10))ADD(23,1,Q23_TAKE_EXTRA_PAPER);
+            if(!pr_done(s,23) && pr_has_item(s,PR_K,10) &&
+               pr_has_item(s,PR_K,11) && pr_has_item(s,PR_K,27)) {
+                if(!HAS(23,0))ADD(23,2,Q23_WRITE);
+                else if(!HAS(23,1))ADD(23,3,Q23_WORDS);
+                else if(!HAS(23,2))ADD(23,4,Q23_MEMORY);
+            }
+        }
+        if(target==H(34,1) && HAS(23,2) && !pr_done(s,23) &&
+           pr_has_item(s,PR_K,28))ADD(23,5,Q23_SEND);
+    }
 #undef ADD
     return n;
 }
@@ -78,6 +101,18 @@ static PrFeedback choose(PrState *s,unsigned target)
     case C(22,5):
         if(!HAS(22,6))pr_place_item(s,27,PR_INVENTORY_K);
         MARK(22,6);return SAY(Q22_ADDRESS);
+    case C(23,1):
+        pr_place_item(s,10,PR_INVENTORY_K);return SAY(Q23_PAPER_TAKEN);
+    case C(23,2):MARK(23,0);return SAY(Q23_DRAFT_REPLY);
+    case C(23,3):MARK(23,1);return SAY(Q23_WORDS);
+    case C(23,4):
+        pr_place_item(s,28,PR_INVENTORY_K);MARK(23,2);
+        return SAY(Q23_MEMORY_REPLY);
+    case C(23,5):
+        if(pr_queue_message(s,28,PR_K,PR_M,
+                            PR_ROUTE_NEIGHBOUR_IZYDOR_FLOREK,PR_D)!=PR_OK)
+            return DENY(BLOCKED);
+        MARK(23,3);return SAY(Q23_SENT_REPLY);
     default:return DENY(NO_EFFECT);
     }
 wrong_link:
@@ -112,6 +147,8 @@ static PrFeedback use(PrState *s,unsigned source,unsigned target)
        HAS(22,0) && HAS(22,1) && !pr_done(s,22)) {
         MARK(22,2);return SAY(Q22_NEEDLE);
     }
+    if(source==28 && target==H(34,1) && pr_done(s,22) && HAS(23,2) &&
+       !pr_done(s,23))return choose(s,C(23,5));
     return DENY(NO_EFFECT);
 }
 

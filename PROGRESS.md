@@ -550,3 +550,29 @@ Mikołaja i SE pozostają do implementacji lub weryfikacji.
 Następny krok: wdrożyć Q23 zgodnie z mapą akcji i testów w osobnym etapie;
 przed zmianą routingu I28 i przejścia C→D wrócić do Sol. Q24 pozostaje
 poza tym etapem.
+
+## 2026-11-01 — etap 3m: reguły hostowe Q23
+
+Wykonano: po Q22 Konstancja może na stole w L33 napisać list na posiadanym
+I10 albo pobrać arkusz z zapasu, wybrać dokładną treść i dodać wspomnienie
+broszki. I28 powstaje dopiero po tych czynnościach. Przekazanie sąsiadowi
+w L34 przez temat rozmowy lub użycie I28 kieruje pojedynczy fizyczny list
+do istniejącej kolejki `PR_ROUTE_NEIGHBOUR_IZYDOR_FLOREK` z terminem D,
+kończy Q23 i ustawia `PR_LETTER_SENT`. Zmiana bohatera przed D nie doręcza
+listu ani nie daje Mikołajowi wiedzy o życiu Konstancji.
+
+Przetestowano: publiczne `pr_act` obejmuje papier obecny i dwukrotnie
+odtworzony z zapasu, niepoprawną treść, próbę przekazania bez wspomnienia,
+obie drogi przekazania I28, brak duplikacji i wiedzy Mikołaja. Test modelu
+symuluje ukończenie niedostępnego jeszcze Q24, po czym potwierdza dostawę
+I28 do Florka dopiero przy wejściu do D. C host ASan/UBSan i walidator
+danych PASS; cross-build Motorola 68000 PASS.
+
+Problemy i granice: Q23 nie ma jeszcze świeżego testu natywnego Plus ani SE;
+`dist/` nadal zawiera sprawdzony build Q22. Przejście C→D w rzeczywistej
+rozgrywce czeka na Q24, więc dostawę przy wejściu do D sprawdzono wyłącznie
+z testowym spełnieniem tej bramki. Q24, zapis/odczyt, audio, ilustracje
+produkcyjne i pomiary pamięci pozostają do wykonania.
+
+Następny krok: przejść Q23 przez natywny interfejs Mini vMac od nowej gry,
+dopiero po PASS zaktualizować `dist/` i raport testów. Potem Q24.

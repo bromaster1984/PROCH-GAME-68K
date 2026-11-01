@@ -338,6 +338,7 @@ static void c_k_q22(int skip)
     c_k_q21();
     step(PR_SWITCH,0,0);
     assert(game.current.active==PR_K && game.current.phase==PR_C);
+    denied(PR_CHOOSE,H(33,2),C(23,2));
     denied(PR_GO,0,34); /* There is no direct route from the hut. */
     go(32);denied(PR_GO,0,31);go(34);
     assert(!pr_done(&game.current,22) && !pr_flag(&game.current,PR_SAFE_COURIER));
@@ -378,6 +379,63 @@ static void c_k_q22(int skip)
     go(32);go(33);
 }
 
+static void c_k_q23(int missing_paper,int use_letter)
+{
+    PrState before;
+    c_k_q22(0);
+    assert(game.current.active==PR_K && game.current.hero[PR_K].location==33);
+    denied(PR_CHOOSE,H(33,2),C(23,3));
+    if(missing_paper) {
+        /* Fixture for the Q08 paper having been used up before Q23. */
+        game.current.world.item_position[10]=PR_CONSUMED;
+        denied(PR_CHOOSE,H(33,2),C(23,2));
+        choose(H(33,2),C(23,1));
+        assert(pr_has_item(&game.current,PR_K,10));
+        game.current.world.item_position[10]=PR_CONSUMED;
+        choose(H(33,2),C(23,1)); /* the hut has another sheet */
+        assert(pr_has_item(&game.current,PR_K,10));
+    } else denied(PR_CHOOSE,H(33,2),C(23,1));
+    assert(pr_has_item(&game.current,PR_K,11) && pr_has_item(&game.current,PR_K,27));
+    choose(H(33,2),C(23,2));
+    denied(PR_CHOOSE,H(33,2),C(23,4));
+    before=game.current;
+    denied(PR_CHOOSE,H(33,2),C(23,6)); /* wrong wording is never offered */
+    assert(memcmp(&before,&game.current,sizeof(before))==0);
+    assert(!pr_has_item(&game.current,PR_K,28));
+    choose(H(33,2),C(23,3));
+    go(32);go(34);denied(PR_CHOOSE,H(34,1),C(23,5));
+    go(32);go(33);choose(H(33,2),C(23,4));
+    assert(pr_has_item(&game.current,PR_K,28));
+    assert(!pr_done(&game.current,23) && !pr_flag(&game.current,PR_LETTER_SENT));
+    go(32);go(34);
+    if(use_letter)use(28,H(34,1));else choose(H(34,1),C(23,5));
+    assert(pr_done(&game.current,23) && pr_flag(&game.current,PR_LETTER_SENT));
+    assert(game.current.quest[22].substep==4);
+    assert(game.current.world.item_position[28]==PR_COURIER);
+    assert(game.current.messages[0].item==28 && game.current.messages[0].state==PR_MSG_WAITING);
+    assert(game.current.messages[0].route==PR_ROUTE_NEIGHBOUR_IZYDOR_FLOREK);
+    assert(!pr_has_item(&game.current,PR_K,28) && pr_has_item(&game.current,PR_K,27));
+    assert(pr_has_item(&game.current,PR_K,11));
+    denied(PR_CHOOSE,H(34,1),C(23,5));denied(PR_USE,28,H(34,1));
+    step(PR_SWITCH,0,0);
+    assert(game.current.world.item_position[28]==PR_COURIER);
+    assert(!pr_flag(&game.current,PR_M_KNOWS_ALIVE));
+    assert(!pr_knows(&game.current,PR_M,PR_FACT_ALIVE));
+    if(!missing_paper) {
+        /* Q24 is not implemented yet: satisfy its gate only in this model fixture. */
+        pr_finish(&game.current,19,1);pr_finish(&game.current,24,2);
+        before=game.current;
+        assert(pr_advance_phase(&game.current,0)==PR_CONFIRMATION);
+        assert(memcmp(&before,&game.current,sizeof(before))==0);
+        assert(pr_advance_phase(&game.current,1)==PR_OK);
+        assert(game.current.phase==PR_D);
+        assert(game.current.world.item_position[28]==PR_FLOREK);
+        assert(game.current.messages[0].state==PR_MSG_DELIVERED);
+        assert(!pr_flag(&game.current,PR_M_KNOWS_ALIVE));
+        assert(!pr_knows(&game.current,PR_M,PR_FACT_ALIVE));
+    }
+}
+
 int main(void)
 {
     complete_a(0,0);complete_a(0,1);complete_a(1,0);complete_a(1,1);
@@ -385,7 +443,8 @@ int main(void)
     c_m_path(0,0);c_m_path(1,0);c_m_path(0,1);
     c_k_q21();
     c_k_q22(1);c_k_q22(0);
+    c_k_q23(0,0);c_k_q23(1,1);
     test_modal_and_negative_actions();
-    puts("PASS: Q01-Q20 M, Q21-Q22 K action playthroughs, optional Q20/Q22 skip, C vision, A/B variants and isolation");
+    puts("PASS: Q01-Q20 M, Q21-Q23 K action playthroughs, optional Q20/Q22 skip, C vision, A/B variants and isolation");
     return 0;
 }
