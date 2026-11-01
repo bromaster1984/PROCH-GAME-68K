@@ -1,0 +1,1220 @@
+[
+  {
+    "id": "Q01",
+    "title": "Cena obietnicy",
+    "hero": "M",
+    "stage": "A",
+    "requires": [],
+    "locations": [
+      "L01",
+      "L02"
+    ],
+    "items": [
+      "I01",
+      "I02",
+      "I03"
+    ],
+    "steps": [
+      "Porozmawiaj z Koreckim: „Co właściwie mam zbadać?”",
+      "Obejrzyj umowę na biurku: zatrudnienie w Wąglanach, obietnica zgody na ślub, brak gwarancji bezpieczeństwa.",
+      "Wybierz „Podejmę się zadania”. Otrzymujesz I01 umowę i I02 bilet.",
+      "Marian przy drzwiach przekazuje I03 broszkę Konstancji oraz adres redakcji."
+    ],
+    "success": "q01_done; M zna cel Wąglany.",
+    "hints": [
+      "Najpierw poznaj warunki.",
+      "Zapytaj o zadanie i przeczytaj dokument.",
+      "Przyjmij zlecenie, potem porozmawiaj z Marianem."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q02",
+    "title": "Adres zwrotny",
+    "hero": "M",
+    "stage": "A",
+    "requires": [
+      "Q01"
+    ],
+    "locations": [
+      "L04"
+    ],
+    "items": [
+      "I01"
+    ],
+    "steps": [
+      "Pokaż Izydorowi umowę.",
+      "Zapytaj „Czy mogę zostawić adres dla Konstancji?”.",
+      "Wybierz „Zapisz: gorzelnia w Wąglanach, do rąk własnych”."
+    ],
+    "success": "q02_done; address_left=true. Zadanie opcjonalne; bez niego K uzyska adres później z księgi korespondencji.",
+    "hints": [
+      "Izydor może być łącznikiem.",
+      "Pokaż mu dokąd jedziesz.",
+      "Zostaw adres w redakcji."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q03",
+    "title": "Spóźniony podróżny",
+    "hero": "M",
+    "stage": "A",
+    "requires": [
+      "Q01"
+    ],
+    "locations": [
+      "L05",
+      "L06"
+    ],
+    "items": [
+      "I02"
+    ],
+    "steps": [
+      "Obejrzyj rozkład i znajdź połączenie w kierunku Opoczna.",
+      "Użyj biletu na bramce; konduktor wskazuje przedział.",
+      "W przedziale porozmawiaj z ciężarną podróżną i zaoferuj miejsce.",
+      "Gdy pociąg staje, zapytaj konduktora o przyczynę."
+    ],
+    "success": "q03_done; dostęp L07; krystyna_saw_kindness=true.",
+    "hints": [
+      "Bilet musi odpowiadać trasie.",
+      "Pomoc podróżnej rozpocznie rozmowę.",
+      "Pokaż bilet, ustąp miejsca, zapytaj o postój."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q04",
+    "title": "Zawór zamiast sprężarki",
+    "hero": "M",
+    "stage": "A",
+    "requires": [
+      "Q03"
+    ],
+    "locations": [
+      "L07"
+    ],
+    "items": [
+      "I04",
+      "I05",
+      "I41"
+    ],
+    "steps": [
+      "Porozmawiaj z maszynistą i uzyskaj zgodę na oględziny.",
+      "Obejrzyj sprężarkę oraz zawór: narrator wskazuje osad przy zaworze.",
+      "Poproś maszynistę o odcięcie dopływu i potwierdzenie bezpiecznego stanu maszyny.",
+      "Weź I04 klucz i I05 szmatę ze skrzynki; użyj klucza na zaworze.",
+      "Użyj szmaty na wyjętym wkładzie; użyj wkładu na korpusie i klucza do zamknięcia.",
+      "Poproś o próbę. Zwróć narzędzia; wejdź do przedziału."
+    ],
+    "success": "q04_done; train_repaired=true. Abstrakcyjna zagadka, nie instrukcja obsługi prawdziwego parowozu.",
+    "hints": [
+      "Maszyna nie musi być zatarta.",
+      "Przyjrzyj się zaworowi i osadowi.",
+      "Po zabezpieczeniu maszyny wyjmij, oczyść i zamontuj wkład."
+    ],
+    "failure": "Próba odkręcania działającej maszyny: maszynista zatrzymuje rękę. Bez śmierci, bez postępu."
+  },
+  {
+    "id": "Q05",
+    "title": "Przyjazd",
+    "hero": "M",
+    "stage": "A",
+    "requires": [
+      "Q04"
+    ],
+    "locations": [
+      "L08",
+      "L09"
+    ],
+    "items": [
+      "I01"
+    ],
+    "steps": [
+      "Pokaż woźnicy umowę.",
+      "Wybierz Wąglany.",
+      "Obejrzyj most i bramę. Zakończ podróż przy karczmie."
+    ],
+    "success": "q05_done; M gotowy do etapu B.",
+    "hints": [
+      "Dokument mówi dokąd jedziesz.",
+      "Woźnica rozpozna nazwę fabryki.",
+      "Pokaż umowę i wybierz Wąglany."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q06",
+    "title": "Własne rzeczy",
+    "hero": "K",
+    "stage": "A",
+    "requires": [],
+    "locations": [
+      "L03",
+      "L25"
+    ],
+    "items": [
+      "I06",
+      "I07",
+      "I08"
+    ],
+    "steps": [
+      "Obejrzyj fotografię Luizy: matka, nie służąca z Seroczyna.",
+      "Otwórz szkatułkę i zabierz I06 fotografię oraz I07 dokument podróżny.",
+      "Spakuj je do I08 walizki.",
+      "Wybierz „Wyjazd”. Przerywnik przenosi K do Seroczyna."
+    ],
+    "success": "q06_done; K L25.",
+    "hints": [
+      "Zabierz rzeczy osobiste.",
+      "Sprawdź szkatułkę.",
+      "Fotografia i dokument trafiają do walizki."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q07",
+    "title": "Furtka to nie wolność",
+    "hero": "K",
+    "stage": "A",
+    "requires": [
+      "Q06"
+    ],
+    "locations": [
+      "L25",
+      "L26",
+      "L27",
+      "L28",
+      "L29"
+    ],
+    "items": [
+      "I09"
+    ],
+    "steps": [
+      "Porozmawiaj z Ireną o spacerze: pozwala wejść do parku, nie poza majątek.",
+      "W kuchni poproś Luizę służącą o wodę. Otrzymujesz I09 dzban.",
+      "Zanieś dzban ogrodnikowi; pokazuje niezaryglowaną furtkę gospodarczą.",
+      "Przejdź na drogę i poproś wieśniaka o podwiezienie.",
+      "Dowiedz się, że boi się Borakowskich. Wróć do parku i zanotuj, że zależność ekonomiczna blokuje ucieczkę."
+    ],
+    "success": "q07_done; pierwsza próba kończy się fabularnie, bez resetu.",
+    "hints": [
+      "Problemem jest także otoczenie dworu.",
+      "Porozmawiaj ze służbą i człowiekiem na drodze.",
+      "Zanieś wodę ogrodnikowi, wyjdź furtką, poproś o pomoc."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q08",
+    "title": "List, który nie wyszedł",
+    "hero": "K",
+    "stage": "A",
+    "requires": [
+      "Q07"
+    ],
+    "locations": [
+      "L25",
+      "L26"
+    ],
+    "items": [
+      "I10",
+      "I11"
+    ],
+    "steps": [
+      "Weź I10 papier i I11 ołówek z kufra.",
+      "Użyj papieru na ołówku; wybierz adresata „Izydor Jelinek”.",
+      "Połóż list na stoliku pocztowym i wróć do pokoju.",
+      "Wróć na korytarz: koperta leży otwarta, bez znaczka. Obejrzyj ją.",
+      "Zapytaj Irenę o list. Jej odpowiedź potwierdza kontrolę korespondencji.",
+      "W pokoju wybierz „Jadę do Sopotu”, po ogłoszeniu wyjazdu przez Eleonorę."
+    ],
+    "success": "q08_done; K gotowa B; intercepted_letter=true.",
+    "hints": [
+      "Zwykła poczta może nie być prywatna.",
+      "Sprawdź co stało się z kopertą.",
+      "Napisz do Izydora, sprawdź stolik i zapytaj Irenę."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q09",
+    "title": "Klucze zmarłego stróża",
+    "hero": "M",
+    "stage": "B",
+    "requires": [
+      "Q05"
+    ],
+    "locations": [
+      "L11",
+      "L13"
+    ],
+    "items": [
+      "I12",
+      "I13",
+      "I14"
+    ],
+    "steps": [
+      "Porozmawiaj z Florkiem o Zenku, pokoju i dostępie do fabryki.",
+      "Wejdź do pokoju; zabierz I12 mosiężny kluczyk z biurka.",
+      "Użyj I12 na szufladzie; otwórz ją.",
+      "Weź I13 pęk kluczy oraz obejrzyj I14 Biblię. Biblię można zabrać.",
+      "Zapytaj Florka o rower; odblokuj przejazdy między Wąglanami a Białaczowem."
+    ],
+    "success": "q09_done; brama i hala dostępne.",
+    "hints": [
+      "Mały klucz otwiera coś bliskiego.",
+      "Obejrzyj biurko.",
+      "Otwórz szufladę kluczykiem i zabierz pęk kluczy."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q10",
+    "title": "Nie jestem ich człowiekiem",
+    "hero": "M",
+    "stage": "B",
+    "requires": [
+      "Q09"
+    ],
+    "locations": [
+      "L10"
+    ],
+    "items": [
+      "I01"
+    ],
+    "steps": [
+      "Zapytaj Tolka, dlaczego jest wrogi.",
+      "Wybierz „Rozumiem, dlaczego im nie ufasz”.",
+      "Pokaż umowę: zlecenie pochodzi od Koreckiego, nie od policji.",
+      "Wybierz „Powiem, o co mnie pytali”. Celina zaprasza do stołu."
+    ],
+    "success": "q10_done; tavern_trust=true; wskazówka o rannym robotniku.",
+    "hints": [
+      "Nie kupuj zaufania pieniędzmi.",
+      "Wyjaśnij swoje zlecenie.",
+      "Wysłuchaj Tolka, pokaż umowę i odpowiedz szczerze."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q11",
+    "title": "Ktoś obok ciebie",
+    "hero": "M",
+    "stage": "B",
+    "requires": [
+      "Q10"
+    ],
+    "locations": [
+      "L16"
+    ],
+    "items": [
+      "I15"
+    ],
+    "steps": [
+      "Porozmawiaj z Marysią: pyta o niewidoczną kobietę.",
+      "Zapytaj „Jak ma na imię?” zamiast wyśmiewać dziecko.",
+      "Poproś matkę o rozmowę z poszkodowanym.",
+      "Zapytaj robotnika, co pamięta: zimno, obecność kobiety, utrata sił.",
+      "Zapis automatycznie tworzy I15 zeznanie robocze."
+    ],
+    "success": "q11_done; M zna imię Greta.",
+    "hints": [
+      "Dziecko patrzy nie na ciebie.",
+      "Zapytaj o osobę stojącą obok.",
+      "Poznaj imię Grety i wysłuchaj robotnika."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q12",
+    "title": "Nienaruszone wejścia",
+    "hero": "M",
+    "stage": "B",
+    "requires": [
+      "Q09"
+    ],
+    "locations": [
+      "L13",
+      "L15"
+    ],
+    "items": [
+      "I16",
+      "I17",
+      "I18",
+      "I19"
+    ],
+    "steps": [
+      "Weź I16 nitkę, I17 wosk i I18 papierowy pasek z warsztatu.",
+      "Obejrzyj drzwi i okno pokoju.",
+      "Użyj paska na drzwiach; wosku i nitki na oknie.",
+      "Wybierz „Odpocznij do rana”.",
+      "Obejrzyj oba nienaruszone znaczniki; podnieś I19 koronkę z podłogi."
+    ],
+    "success": "q12_done; M posiada pierwszy fizyczny ślad.",
+    "hints": [
+      "Sprawdź hipotezę o intruzie.",
+      "Oznacz oba wejścia przed snem.",
+      "Załóż znaczniki, odpocznij, porównaj ich stan i zabierz koronkę."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q13",
+    "title": "Imię w ciemności",
+    "hero": "M",
+    "stage": "B",
+    "requires": [
+      "Q11",
+      "Q12"
+    ],
+    "locations": [
+      "L12"
+    ],
+    "items": [
+      "I19"
+    ],
+    "steps": [
+      "Wejdź do korytarza: światło przygasa, wejście się zatrzaskuje.",
+      "Obejrzyj cień, aby usłyszeć ostrzeżenie narratora: walka nie pomoże.",
+      "Wybierz Rozmawiaj na cieniu i temat „Greto, chcę poznać twoją historię”.",
+      "Po ustąpieniu zjawiska otwórz drzwi i wyjdź na dziedziniec."
+    ],
+    "success": "q13_done; M gotowy C.",
+    "hints": [
+      "Znasz już jej imię.",
+      "Spróbuj przemówić zamiast walczyć.",
+      "Rozmawiaj z cieniem, używając imienia Grety."
+    ],
+    "failure": "Uderz powoduje odrzucenie i powrót do początku tej sceny, bez utraty przedmiotów. Blokada przełączania wyłącznie na czas sceny."
+  },
+  {
+    "id": "Q14",
+    "title": "Okno na wolność",
+    "hero": "K",
+    "stage": "B",
+    "requires": [
+      "Q08"
+    ],
+    "locations": [
+      "L30",
+      "L31"
+    ],
+    "items": [
+      "I07",
+      "I08"
+    ],
+    "steps": [
+      "Rozmowa z Ireną przechodzi w atak; narracyjna sekwencja obrony i wejścia Adama. Irena ginie zgodnie z rękopisem, bez zręcznościowej minigry.",
+      "Adam otwiera okno; spakuj dokument i walizkę. Brakujące rzeczy Adam podaje automatycznie.",
+      "Wybierz „Wyjdź teraz” albo „Zostań przy drzwiach”. Pierwszy wariant to wcześniejsza ucieczka; drugi prowadzi do skróconej sceny konfrontacji z Eleonorą z rękopisu.",
+      "Użyj wyjścia przez okno. Obie drogi prowadzą do ogrodu i Bergen Strasse."
+    ],
+    "success": "q14_done; escape_variant=early lub confrontation; Adam pomaga, ale nie otrzymuje automatycznie zaufania.",
+    "hints": [
+      "Otwarte okno prowadzi poza dom.",
+      "Najważniejsze są dokument i wyjście.",
+      "Spakuj walizkę i wyjdź oknem."
+    ],
+    "failure": "Nie ma nagrody za przemoc. Sekwencja ma ostrzeżenie treści i przycisk skrócenia; skutki fabularne identyczne. Nie określamy śmierci Eleonory — rękopis jej nie potwierdza."
+  },
+  {
+    "id": "Q15",
+    "title": "Z dala od świateł",
+    "hero": "K",
+    "stage": "B",
+    "requires": [
+      "Q14"
+    ],
+    "locations": [
+      "L31",
+      "L32",
+      "L33"
+    ],
+    "items": [],
+    "steps": [
+      "Obejrzyj tabliczkę i wybierz ścieżkę ku odgłosowi morza.",
+      "Na plaży obejrzyj światła molo: narrator ostrzega o możliwości rozpoznania.",
+      "Wybierz północną linię brzegu. Wycieńczenie, sieci i ratunek są przerywnikiem.",
+      "W chacie po przebudzeniu wybierz „Powiem ci, co się stało”."
+    ],
+    "success": "q15_done; K bezpieczna; K gotowa C.",
+    "hints": [
+      "Szukaj morza, potem oddal się od ludzi dworu.",
+      "Na plaży światła wskazują zabudowania.",
+      "Idź ku morzu, potem na północ; porozmawiaj z rybakiem."
+    ],
+    "failure": "Wejście ku molo powoduje zauważenie znajomego powozu i bezpieczny odwrót. Bez śmierci za wybór kierunku."
+  },
+  {
+    "id": "Q16",
+    "title": "Wizyta na plebanii",
+    "hero": "M",
+    "stage": "C",
+    "requires": [
+      "Q13"
+    ],
+    "locations": [
+      "L17",
+      "L18"
+    ],
+    "items": [
+      "I20"
+    ],
+    "steps": [
+      "Porozmawiaj z Marianną o siostrze podróżującej pociągiem.",
+      "Porozmawiaj z proboszczem o nawiedzeniu: nie oferuje magicznego przedmiotu, zaleca świadków i poznanie historii.",
+      "Na placu porozmawiaj z Krystyną; pokaż koronkę.",
+      "Przyjmij I20 zaproszenie do pałacowej biblioteki."
+    ],
+    "success": "q16_done; dostęp do L19 i L20.",
+    "hints": [
+      "Prześledź rodzinę i historię okolicy.",
+      "Krystyna może znać stare portrety.",
+      "Pokaż koronkę Krystynie i przyjmij zaproszenie."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q17",
+    "title": "Kobieta nad drzwiami",
+    "hero": "M",
+    "stage": "C",
+    "requires": [
+      "Q16"
+    ],
+    "locations": [
+      "L19",
+      "L20"
+    ],
+    "items": [
+      "I19",
+      "I20",
+      "I21"
+    ],
+    "steps": [
+      "Pokaż zaproszenie służącemu.",
+      "Obejrzyj portret; detale sukni są za wysoko.",
+      "Użyj drabiny na portrecie i wejdź.",
+      "Użyj koronki na sukni w zbliżeniu: wzór jest identyczny.",
+      "Zejdź i porozmawiaj z Ludwikiem, który wchodzi: „Kogo przedstawia obraz?”.",
+      "Obejrzyj katalog pod literą P: karta Platter wskazuje tom III, kartę 27. Weź I21 odpis oznaczenia."
+    ],
+    "success": "q17_done; M zna pełną tożsamość Grety von Platter. Portret jednorazowo zmienia się po zejściu.",
+    "hints": [
+      "Dopasuj ślad do sukni.",
+      "Potrzebujesz drabiny i katalogu.",
+      "Porównaj koronkę na górze, potem sprawdź katalog Platter."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q18",
+    "title": "Historia urwana w połowie",
+    "hero": "M",
+    "stage": "C",
+    "requires": [
+      "Q17"
+    ],
+    "locations": [
+      "L20"
+    ],
+    "items": [
+      "I21",
+      "I22"
+    ],
+    "steps": [
+      "Użyj odpisu katalogowego na regale kronik.",
+      "Otwórz tom III i wybierz kartę 27.",
+      "Przeczytaj opowieść o portrecie, wyjeździe narzeczonego i zniknięciu Grety.",
+      "Obejrzyj margines: stary trakt i staw wskazano na mapie dóbr. Zabierz I22 odrys mapy."
+    ],
+    "success": "q18_done; dostęp L22; rodzinna legenda to hipoteza, nie pewna prawda.",
+    "hints": [
+      "Katalog podaje konkretny tom.",
+      "Przeczytaj także margines.",
+      "Tom III, karta 27, następnie odrysuj mapę."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q19",
+    "title": "Ślad prowadzi do wody",
+    "hero": "M",
+    "stage": "C",
+    "requires": [
+      "Q18"
+    ],
+    "locations": [
+      "L22",
+      "L23",
+      "L24"
+    ],
+    "items": [
+      "I19",
+      "I22",
+      "I23"
+    ],
+    "steps": [
+      "Użyj mapy na ścieżce; odnajdź koronkę na jeżynie.",
+      "Obejrzyj staw i zwalony pień.",
+      "Sięgnięcie po koronkę uruchamia krótką kanoniczną sekwencję poślizgnięcia, wydostania się i widzenia obozu; nie jest śmiercią.",
+      "W widzeniu obejrzyj torbę i stare uzbrojenie, niczego nie zabieraj do rzeczywistego ekwipunku.",
+      "Idź ku światłu między drzewami. Wracasz na ścieżkę z I23 notatką o korzeniach i uskoku."
+    ],
+    "success": "q19_done; pond_seen=true; M gotowy D.",
+    "hints": [
+      "Ślady są wskazówką i przynętą.",
+      "Porównaj mapę z lasem.",
+      "Idź po śladach, obejrzyj pień, po widzeniu wyjdź ku światłu."
+    ],
+    "failure": "Sekwencja zablokowana dla przełączania; zawsze ma wyjście. Nie przenosi zabytkowej broni do ekwipunku."
+  },
+  {
+    "id": "Q20",
+    "title": "Słowo uczciwe",
+    "hero": "M",
+    "stage": "C",
+    "requires": [
+      "Q17"
+    ],
+    "locations": [
+      "L18",
+      "L20"
+    ],
+    "items": [
+      "I03"
+    ],
+    "steps": [
+      "Porozmawiaj z Krystyną o Warszawie.",
+      "Wybierz „Jestem związany z Konstancją” i pokaż broszkę.",
+      "Wybierz „Nie chcę budować przyjaźni na kłamstwie”."
+    ],
+    "success": "q20_done; honest_krystyna=true. Opcjonalne, dostępne również D przed rozmową w ogrodzie.",
+    "hints": [
+      "Niejasność służy spiskowcom.",
+      "Powiedz Krystynie o Konstancji.",
+      "Pokaż broszkę i jasno nazwij związek."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q21",
+    "title": "Zwykła suknia",
+    "hero": "K",
+    "stage": "C",
+    "requires": [
+      "Q15"
+    ],
+    "locations": [
+      "L33"
+    ],
+    "items": [
+      "I24",
+      "I25",
+      "I26"
+    ],
+    "steps": [
+      "Zapytaj rybaka o ubranie odpowiednie do pracy i podróży.",
+      "Weź I24 tkaninę oraz I25 igłę z nicią ze skrzyni za jego zgodą.",
+      "Użyj obu na stole: wybierz prosty krój, zaznacz długość według starej spódnicy, zszyj.",
+      "Załóż I26 prostą suknię przez użycie na portrecie K."
+    ],
+    "success": "q21_done; disguise=true.",
+    "hints": [
+      "Rybak może udostępnić materiał.",
+      "Pracuj przy stole.",
+      "Tkanina i igła na stole, potem załóż uszytą suknię."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q22",
+    "title": "Sieć i zaufanie",
+    "hero": "K",
+    "stage": "C",
+    "requires": [
+      "Q21"
+    ],
+    "locations": [
+      "L34"
+    ],
+    "items": [
+      "I25",
+      "I27"
+    ],
+    "steps": [
+      "Porozmawiaj z sąsiadem rybaka.",
+      "Obejrzyj uszkodzoną sieć; trzy luźne końce mają widoczną kolejność od brzegu.",
+      "Użyj igły i nici na sieci; połącz lewy koniec ze środkowym, środkowy z prawym, zatwierdź.",
+      "Sąsiad obiecuje przekazać korespondencję poza domem Borakowskich; daje I27 adres swojego krewnego w Warszawie."
+    ],
+    "success": "q22_done; safe_courier=true. Opcjonalne; do powrotu niepotrzebne.",
+    "hints": [
+      "Pomoc buduje zaufanie.",
+      "Wzór przy brzegu pokazuje układ.",
+      "Połącz lewy ze środkowym, następnie środkowy z prawym."
+    ],
+    "failure": "Błędne połączenie daje „Oczko się zaciska. Rozplątuję nić” i reset samej układanki."
+  },
+  {
+    "id": "Q23",
+    "title": "Żyję",
+    "hero": "K",
+    "stage": "C",
+    "requires": [
+      "Q22"
+    ],
+    "locations": [
+      "L33",
+      "L34"
+    ],
+    "items": [
+      "I10",
+      "I11",
+      "I27",
+      "I28"
+    ],
+    "steps": [
+      "Napisz list do Izydora na zachowanym papierze; w chacie jest zapas, jeśli papier wykorzystano.",
+      "Wybierz treść „Żyję. Nie ufaj wieściom o mojej śmierci. Przekaż Mikołajowi”.",
+      "Dodaj prywatne wspomnienie broszki motyla jako potwierdzenie.",
+      "Przekaż I28 list sąsiadowi. Otrzymaj ustne potwierdzenie przyjęcia."
+    ],
+    "success": "q23_done; letter_sent=true. Doręczenie następuje przy wejściu D, nie po realnym czasie.",
+    "hints": [
+      "Potrzebujesz zaufanej drogi.",
+      "Izydor zna oboje, a broszka potwierdzi autora.",
+      "Przekaż przez sąsiada list do Izydora ze wspomnieniem motyla."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q24",
+    "title": "Powrót z wybrzeża",
+    "hero": "K",
+    "stage": "C",
+    "requires": [
+      "Q21"
+    ],
+    "locations": [
+      "L33",
+      "L35",
+      "L05",
+      "L04"
+    ],
+    "items": [
+      "I07",
+      "I29"
+    ],
+    "steps": [
+      "Powiedz rybakowi o zamiarze odnalezienia Mikołaja.",
+      "Przyjmij I29 pieniądze na podróż; rybak nie uzależnia pomocy od naprawy sieci.",
+      "Pokaż dokument kasjerowi i kup bilet do Warszawy.",
+      "W redakcji zapytaj Izydora o Mikołaja. Jeśli address_left, dostajesz adres natychmiast; inaczej otwórz za zgodą księgę wysyłek pod Wąglany i znajdź korespondencję Koreckiego.",
+      "Wybierz podróż do Opoczna."
+    ],
+    "success": "q24_done; K L08; K gotowa D.",
+    "hints": [
+      "Rybak chce pomóc.",
+      "Adres można ustalić u Izydora.",
+      "Kup bilet i sprawdź w redakcji wpis Wąglany."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q25",
+    "title": "Fotografia nie mówi wszystkiego",
+    "hero": "K",
+    "stage": "D",
+    "requires": [
+      "Q24"
+    ],
+    "locations": [
+      "L09",
+      "L10"
+    ],
+    "items": [
+      "I30"
+    ],
+    "steps": [
+      "Zapytaj Tolka o Mikołaja i Krystynę.",
+      "Porozmawiaj z fotografem; obejrzyj I30 odbitkę z jarmarku.",
+      "Zapytaj „Czy słyszał pan, że są zaręczeni?”. Fotograf przyznaje, że tylko zrobił zdjęcie.",
+      "Wybierz „Sprawdzę to sama”. Zachowaj odbitkę wypożyczoną za zgodą fotografa."
+    ],
+    "success": "q25_done; K rozróżnia obserwację i plotkę.",
+    "hints": [
+      "Zdjęcie pokazuje spotkanie, nie obietnicę.",
+      "Zapytaj, co fotograf naprawdę wie.",
+      "Obejrzyj odbitkę i zapytaj o źródło informacji o zaręczynach."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q26",
+    "title": "Wiadomość do rąk własnych",
+    "hero": "M",
+    "stage": "D",
+    "requires": [
+      "Q19"
+    ],
+    "locations": [
+      "L11",
+      "L13"
+    ],
+    "items": [
+      "I28"
+    ],
+    "steps": [
+      "Porozmawiaj z Florkiem po wejściu D. Jeśli letter_sent, przekazuje list od Izydora.",
+      "Otwórz list i przeczytaj wzmiankę o broszce.",
+      "Wybierz „To jej słowa”."
+    ],
+    "success": "q26_done; m_knows_alive=true. Dostępne tylko letter_sent, opcjonalne.",
+    "hints": [
+      "Florek ma dla ciebie pocztę.",
+      "Sprawdź osobisty szczegół.",
+      "Przeczytaj cały list i rozpoznaj wspomnienie broszki."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q27",
+    "title": "Przygotowanie nad staw",
+    "hero": "M",
+    "stage": "D",
+    "requires": [
+      "Q19"
+    ],
+    "locations": [
+      "L15",
+      "L17",
+      "L23"
+    ],
+    "items": [
+      "I23",
+      "I31",
+      "I32"
+    ],
+    "steps": [
+      "Pokaż proboszczowi notatkę o korzeniach; zaleca nie wchodzić do wody samotnie.",
+      "Weź I31 linę i I32 hak z warsztatu za zgodą Florka.",
+      "Na brzegu obejrzyj głaz: stabilny punkt na suchym gruncie.",
+      "Użyj liny na głazie; hak pozostaje w ekwipunku, a zamocowana lina w świecie."
+    ],
+    "success": "q27_done; rescue_rig=true. Opcjonalne, informacja o linie dostępna także K w sekwencji ratunkowej.",
+    "hints": [
+      "Staw ma uskok i splątane korzenie.",
+      "Przygotuj pomoc z brzegu.",
+      "Weź linę i hak; umocuj linę przy głazie."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q28",
+    "title": "Rozmowa za żywopłotem",
+    "hero": "M",
+    "stage": "D",
+    "requires": [
+      "Q19"
+    ],
+    "locations": [
+      "L21"
+    ],
+    "items": [
+      "I28"
+    ],
+    "steps": [
+      "Wejdź w ogród i obejrzyj żywopłot: słyszysz urywek o otruciu Konstancji.",
+      "Jeśli m_knows_alive, wybierz „Mam jej list” i pokaż go. Jeśli honest_krystyna, wybierz „Krystyno, powiedz mi prawdę”; Krystyna przyznaje, że Konstancja uciekła.",
+      "Bez tych flag dostępne „Uwierzę” lub „Sprawdzę u Izydora”. Sprawdzenie przywraca swobodę i otwiera Q29, nie zużywa czasu.",
+      "Gdy wybierzesz „Idę nad staw”, pojawia się jawny komunikat zamknięcia etapu. M czeka na zakończenie Q25 przez K.",
+      "Zatwierdź przejście: ustaw crisis_mode=calm, jeśli m_knows_alive lub honest_krystyna lub direct_contact; inaczej despair."
+    ],
+    "success": "q28_done; uruchamia Q30. Wymuszona postać tylko od rozpoczęcia kryzysu.",
+    "hints": [
+      "Urywki rozmowy nie muszą być prawdą.",
+      "List, szczerość Krystyny lub kontakt z Konstancją mogą obalić plotkę.",
+      "Pokaż list, poproś Krystynę o prawdę albo odłóż wyjazd i sprawdź u Izydora."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q29",
+    "title": "Spotkanie zamiast plotki",
+    "hero": "MK",
+    "stage": "D",
+    "requires": [
+      "Q25"
+    ],
+    "locations": [
+      "L11",
+      "L13"
+    ],
+    "items": [
+      "I30",
+      "I43"
+    ],
+    "steps": [
+      "Zapytaj Florka o pokój Mikołaja.",
+      "Wybierz „Zostawię wiadomość, że czekam w karczmie”.",
+      "Przełącz na M i odczytaj wiadomość w pokoju.",
+      "Jako M wejdź do karczmy i porozmawiaj z K: wyjaśnij zdjęcie i zadanie Koreckiego."
+    ],
+    "success": "q29_done; direct_contact=true; m_knows_alive=true. Dostępne przed zatwierdzeniem Q28; M może zakończyć Q28 dopiero po powrocie do ogrodu.",
+    "hints": [
+      "Można dotrzeć do samego Mikołaja.",
+      "Florek wie, gdzie go znaleźć.",
+      "Zostaw wiadomość w pokoju, odczytaj jako M i spotkaj się w karczmie."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q30",
+    "title": "Martwa woda",
+    "hero": "MK",
+    "stage": "D",
+    "requires": [
+      "Q25",
+      "Q28"
+    ],
+    "locations": [
+      "L23"
+    ],
+    "items": [
+      "I31",
+      "I32",
+      "I42"
+    ],
+    "steps": [
+      "W crisis_mode=calm M pozostaje na brzegu. Krystyna ujawnia spisek; po wezwaniu zjawy podchodzi do wody i osuwa się. W despair M jest w wodzie, Krystyna próbuje go wyprowadzić i osuwa się z uskoku.",
+      "Automatycznie K dociera na ścieżkę, widząc konia Krystyny; sterowanie przechodzi na K. Komunikat „Teraz: Konstancja — ratunek”.",
+      "Jeśli rescue_rig, wybierz linę, potem „Podaj Krystynie”. Hak z warsztatu został przy linie jako element przygotowania.",
+      "Jeśli brak rescue_rig, zbadaj korzeń na brzegu: leży tam długi suchy konar. Użyj go jako podpory, wezwij M do współpracy, podaj koniec Krystynie.",
+      "Gracz może zamiast tego wybrać „Biegnij po pomoc”, z jasnym ostrzeżeniem o utracie kontaktu z tonącą. Drugie potwierdzenie prowadzi do wariantu tragicznego.",
+      "Przy ratowaniu wybierz „Ciągnij razem z Mikołajem” dopiero po podaniu podpory. Wynik: Krystyna żyje; przy odejściu: ginie, M zostaje zatrzymany."
+    ],
+    "success": "q30_done; krystyna_alive=true/false; etap E. Ani szybkość klikania, ani przypadek nie decydują.",
+    "hints": [
+      "Pozostań na stabilnym brzegu.",
+      "Lina albo długi konar pozwolą sięgnąć do tonącej.",
+      "Podaj podporę, wezwij M do współpracy i ciągnij razem."
+    ],
+    "failure": "Wejście K do wody: śmierć z natychmiastowym Cofnij przed wyborem. Niepowiązane akcje nie przybliżają śmierci. Odejście to świadomy wybór fabularny, nie zwykła przegrana."
+  },
+  {
+    "id": "Q31",
+    "title": "Zaproszenie do pułapki",
+    "hero": "K",
+    "stage": "E",
+    "requires": [
+      "Q30"
+    ],
+    "locations": [
+      "L02",
+      "L03",
+      "L36"
+    ],
+    "items": [
+      "I33"
+    ],
+    "steps": [
+      "Po śmierci Krystyny: scena oskarżenia M, powrotu K i oświadczyn. K może przyjąć ślub (book_marriage=true) albo przyjąć jedynie zaproszenie na przyjęcie jako pretekst (false). Po uratowaniu: K odmawia małżeństwa, ale dostaje zaproszenie od ojca.",
+      "Porozmawiaj z Klarą: radzi sprawdzić, dlaczego rodzina tak pilnie potrzebuje zgody.",
+      "Weź I33 zaproszenie i użyj przy wejściu do sali.",
+      "W obu wersjach celem jest zdobycie dowodów, nie obowiązkowe zawarcie małżeństwa."
+    ],
+    "success": "q31_done; przyjęcie/wesele dostępne; M w areszcie albo na plebanii.",
+    "hints": [
+      "Oficjalne przyjęcie daje dostęp do domu.",
+      "Klara zna rodzinne naciski.",
+      "Porozmawiaj z Klarą i użyj zaproszenia."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q32",
+    "title": "Za bocznymi drzwiami",
+    "hero": "K",
+    "stage": "E",
+    "requires": [
+      "Q31"
+    ],
+    "locations": [
+      "L36",
+      "L37"
+    ],
+    "items": [
+      "I34",
+      "I35"
+    ],
+    "steps": [
+      "Obejrzyj drzwi bocznego gabinetu; usłysz imię Mikołaja.",
+      "Wybierz Nasłuchuj w menu Obejrzyj. Trzy wypowiedzi ujawniają oszustwo dotyczące romansu, plan finansowy i wątpliwości co do ojcostwa Karola.",
+      "Po odejściu rozmówców wejdź do gabinetu; otwórz teczkę na biurku.",
+      "Weź I34 kopię zlecenia i I35 list Borakowskich z odniesieniem do fałszywej informacji o Konstancji. Dokumenty dopisane dla gry.",
+      "Wybierz „Skopiuj szczegóły do dziennika” — kopia wiedzy chroni przed utratą przedmiotu."
+    ],
+    "success": "q32_done; conspiracy_evidence=true; K wie, że Karol nie jest biologicznym ojcem, nie zna jeszcze tożsamości Mariana.",
+    "hints": [
+      "Usłyszysz znajome imię.",
+      "Podsłuchaj całość, potem sprawdź teczkę.",
+      "Zbierz oba dokumenty i zrób notatki."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q33",
+    "title": "Do północy",
+    "hero": "K",
+    "stage": "E",
+    "requires": [
+      "Q32"
+    ],
+    "locations": [
+      "L36",
+      "L04"
+    ],
+    "items": [
+      "I34",
+      "I35"
+    ],
+    "steps": [
+      "Wybierz „Ostrzegę Karola” albo „Nie powstrzymam jego decyzji”.",
+      "Przy ostrzeżeniu pokaż kopię zlecenia i list; Karol zleca wstrzymanie transakcji. karol_ruined=false.",
+      "Przy odmowie wybierz przy zegarze „Zostań do północy”. Dopiero ta czynność uruchamia wiadomość o katastrofie finansowej. karol_ruined=true.",
+      "Wyjdź przez przedpokój i jedź do Izydora z dowodami."
+    ],
+    "success": "q33_done; etap F po krótkiej reakcji M. Finansowy mechanizm to uproszczenie świata fikcyjnego, nie symulacja historycznej giełdy.",
+    "hints": [
+      "Zegar rusza fabularnie dopiero na twoją decyzję.",
+      "Możesz ostrzec Karola dokumentami.",
+      "Pokaż dowody albo świadomie zaczekaj do północy, potem idź do Izydora."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q34",
+    "title": "Świadkowie zamiast pogłosek",
+    "hero": "K",
+    "stage": "F",
+    "requires": [
+      "Q33"
+    ],
+    "locations": [
+      "L04",
+      "L17",
+      "L38"
+    ],
+    "items": [
+      "I15",
+      "I35",
+      "I36",
+      "I44"
+    ],
+    "steps": [
+      "Pokaż Izydorowi list spiskowców; uzyskujesz jego pomoc i dostęp do rozmowy z M.",
+      "Porozmawiaj z M w pokoju rozmów; poznaj dokładną kolejność wydarzeń nad stawem.",
+      "Poproś proboszcza o zeznanie o wcześniejszych spotkaniach; otrzymaj I36 oświadczenie.",
+      "Jeśli Krystyna żyje, poproś ją o podpis pod własnym zeznaniem; zastępuje sporne relacje osób trzecich."
+    ],
+    "success": "q34_done; dossier_ready=true.",
+    "hints": [
+      "Potrzebujesz faktów i świadków.",
+      "Izydor pomoże je uporządkować.",
+      "Zbierz relację M i oświadczenie proboszcza; dołącz zeznanie Krystyny, jeśli żyje."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q35",
+    "title": "Rozprawa",
+    "hero": "K",
+    "stage": "F",
+    "requires": [
+      "Q34"
+    ],
+    "locations": [
+      "L39"
+    ],
+    "items": [
+      "I35",
+      "I36"
+    ],
+    "steps": [
+      "Przed sądem wybierz „Wyjaśnię pochodzenie fałszywej wiadomości” i przedstaw I35.",
+      "Przedstaw oświadczenie proboszcza i relację M.",
+      "Jeśli Krystyna żyje, przywołaj jej zeznanie; sprawa dotyczy manipulacji i zdarzenia nad stawem. Jeśli nie żyje, jest to obrona M przed oskarżeniem o zabójstwo.",
+      "Na pytanie o fotografię odpowiedz „Potwierdza spotkanie, nie zaręczyny”.",
+      "Sąd kończy etap: M odzyskuje wolność lub zostaje oczyszczony z podejrzeń."
+    ],
+    "success": "q35_done; m_free=true. Procedura jest literackim skrótem, nie rekonstrukcją prawa.",
+    "hints": [
+      "Oddziel dowód od interpretacji.",
+      "List wyjaśnia manipulację; świadkowie opisują zdarzenia.",
+      "Pokaż list, przedstaw świadków i wyjaśnij ograniczenia fotografii."
+    ],
+    "failure": "Błędna odpowiedź wywołuje pytanie uzupełniające; można poprawić. Brak losowego wyroku lub trwałej blokady."
+  },
+  {
+    "id": "Q36",
+    "title": "Ostatni ślad",
+    "hero": "M",
+    "stage": "F",
+    "requires": [
+      "Q35"
+    ],
+    "locations": [
+      "L17",
+      "L20"
+    ],
+    "items": [
+      "I21",
+      "I22",
+      "I37"
+    ],
+    "steps": [
+      "Zapytaj proboszcza, jak zakończyć sprawę stawu.",
+      "W bibliotece użyj odpisu katalogowego i otwórz dalszą kartę tomu: Krystyna przed kryzysem zostawiła zakładkę, także w wariancie jej śmierci.",
+      "Przeczytaj notę o zbrodni i nieodnalezionym ciele. Nie pokazuj sceny napaści.",
+      "Połącz mapę z notą w dzienniku: staw jest miejscem poszukiwania szczątków, nie portalem.",
+      "Utwórz I37 dossier Grety."
+    ],
+    "success": "q36_done; greta_history=true.",
+    "hints": [
+      "Rodzinna legenda była niepełna.",
+      "Sprawdź dalsze karty i zakładkę.",
+      "Połącz notę, mapę i portret w dossier."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q37",
+    "title": "Nie schodź tam sam",
+    "hero": "M",
+    "stage": "F",
+    "requires": [
+      "Q36"
+    ],
+    "locations": [
+      "L11",
+      "L15",
+      "L23"
+    ],
+    "items": [
+      "I37",
+      "I38"
+    ],
+    "steps": [
+      "Pokaż Florkowi dossier; poproś o strażaków i pompę. Zespół zgadza się pomóc.",
+      "W warsztacie przygotuj I38 zestaw do wypompowania: sprawdź uszczelkę, połącz dwa oznaczone odcinki węża z odpowiadającymi gniazdami.",
+      "Na brzegu wskaż wylot z dala od stanowiska i poczekaj na sygnał strażaka.",
+      "Wybierz „Rozpocznij wypompowywanie”. Przerywnik stopniowo odsłania dno.",
+      "Strażacy wydobywają ciało Grety; w wariancie tragicznym również Krystyny uwikłanej w korzenie."
+    ],
+    "success": "q37_done; remains_recovered=true.",
+    "hints": [
+      "Potrzebna jest pomoc ludzi i sprzęt.",
+      "Florek może zorganizować ekipę.",
+      "Pokaż dossier, przygotuj węże i uruchom pracę zespołu."
+    ],
+    "failure": "Nie pozwalaj graczowi nurkować; M mówi, że nie powtórzy dawnego błędu. Zagadka techniczna jest umowna."
+  },
+  {
+    "id": "Q38",
+    "title": "Imię na kamieniu",
+    "hero": "M",
+    "stage": "F",
+    "requires": [
+      "Q37"
+    ],
+    "locations": [
+      "L40"
+    ],
+    "items": [
+      "I19",
+      "I37"
+    ],
+    "steps": [
+      "Pokaż dossier proboszczowi przy grobowcu.",
+      "Wybierz zapis „Greta von Platter”.",
+      "Połóż koronkę przy trumnie, nie jako magiczną ofiarę, lecz świadectwo tożsamości.",
+      "Wybierz „Pozostań do końca pogrzebu”. Cichnie motyw nawiedzenia."
+    ],
+    "success": "q38_done; haunting_resolved=true.",
+    "hints": [
+      "Przywróć zmarłej tożsamość.",
+      "Dossier wyjaśnia kim była.",
+      "Przekaż dokumenty i koronkę, zostań na pogrzebie."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q39",
+    "title": "Prawdziwy ojciec",
+    "hero": "K",
+    "stage": "F",
+    "requires": [
+      "Q35"
+    ],
+    "locations": [
+      "L04",
+      "L41"
+    ],
+    "items": [
+      "I06"
+    ],
+    "steps": [
+      "Zapytaj Izydora o Mariana.",
+      "Na Pradze porozmawiaj z Karolem: jeśli zrujnowany, siedzi pod murem; inaczej wychodzi z lokalu w stanie upokorzenia.",
+      "Marian podchodzi. Pokaż fotografię Luizy i zapytaj o wiadomość zasłyszaną na weselu.",
+      "Marian przyznaje, że jest ojcem Konstancji. K może go przyjąć albo powiedzieć „Potrzebuję czasu”; oba warianty pozwalają kontynuować.",
+      "Wobec Karola wybierz pomoc albo odejście; zapisuje tylko ton epilogu, nie moralny wynik punktowy."
+    ],
+    "success": "q39_done; father_known=true; marian_accepted=true/false; helped_karol=true/false.",
+    "hints": [
+      "Izydor zna dawne kontakty.",
+      "Połącz fotografię z rozmową na przyjęciu.",
+      "Znajdź Mariana i zapytaj wprost o Luizę."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  },
+  {
+    "id": "Q40",
+    "title": "Co zostaje po nas",
+    "hero": "MK",
+    "stage": "F",
+    "requires": [
+      "Q35",
+      "Q39"
+    ],
+    "locations": [
+      "L17",
+      "L33",
+      "L34",
+      "L42",
+      "L43"
+    ],
+    "items": [
+      "I39",
+      "I40",
+      "I45"
+    ],
+    "steps": [
+      "Jako M na plebanii wybierz przyszłość: „Spróbuję odbudować więź z Konstancją” lub „Nasze drogi się rozeszły”.",
+      "Przy pierwszym wyborze przełącz na K i odpowiedz na list M: „Porozmawiajmy” albo „Chcę osobnej drogi”. Związek wymaga obu zgód, jest możliwy tylko gdy Krystyna żyje i book_marriage=false; w innych stanach M oferuje pojednanie bez związku.",
+      "Jako K wróć na wybrzeże. Sąsiad informuje o śmierci rybaka i przekazuje I39 zapis jego ostatniej woli. Pies pozostaje pod opieką sąsiada i przechodzi do K.",
+      "Odwiedź Klarę w Warszawie. Otrzymujesz I40 poszlaki dotyczące losu matki: wątek otwarty, bez dopisanego rozwiązania.",
+      "Wybierz „Zakończ opowieść”. Jeśli Q38 nieukończone, wyraźnie potwierdź pozostawienie sprawy stawu; możesz zamiast tego wrócić do M."
+    ],
+    "success": "q40_done; wybór E01/E02/E03/E04 zgodnie z tabelą zakończeń.",
+    "hints": [
+      "Losy bohaterów nie muszą skończyć się wspólnym życiem.",
+      "Domknij sprawy rodzinne i zdecyduj o stawie.",
+      "Odwiedź Mariana, wybrzeże i Klarę; uzgodnij przyszłość obu postaci."
+    ],
+    "failure": "Nieprawidłowa czynność nie zmienia stanu. Przedmioty kluczowe nie są zużywane."
+  }
+]

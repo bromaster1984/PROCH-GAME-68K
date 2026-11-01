@@ -1,0 +1,362 @@
+[
+  {
+    "id": "I01",
+    "name": "Umowa Koreckiego",
+    "owner": "M",
+    "source": "Q01, L01",
+    "look": "Złożony arkusz, podpis i pieczęć.",
+    "use": "Dowód zatrudnienia, adres Wąglan; nie dowodzi niewinności."
+  },
+  {
+    "id": "I02",
+    "name": "Bilet do Opoczna",
+    "owner": "M",
+    "source": "Q01, L01",
+    "look": "Wąski kartonik z wyciętym narożnikiem.",
+    "use": "Q03; po kontroli zachowany jako skasowany."
+  },
+  {
+    "id": "I03",
+    "name": "Broszka motyl",
+    "owner": "M",
+    "source": "Q01, L02",
+    "look": "Symetryczny motyl, jasne skrzydła i czarny owal pośrodku.",
+    "use": "Q20 i uwierzytelnienie listu; nigdy nie ginie losowo."
+  },
+  {
+    "id": "I04",
+    "name": "Klucz warsztatowy",
+    "owner": "M",
+    "source": "Q04, L07",
+    "look": "Duży klucz o otwartej szczęce.",
+    "use": "Narzędzie lokalne, wraca do skrzynki przed odjazdem."
+  },
+  {
+    "id": "I05",
+    "name": "Szmata",
+    "owner": "M",
+    "source": "Q04, L07",
+    "look": "Złożona tkanina z ciemnym rogiem.",
+    "use": "Czyszczenie wkładu, zwrot przy odjeździe."
+  },
+  {
+    "id": "I06",
+    "name": "Fotografia Luizy",
+    "owner": "K",
+    "source": "Q06, L03",
+    "look": "Owalny portret kobiety na prostokątnym kartoniku.",
+    "use": "Pamiątka i rozmowa z Marianem; nie magiczny dowód pokrewieństwa."
+  },
+  {
+    "id": "I07",
+    "name": "Dokument podróżny",
+    "owner": "K",
+    "source": "Q06, L03",
+    "look": "Składany papier z widoczną pieczęcią.",
+    "use": "Przejazdy; zawsze odzyskiwany przy ucieczce."
+  },
+  {
+    "id": "I08",
+    "name": "Walizka",
+    "owner": "K",
+    "source": "Q06, L03",
+    "look": "Prostokątny neseser z uchwytem.",
+    "use": "Pojemnik; po ucieczce wersja zabrudzona, bez zmiany pojemności."
+  },
+  {
+    "id": "I09",
+    "name": "Dzban wody",
+    "owner": "K",
+    "source": "Q07, L27",
+    "look": "Jasny dzban z czarnym uchwytem.",
+    "use": "Zanoszony ogrodnikowi, wraca pusty do kuchni."
+  },
+  {
+    "id": "I10",
+    "name": "Papier",
+    "owner": "K",
+    "source": "Q08, L25; zapas L33",
+    "look": "Dwa czyste arkusze.",
+    "use": "Pisanie listów; zapas nieograniczony, bez gry ekonomicznej."
+  },
+  {
+    "id": "I11",
+    "name": "Ołówek",
+    "owner": "K",
+    "source": "Q08, L25",
+    "look": "Gruby ukośny ołówek.",
+    "use": "Nie zużywa się."
+  },
+  {
+    "id": "I12",
+    "name": "Mosiężny kluczyk",
+    "owner": "M",
+    "source": "Q09, L13",
+    "look": "Mały klucz z okrągłym uchem.",
+    "use": "Tylko szuflada stróżówki."
+  },
+  {
+    "id": "I13",
+    "name": "Pęk kluczy",
+    "owner": "M",
+    "source": "Q09, L13",
+    "look": "Trzy różne klucze na kółku.",
+    "use": "Brama, hala, warsztat; dobór właściwego automatyczny."
+  },
+  {
+    "id": "I14",
+    "name": "Biblia",
+    "owner": "M",
+    "source": "Q09, L13",
+    "look": "Księga z krzyżem na okładce.",
+    "use": "Przedmiot osobisty, dialog o wierze; nie broń przeciw Grecie."
+  },
+  {
+    "id": "I15",
+    "name": "Relacja robotnika",
+    "owner": "M",
+    "source": "Q11, L16",
+    "look": "Kartka z trzema krótkimi liniami.",
+    "use": "Wpis w dzienniku; kopia dostępna K przez M w Q34."
+  },
+  {
+    "id": "I16",
+    "name": "Nitka",
+    "owner": "M",
+    "source": "Q12, L15",
+    "look": "Szpulka z odwiniętym końcem.",
+    "use": "Znacznik okna; po użyciu pozostaje w scenie."
+  },
+  {
+    "id": "I17",
+    "name": "Wosk",
+    "owner": "M",
+    "source": "Q12, L15",
+    "look": "Krótka świeca i bryłka.",
+    "use": "Mocowanie znacznika; zapas warsztatowy odnawialny."
+  },
+  {
+    "id": "I18",
+    "name": "Pasek papieru",
+    "owner": "M",
+    "source": "Q12, L15",
+    "look": "Długi cienki pasek z zagięciem.",
+    "use": "Znacznik drzwi, lokalny po użyciu."
+  },
+  {
+    "id": "I19",
+    "name": "Koronka Grety",
+    "owner": "M",
+    "source": "Q12, L13",
+    "look": "Nieregularny biały fragment z trzema czarnymi oczkami.",
+    "use": "Portret, dossier, pogrzeb; kolejne skrawki scalają się w ten sam stos."
+  },
+  {
+    "id": "I20",
+    "name": "Zaproszenie Krystyny",
+    "owner": "M",
+    "source": "Q16, L18",
+    "look": "Mała karta z inicjałem K.",
+    "use": "Dostęp do biblioteki."
+  },
+  {
+    "id": "I21",
+    "name": "Odpis katalogu",
+    "owner": "M",
+    "source": "Q17, L20",
+    "look": "Karta z dużym III i 27.",
+    "use": "Dokładna sygnatura, wiedza nie znika po odłożeniu."
+  },
+  {
+    "id": "I22",
+    "name": "Mapa dóbr",
+    "owner": "M",
+    "source": "Q18, L20",
+    "look": "Rzeka jako krzywa, staw jako owal, krzyżyk przy trakcie.",
+    "use": "Odblokowanie lasu i dossier Grety."
+  },
+  {
+    "id": "I23",
+    "name": "Notatka o stawie",
+    "owner": "M",
+    "source": "Q19, L23",
+    "look": "Szkic uskoku i splątanych korzeni.",
+    "use": "Ostrzeżenie i przygotowanie ratunku."
+  },
+  {
+    "id": "I24",
+    "name": "Tkanina",
+    "owner": "K",
+    "source": "Q21, L33",
+    "look": "Zwinięty materiał o grubym rastrze.",
+    "use": "Zużywana tylko po poprawnym uszyciu sukni."
+  },
+  {
+    "id": "I25",
+    "name": "Igła z nicią",
+    "owner": "K",
+    "source": "Q21, L33",
+    "look": "Powiększona igła i pętla nici.",
+    "use": "Suknia i sieć; nie zużywa się."
+  },
+  {
+    "id": "I26",
+    "name": "Prosta suknia",
+    "owner": "K",
+    "source": "Q21, L33",
+    "look": "Prosty strój bez krynoliny i koronek.",
+    "use": "Po założeniu jako wyposażenie K; ikonę można obejrzeć."
+  },
+  {
+    "id": "I27",
+    "name": "Adres pośrednika",
+    "owner": "K",
+    "source": "Q22, L34",
+    "look": "Mały kartonik z symbolem koperty.",
+    "use": "Bezpieczny kanał przez sąsiada do Izydora."
+  },
+  {
+    "id": "I28",
+    "name": "List „Żyję”",
+    "owner": "K>M",
+    "source": "Q23, L34; Q26, L11",
+    "look": "Zamknięta potem otwarta koperta.",
+    "use": "Jedyny fizyczny egzemplarz przechodzi courier>Florek>M; K zachowuje tylko odpis."
+  },
+  {
+    "id": "I29",
+    "name": "Pieniądze na bilet",
+    "owner": "K",
+    "source": "Q24, L33",
+    "look": "Sakiewka i dwie monety.",
+    "use": "Wystarczają na podróże fabularne; nie symulować cen ani biedy blokującej grę."
+  },
+  {
+    "id": "I30",
+    "name": "Zdjęcie z jarmarku",
+    "owner": "K",
+    "source": "Q25, L10",
+    "look": "Dwie stojące osoby i tło straganu.",
+    "use": "Obejrzenie nie dowodzi romansu; możliwy zwrot po Q35."
+  },
+  {
+    "id": "I31",
+    "name": "Lina",
+    "owner": "M>świat",
+    "source": "Q27, L15",
+    "look": "Zwinięty zwój z czytelnym końcem.",
+    "use": "Po zamocowaniu pozostaje na brzegu; dostępna K w Q30."
+  },
+  {
+    "id": "I32",
+    "name": "Hak",
+    "owner": "M>świat",
+    "source": "Q27, L15",
+    "look": "Długi trzonek i łagodny hak.",
+    "use": "Kładziony przy linie po zakończeniu Q27; nie służy do przemocy."
+  },
+  {
+    "id": "I33",
+    "name": "Zaproszenie na przyjęcie",
+    "owner": "K",
+    "source": "Q31, L03",
+    "look": "Elegancka karta z ramką.",
+    "use": "Wariant napisów: wesele/przyjęcie; ten sam identyfikator."
+  },
+  {
+    "id": "I34",
+    "name": "Kopia zlecenia finansowego",
+    "owner": "K",
+    "source": "Q32, L37",
+    "look": "Tabela i duży podpis na dole.",
+    "use": "Decyzja o ostrzeżeniu Karola; fikcyjna spółka opisana bez nazwy historycznej."
+  },
+  {
+    "id": "I35",
+    "name": "List Borakowskich",
+    "owner": "K",
+    "source": "Q32, L37",
+    "look": "Arkusz z podpisem i zagiętym rogiem.",
+    "use": "Dowód uzgodnionego kłamstwa; tekst podany w katalogu dokumentów."
+  },
+  {
+    "id": "I36",
+    "name": "Oświadczenie proboszcza",
+    "owner": "K",
+    "source": "Q34, L17",
+    "look": "Arkusz z małą pieczęcią.",
+    "use": "Opisuje spotkania i stan M; nie zaświadcza z góry o jego niewinności."
+  },
+  {
+    "id": "I37",
+    "name": "Dossier Grety",
+    "owner": "M",
+    "source": "Q36, L20",
+    "look": "Teczka z wystającą mapą.",
+    "use": "Połączenie informacji, nie zużywa źródeł."
+  },
+  {
+    "id": "I38",
+    "name": "Zestaw pompy",
+    "owner": "świat",
+    "source": "Q37, L15",
+    "look": "Dwa węże, uszczelka i pompa ręczna.",
+    "use": "Nie mieści się w kieszeni: transport wykonuje ekipa Florka."
+  },
+  {
+    "id": "I39",
+    "name": "Ostatnia wola rybaka",
+    "owner": "K",
+    "source": "Q40, L34",
+    "look": "Prosty podpisany arkusz.",
+    "use": "Narracyjne przekazanie chaty i łodzi, bez zagadki prawnej."
+  },
+  {
+    "id": "I40",
+    "name": "Papiery Luizy",
+    "owner": "K",
+    "source": "Q40, L42",
+    "look": "Dwie kartki o sprzecznych datach i fotografia.",
+    "use": "Tylko poszlaka mistyfikacji śmierci; otwarte zakończenie."
+  },
+  {
+    "id": "I41",
+    "name": "Wkład zaworu",
+    "owner": "świat",
+    "source": "Q04, L07",
+    "look": "Krótki walec z osadem.",
+    "use": "Stany zamontowany/brudny wyjęty/czysty wyjęty/zamontowany czysty."
+  },
+  {
+    "id": "I42",
+    "name": "Długi konar",
+    "owner": "świat",
+    "source": "Q30, L23",
+    "look": "Gruby rozwidlony konar na suchym brzegu.",
+    "use": "Alternatywny ratunek bez wcześniejszej liny; pozostaje na brzegu."
+  },
+  {
+    "id": "I43",
+    "name": "Wiadomość w pokoju",
+    "owner": "K>M",
+    "source": "Q29, L13",
+    "look": "Kartka z prostym podpisem K.",
+    "use": "„Żyję. Czekam w karczmie. Konstancja.” M musi ją przeczytać."
+  },
+  {
+    "id": "I44",
+    "name": "Zeznanie Krystyny",
+    "owner": "K",
+    "source": "Q34, L17",
+    "look": "Podpisany arkusz z inicjałami.",
+    "use": "Dostępne tylko gdy żyje; przyznaje udział w spisku i opisuje wypadek."
+  },
+  {
+    "id": "I45",
+    "name": "List o przyszłości",
+    "owner": "M>K",
+    "source": "Q40, L17",
+    "look": "Otwarta koperta z piórem obok.",
+    "use": "Wybór przyszłości, odpowiedź K wymaga przełączenia postaci."
+  }
+]

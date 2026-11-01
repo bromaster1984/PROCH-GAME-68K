@@ -1,0 +1,13 @@
+Weryfikacja danych autorskich, 2026-11-01
+
+{
+  "quests": 40,
+  "scenes": 43,
+  "items": 45,
+  "base_asset_entries": 132,
+  "listed_image_files": 174,
+  "static_checks": "PASS",
+  "scope": "References, DAG, rectangles, IDs and ending partition only; no runtime verification"
+}
+
+Nie kompilowano gry ani nie testowano sprzętu. Diagram zależności sprawdzono na poziomie ID i wymagań bazowych; warunki fabularne opisano osobno. Testy wykonawcze pozostają zadaniem implementacji.

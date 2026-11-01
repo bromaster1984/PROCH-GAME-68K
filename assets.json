@@ -1,0 +1,1716 @@
+[
+  {
+    "id": "BG_L01",
+    "file": "bg/L01.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Ciężkie biurko po lewej, okno z tramwajem konnym w głębi, fotel gospodarza po prawej. Deszcz na szybie. Papier umowy leży na jasnym fragmencie blatu. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Korecki: [12, 65, 106, 188]; umowa: [128, 35, 235, 178]; okno: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L02",
+    "file": "bg/L02.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Wysokie lustro, wieszak, drzwi do gabinetu i kufer podróżny. Marian przy bocznych drzwiach. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Marian: [12, 65, 106, 188]; kufer: [128, 35, 235, 178]; drzwi: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L03",
+    "file": "bg/L03.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Toaletka przy oknie, mała szkatułka na stole, podróżna walizka i fotografia matki. Bez luksusowego nadmiaru drobiazgów. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: szkatułka: [12, 65, 106, 188]; fotografia Luizy: [128, 35, 235, 178]; walizka: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L04",
+    "file": "bg/L04.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Biurko publicysty, szuflada korespondencji, szpalty gazety. Izydor w kamizelce, puste miejsce na przekazywane dokumenty. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Izydor: [12, 65, 106, 188]; poczta: [128, 35, 235, 178]; próbna gazeta: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L05",
+    "file": "bg/L05.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Kasa po lewej, tablica odjazdów centralnie, wejście na peron po prawej. Para za oknem, kufry, stalowe wiązary. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: kasjer: [12, 65, 106, 188]; rozkład: [128, 35, 235, 178]; bramka: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L06",
+    "file": "bg/L06.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Drewniane ławki, ciężarna podróżna przy oknie, drzwi na pomost. Krystyna widoczna w osobnym kadrze rozmowy. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: podróżna: [12, 65, 106, 188]; konduktor: [128, 35, 235, 178]; drzwi na pomost: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L07",
+    "file": "bg/L07.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Bok maszyny, uproszczona sprężarka i trzy czytelne elementy: dopływ, zawór, przewód. Maszynista stoi z dala od mechanizmu. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: maszynista: [12, 65, 106, 188]; sprężarka: [128, 35, 235, 178]; skrzynka narzędzi: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L08",
+    "file": "bg/L08.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Niski budynek stacyjny, drogowskaz Wąglany, wóz przy studni. Otwarte niebo, szeroka biała przestrzeń. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: woźnica: [12, 65, 106, 188]; drogowskaz: [128, 35, 235, 178]; ławka: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L09",
+    "file": "bg/L09.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Mostek nad wodą, młyn w tle, po prawej brama fabryki. Las odcina horyzont zwartą czernią. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: drogowskaz: [12, 65, 106, 188]; młyn: [128, 35, 235, 178]; most: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L10",
+    "file": "bg/L10.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Tolek przy stole, Celina za ladą; wolne miejsce dla fotografa w etapie D. Belki, jasne naczynia na ciemnym tle. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Tolek: [12, 65, 106, 188]; Celina: [128, 35, 235, 178]; fotograf: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L10_photographer.png",
+        "description": "fotograf przy stole i odbitka w jego dłoni",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L11",
+    "file": "bg/L11.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Biały dawny dworek, brama, komin i niewykończony budynek. Florek obok stojaka na rowery. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Florek: [12, 65, 106, 188]; brama: [128, 35, 235, 178]; rower: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L11_day.png",
+        "description": "praca robotników",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L11_night.png",
+        "description": "puste podwórko",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L11_pumping.png",
+        "description": "ekipa strażaków z pompą",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L12",
+    "file": "bg/L12.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Drzwi do pokoju, ciemny koniec korytarza, okno nad ławką. W nawiedzeniu światło pod drzwiami znika. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: drzwi pokoju: [12, 65, 106, 188]; okno: [128, 35, 235, 178]; cień: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L12_normal.png",
+        "description": "światło pod drzwiami",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L12_haunted.png",
+        "description": "czarna szczelina, blada stopa na skraju kadru",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L13",
+    "file": "bg/L13.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Biurko po lewej, zamknięte okno centralnie, łóżko i budzik po prawej, piec w rogu. Biała koronka kontrastuje z ciemną podłogą. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: biurko: [10, 28, 170, 104]; okno: [190, 28, 350, 104]; łóżko: [10, 119, 170, 199]; koronka: [190, 119, 350, 199]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L13_day.png",
+        "description": "bez koronki",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L13_night.png",
+        "description": "puste wnętrze, zamknięte okno",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L13_sealed.png",
+        "description": "pasek na drzwiach i nitka na oknie",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L13_morning_lace.png",
+        "description": "nienaruszone znaczniki i koronka na podłodze",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L13_note.png",
+        "description": "wiadomość K na biurku",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L14",
+    "file": "bg/L14.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Kadzie i rury, mokre kamienne posadzki, małe górne okna. Żadnych elektrycznych mierników. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: kadź: [12, 65, 106, 188]; rura: [128, 35, 235, 178]; ślady na podłodze: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L15",
+    "file": "bg/L15.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Stół z imadłem, kołki na ścianie, bęben liny, hak, lampa. Każde narzędzie ma osobny obrys. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: stół: [10, 28, 170, 104]; lina: [190, 28, 350, 104]; hak: [10, 119, 170, 199]; lampa: [190, 119, 350, 199]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L16",
+    "file": "bg/L16.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Furtka, mała Marysia, matka w progu; w środku łóżko chorego za kotarą. Obecność Grety jedynie przez spojrzenie dziecka. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Marysia: [12, 65, 106, 188]; matka: [128, 35, 235, 178]; robotnik: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L17",
+    "file": "bg/L17.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Stół, księgi i okno, proboszcz w głębi. Marianna przy drzwiach do kuchni. Spokojne jasne wnętrze. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: proboszcz: [12, 65, 106, 188]; Marianna: [128, 35, 235, 178]; księga: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L18",
+    "file": "bg/L18.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Kościół i ławka; rozgałęzienie do pałacu i cmentarza. Krystyna czeka przy bramce tylko przed umówionym spotkaniem. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Krystyna: [12, 65, 106, 188]; ławka: [128, 35, 235, 178]; drogowskaz: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L19",
+    "file": "bg/L19.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Schody, duże drzwi biblioteki, służący. Jasne ściany i czarne drewniane płyciny. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: służący: [12, 65, 106, 188]; drzwi biblioteki: [128, 35, 235, 178]; schody: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L20",
+    "file": "bg/L20.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Pięciokątny pokój, obraz wysoko nad drzwiami, ruchoma drabina, katalog pod oknem i oznaczony regał kronik. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: portret: [10, 28, 170, 104]; drabina: [190, 28, 350, 104]; katalog: [10, 119, 170, 199]; kronika: [190, 119, 350, 199]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L20_normal.png",
+        "description": "czysta suknia na portrecie",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L20_haunted.png",
+        "description": "podarta suknia, zaburzona twarz",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L20_ladder.png",
+        "description": "drabina pod portretem",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L21",
+    "file": "bg/L21.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Żywopłot przesłania rozmówców, ścieżka biegnie ku otwartemu placowi. Trzy sylwetki w kadrze podsłuchu. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: żywopłot: [10, 28, 170, 104]; Ludwik: [190, 28, 350, 104]; Korecki: [10, 119, 170, 199]; Krystyna: [190, 119, 350, 199]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L21_meeting.png",
+        "description": "trzy osoby za żywopłotem",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L21_empty.png",
+        "description": "pusty ogród",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L22",
+    "file": "bg/L22.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Jeżyny na pierwszym planie, blady fragment tkaniny na kolcu, wydeptana ścieżka znikająca w ciemności. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: jeżyny: [12, 65, 106, 188]; koronka: [128, 35, 235, 178]; ścieżka: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L23",
+    "file": "bg/L23.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Nieruchoma woda, korzenie, zwalony pień po lewej i stabilny głaz po prawej. Biała koronka na wodzie; odległy brzeg tonie w czerni. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: pień: [10, 28, 170, 104]; woda: [190, 28, 350, 104]; głaz: [10, 119, 170, 199]; korzenie: [190, 119, 350, 199]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L23_calm.png",
+        "description": "nieruchoma woda",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L23_vision.png",
+        "description": "palce przy koronce",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L23_rigged.png",
+        "description": "lina przy głazie i hak obok",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L23_crisis.png",
+        "description": "Krystyna w wodzie, twarz ponad powierzchnią",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L23_saved.png",
+        "description": "dwie postacie na brzegu",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L23_aftermath.png",
+        "description": "pusty brzeg i ludzie w tle",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L23_drained.png",
+        "description": "odsłonięte korzenie i sylwetka pod płótnem",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L24",
+    "file": "bg/L24.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Małe ognisko, dwie szable, skórzana torba, stare naczynia. Zarys postaci za drzewami, bez obrazu przemocy seksualnej. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: ognisko: [12, 65, 106, 188]; torba: [128, 35, 235, 178]; światło między drzewami: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L25",
+    "file": "bg/L25.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Łóżko, kufer, dzwonek, okno na park. Walizka stoi gotowa, drzwi prowadzą do pilnowanego korytarza. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: kufer: [12, 65, 106, 188]; dzwonek: [128, 35, 235, 178]; okno: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L26",
+    "file": "bg/L26.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Trzy drzwi, stolik na korespondencję, schody do salonu. Irena blokuje główne wyjście. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Irena: [12, 65, 106, 188]; stolik: [128, 35, 235, 178]; drzwi kuchni: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L27",
+    "file": "bg/L27.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Stół, dzban, okno gospodarcze i dwa zamki w drzwiach. Luiza, służąca, jest odrębną osobą od matki Konstancji. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Luiza służąca: [12, 65, 106, 188]; dzban: [128, 35, 235, 178]; drzwi gospodarcze: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L28",
+    "file": "bg/L28.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Gęste drzewa, ławka, ogrodzenie i furtka ku wsi. Dominuje ciemny żywopłot, nie labirynt. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: furtka: [12, 65, 106, 188]; ogrodnik: [128, 35, 235, 178]; ławka: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L29",
+    "file": "bg/L29.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Błotnista droga i wóz wieśniaka; dwór nadal widoczny. Brak bezpiecznej drogi dalszej ucieczki na tym etapie. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: wieśniak: [12, 65, 106, 188]; wóz: [128, 35, 235, 178]; droga: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L30",
+    "file": "bg/L30.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Walizka, okno na ogród, drzwi pilnowane przez Irenę. Trzy stany: przed przemocą, po interwencji Adama, otwarte okno. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Irena: [10, 28, 170, 104]; Adam: [190, 28, 350, 104]; walizka: [10, 119, 170, 199]; okno: [190, 119, 350, 199]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L30_guarded.png",
+        "description": "Irena przy łóżku",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L30_escape.png",
+        "description": "otwarte okno i Adam za nim",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L30_aftermath.png",
+        "description": "przewrócone krzesło, ciemna plama, bez zbliżenia zwłok",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L31",
+    "file": "bg/L31.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Niska skarpa, krzewy, piaszczysta uliczka i tabliczka. Widoczne przejście ku wydmom. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: skarpa: [12, 65, 106, 188]; tabliczka: [128, 35, 235, 178]; ścieżka ku morzu: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L32",
+    "file": "bg/L32.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Paliki, sieci, ciemne morze po prawej, molo daleko z lewej. Pies o białej sierści i czarnych łatkach w wariancie porannym. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: sieci: [12, 65, 106, 188]; pies: [128, 35, 235, 178]; linia brzegu: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L32_storm.png",
+        "description": "wiatr i sieci",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L32_dawn.png",
+        "description": "pies przy sieciach",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L32_peace.png",
+        "description": "spokojne morze",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L33",
+    "file": "bg/L33.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Piec, ława, stół do szycia, skrzynia, małe okno. Rybak i pies; bezpieczna przestrzeń z dużą ilością bieli. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: rybak: [12, 65, 106, 188]; stół do szycia: [128, 35, 235, 178]; skrzynia: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L33_alive.png",
+        "description": "rybak przy stole",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L33_empty.png",
+        "description": "puste krzesło, pies przy progu",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L34",
+    "file": "bg/L34.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Łódź na piasku, podarte sieci, rybak sąsiad przy paliku. Horyzont morski. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: sąsiad: [12, 65, 106, 188]; sieć: [128, 35, 235, 178]; łódź: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L35",
+    "file": "bg/L35.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Kasa, rozkład, tor z odjeżdżającym składem. Podróż do Warszawy jest przejściem fabularnym. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: kasjer: [12, 65, 106, 188]; rozkład: [128, 35, 235, 178]; peron: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L36",
+    "file": "bg/L36.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Muzycy w tle, stoły, drzwi bocznego gabinetu, zegar. W wariancie uratowanej Krystyny jest to przyjęcie zaręczynowe. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Adam: [12, 65, 106, 188]; zegar: [128, 35, 235, 178]; drzwi gabinetu: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L36_wedding.png",
+        "description": "welon K, weselny stół",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L36_reception.png",
+        "description": "K w zwykłej sukni, brak symboli ślubu",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L37",
+    "file": "bg/L37.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Biurko z teczką, drzwi z przeszkleniem i kredens. Rozmowa Borakowskich dociera przez uchylone drzwi. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: drzwi: [12, 65, 106, 188]; teczka: [128, 35, 235, 178]; biurko: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L38",
+    "file": "bg/L38.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Stół przed kratą, strażnik w głębi, Mikołaj po drugiej stronie. Po ocaleniu Krystyny ten sam pokój służy do zeznań bez krat na pierwszym planie. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Mikołaj: [12, 65, 106, 188]; strażnik: [128, 35, 235, 178]; stół na dokumenty: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L38_arrest.png",
+        "description": "krata między bohaterami",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L38_statement.png",
+        "description": "rozmowa przy stole, bez kraty",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L39",
+    "file": "bg/L39.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Ława świadka, stół sądu, miejsce na dokumenty; przeciwnicy jako sylwetki w tle. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: sąd: [12, 65, 106, 188]; świadkowie: [128, 35, 235, 178]; dokumenty: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L40",
+    "file": "bg/L40.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Kamienny grobowiec, otwarte miejsce na inskrypcję Grety. W żałobnym wariancie drugi wieniec dla Krystyny. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: płyta: [12, 65, 106, 188]; proboszcz: [128, 35, 235, 178]; wieniec: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L40_two.png",
+        "description": "wieńce Grety i Krystyny",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L40_one.png",
+        "description": "wieniec Grety, Krystyna wśród żałobników",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L41",
+    "file": "bg/L41.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Mokra kostka, kałuża, przygasła witryna, Karol siedzący pod murem. Marian wyłania się z przejścia. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Karol: [12, 65, 106, 188]; Marian: [128, 35, 235, 178]; przejście: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L41_ruined.png",
+        "description": "Karol pod ścianą",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L41_warned.png",
+        "description": "Karol stojący przy wejściu",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "BG_L42",
+    "file": "bg/L42.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Klara przy stole, dokumenty Luizy i stara fotografia. Świt za oknem. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: Klara: [12, 65, 106, 188]; dokumenty: [128, 35, 235, 178]; fotografia: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": []
+  },
+  {
+    "id": "BG_L43",
+    "file": "bg/L43.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "scene",
+    "prompt": "Oryginalna ilustracja przygodówki PROCH, Polska 1898, widok z pierwszej osoby. Niewielki dom, płot i jasne pole. Marianna w progu wyłącznie w odpowiednim epilogu. Czysty 1-bit, tylko #000000/#ffffff, regularny raster 25/50/75%, duże czytelne kontury; żadnych szarych pikseli, wygładzania ani interfejsu w ilustracji. Rozdzielczość dostawy dokładnie 360×208. Zaprojektuj najważniejsze cele w obszarach: dom: [12, 65, 106, 188]; Marianna: [128, 35, 235, 178]; droga: [252, 45, 348, 192]. Prostokąty to obszary interakcji, nie ramki rysowane na obrazie. Przy obiektach nakładających się stosuj maski. Pierwszeństwo czytelnego kliknięcia przed dekoracją.",
+    "variants": [
+      {
+        "file": "bg/L43_alone.png",
+        "description": "M w progu",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L43_marianna.png",
+        "description": "Marianna w progu",
+        "size": [
+          360,
+          208
+        ]
+      },
+      {
+        "file": "bg/L43_together.png",
+        "description": "M i K obok siebie",
+        "size": [
+          360,
+          208
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ICON_I01",
+    "file": "items/I01.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Złożony arkusz, podpis i pieczęć. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I02",
+    "file": "items/I02.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Wąski kartonik z wyciętym narożnikiem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I03",
+    "file": "items/I03.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Symetryczny motyl, jasne skrzydła i czarny owal pośrodku. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I04",
+    "file": "items/I04.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Duży klucz o otwartej szczęce. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I05",
+    "file": "items/I05.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Złożona tkanina z ciemnym rogiem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I06",
+    "file": "items/I06.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Owalny portret kobiety na prostokątnym kartoniku. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I07",
+    "file": "items/I07.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Składany papier z widoczną pieczęcią. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I08",
+    "file": "items/I08.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Prostokątny neseser z uchwytem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I09",
+    "file": "items/I09.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Jasny dzban z czarnym uchwytem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I10",
+    "file": "items/I10.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Dwa czyste arkusze. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I11",
+    "file": "items/I11.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Gruby ukośny ołówek. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I12",
+    "file": "items/I12.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Mały klucz z okrągłym uchem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I13",
+    "file": "items/I13.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Trzy różne klucze na kółku. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I14",
+    "file": "items/I14.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Księga z krzyżem na okładce. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I15",
+    "file": "items/I15.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Kartka z trzema krótkimi liniami. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I16",
+    "file": "items/I16.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Szpulka z odwiniętym końcem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I17",
+    "file": "items/I17.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Krótka świeca i bryłka. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I18",
+    "file": "items/I18.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Długi cienki pasek z zagięciem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I19",
+    "file": "items/I19.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Nieregularny biały fragment z trzema czarnymi oczkami. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I20",
+    "file": "items/I20.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Mała karta z inicjałem K. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I21",
+    "file": "items/I21.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Karta z dużym III i 27. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I22",
+    "file": "items/I22.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Rzeka jako krzywa, staw jako owal, krzyżyk przy trakcie. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I23",
+    "file": "items/I23.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Szkic uskoku i splątanych korzeni. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I24",
+    "file": "items/I24.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Zwinięty materiał o grubym rastrze. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I25",
+    "file": "items/I25.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Powiększona igła i pętla nici. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I26",
+    "file": "items/I26.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Prosty strój bez krynoliny i koronek. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I27",
+    "file": "items/I27.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Mały kartonik z symbolem koperty. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I28",
+    "file": "items/I28.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Zamknięta potem otwarta koperta. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I29",
+    "file": "items/I29.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Sakiewka i dwie monety. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I30",
+    "file": "items/I30.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Dwie stojące osoby i tło straganu. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I31",
+    "file": "items/I31.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Zwinięty zwój z czytelnym końcem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I32",
+    "file": "items/I32.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Długi trzonek i łagodny hak. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I33",
+    "file": "items/I33.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Elegancka karta z ramką. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I34",
+    "file": "items/I34.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Tabela i duży podpis na dole. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I35",
+    "file": "items/I35.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Arkusz z podpisem i zagiętym rogiem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I36",
+    "file": "items/I36.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Arkusz z małą pieczęcią. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I37",
+    "file": "items/I37.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Teczka z wystającą mapą. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I38",
+    "file": "items/I38.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Dwa węże, uszczelka i pompa ręczna. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I39",
+    "file": "items/I39.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Prosty podpisany arkusz. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I40",
+    "file": "items/I40.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Dwie kartki o sprzecznych datach i fotografia. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I41",
+    "file": "items/I41.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Krótki walec z osadem. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I42",
+    "file": "items/I42.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Gruby rozwidlony konar na suchym brzegu. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I43",
+    "file": "items/I43.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Kartka z prostym podpisem K. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I44",
+    "file": "items/I44.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Podpisany arkusz z inicjałami. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "ICON_I45",
+    "file": "items/I45.png",
+    "size": [
+      24,
+      24
+    ],
+    "type": "icon",
+    "prompt": "Otwarta koperta z piórem obok. Czysta ikona 1-bit na białym tle, czarny kontur grubości 1 px, rozmiar 24×24. Bez tekstu. Maska osobnym obrazem, identyczny rozmiar."
+  },
+  {
+    "id": "POR_M",
+    "file": "portraits/M.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Mikołaj Goworek: młody dorosły mężczyzna, szczupła twarz, falowane ciemne włosy, skromna marynarka i koszula; bez narzucania podobieństwa do osoby rzeczywistej. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_K",
+    "file": "portraits/K.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Konstancja Korecka: młoda dorosła kobieta, ciemne włosy upięte, wyraźne oczy i zdecydowane spojrzenie; strój początkowo elegancki, potem prosty. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_KR",
+    "file": "portraits/KR.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Krystyna: młoda dorosła hrabianka, upięte włosy, strój do jazdy konnej, pewne spojrzenie; w późniejszych scenach skrucha. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_GR",
+    "file": "portraits/GR.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Greta von Platter: dorosła kobieta w historycznej koronkowej sukni, długie ciemne włosy; wersja portretowa pogodna, zjawa wyniszczona, nie erotyzowana. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_KA",
+    "file": "portraits/KA.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Karol Korecki: dojrzały zamożny mężczyzna, szeroka sylwetka, wąs, kamizelka, twardy wyraz twarzy. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_IZ",
+    "file": "portraits/IZ.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Izydor Jelinek: dojrzały publicysta, schludny zarost, kamizelka, czujne zmęczone oczy. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_MA",
+    "file": "portraits/MA.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Marian: starszy służący, skromny ubiór, łagodne oczy i wyprostowana sylwetka. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_FL",
+    "file": "portraits/FL.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Florek: starszy brygadzista, maciejówka, wąs, robocza kurtka, pogodna lecz zmęczona twarz. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_AD",
+    "file": "portraits/AD.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Adam Borakowski: młody dorosły, staranny ubiór, gładka twarz, zmienny uśmiech. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_EL",
+    "file": "portraits/EL.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Eleonora Borakowska: dojrzała kobieta o spiętej twarzy, surowa fryzura, ciężka suknia. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_IR",
+    "file": "portraits/IR.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Irena: dorosła służąca, gładko spięte włosy, fartuch i nieruchome spojrzenie. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_RY",
+    "file": "portraits/RY.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Rybak: sędziwy mężczyzna, broda, grube brwi, wełniany sweter, czapka. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_PR",
+    "file": "portraits/PR.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Proboszcz: dojrzały ksiądz, sutanna, spokojna twarz. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_MI",
+    "file": "portraits/MI.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Marianna: dorosła kobieta w prostym stroju kuchennym, spokojny wyraz twarzy, bez idealizacji. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_KL",
+    "file": "portraits/KL.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Klara: dojrzała kobieta, miękkie rysy, prosta elegancka suknia. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_LU",
+    "file": "portraits/LU.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Ludwik: dojrzały hrabia, bokobrody, surdut i staranny kołnierz. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_TO",
+    "file": "portraits/TO.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Tolek: dorosły karczmarz, wąs, podwinięte rękawy. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_CE",
+    "file": "portraits/CE.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Celina: dorosła gospodyni w fartuchu, czujne spojrzenie. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_MY",
+    "file": "portraits/MY.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Marysia: mała dziewczynka z jasnymi warkoczykami, zwykły dziecięcy strój, ciekawość. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_LS",
+    "file": "portraits/LS.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Luiza służąca: dorosła kobieta w roboczym fartuchu; nie przypomina portretu matki Konstancji. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_BO",
+    "file": "portraits/BO.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Borakowski senior: dojrzały mężczyzna w surducie, ciężkie brwi; zawsze ubrany w ilustracjach gry. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_RO",
+    "file": "portraits/RO.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Ranny robotnik: dorosły mężczyzna odpoczywający na łóżku, blada twarz. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_MT",
+    "file": "portraits/MT.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Matka Marysi: dorosła kobieta z chustką i śladem mąki na fartuchu. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_SN",
+    "file": "portraits/SN.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Sąsiad rybaka: dojrzały mężczyzna, czapka, roboczy sweter. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_FO",
+    "file": "portraits/FO.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Fotograf: dorosły mężczyzna, futerał z odbitkami pod pachą. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_ME",
+    "file": "portraits/ME.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Maszynista: dorosły mężczyzna w roboczej czapce i kurtce. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_WO",
+    "file": "portraits/WO.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Woźnica: dorosły mężczyzna w płaszczu z wysokim kołnierzem. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_OG",
+    "file": "portraits/OG.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Ogrodnik: dorosły mężczyzna w kapeluszu i fartuchu. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_SD",
+    "file": "portraits/SD.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Sędzia: starszy urzędnik za stołem, powściągliwa twarz. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_ST",
+    "file": "portraits/ST.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Strażnik: dorosły mężczyzna w umownym mundurze epoki; bez wymyślonych szczegółowych insygniów. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_SL",
+    "file": "portraits/SL.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Służący pałacowy: dorosły mężczyzna w schludnym ciemnym ubraniu. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_KS",
+    "file": "portraits/KS.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Kasjer: dorosły urzędnik za okienkiem. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_KN",
+    "file": "portraits/KN.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Konduktor: dorosły kolejarz w czapce. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "POR_PD",
+    "file": "portraits/PD.png",
+    "size": [
+      48,
+      48
+    ],
+    "type": "portrait",
+    "prompt": "Podróżna: dorosła ciężarna kobieta w skromnym płaszczu. Portret głowa i ramiona, 48×48, 1-bit, czytelna sylwetka, bez mikroszczegółów. Projekt plastyczny adaptacji, nie deklaracja dokładnego opisu powieści."
+  },
+  {
+    "id": "Z01",
+    "file": "closeups/Z01.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Portret Grety. Pełny portret z czytelnym pasem koronki na dole; alternatywa z podartą suknią i zranioną twarzą. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z02",
+    "file": "closeups/Z02.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Zawór. Korpus, pokrywa, wkład: trzy oddzielne duże części, wyraźny osad; wariant czysty. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z03",
+    "file": "closeups/Z03.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Katalog. Szufladka P, karta Platter, trzy pola: tom III, karta 27, Mapa dóbr. Litery renderuje silnik. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z04",
+    "file": "closeups/Z04.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Mapa. Trakt, rzeka, młyn, staw; cztery duże symbole, legenda renderowana tekstem. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z05",
+    "file": "closeups/Z05.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Sieć. Trzy luźne końce, trzy sąsiednie poprawne oczka jako przykład; warianty po pierwszym i drugim połączeniu. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z06",
+    "file": "closeups/Z06.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Pompa. Dwa węże z oznaczeniami A i B, odpowiadające gniazda, duża uszczelka; tekst nakładany przez silnik. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z07",
+    "file": "closeups/Z07.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Fotografia jarmarku. Mikołaj i Krystyna obok straganu, zwykła rozmowa, brak fizycznego znaku zaręczyn. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z08",
+    "file": "closeups/Z08.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Dokument. Wspólna ramka papieru, niewielka pieczęć; pełną treść wyświetla silnik, nie generować drobnych pseudo-liter. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z09",
+    "file": "closeups/Z09.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Fotografia matki. Owalny portret Luizy, matki Konstancji, dorosła kobieta w eleganckiej sukni. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  },
+  {
+    "id": "Z10",
+    "file": "closeups/Z10.png",
+    "size": [
+      360,
+      208
+    ],
+    "type": "closeup",
+    "prompt": "Tytuł. Słowo PROCH renderowane silnikiem; sylwetka dworu i stawu, motyw białej koronki w rogu. Wyłącznie czerń/biel; raster; 360×208; osobna warstwa masek dla ruchomych elementów."
+  }
+]

@@ -1,0 +1,2396 @@
+[
+  {
+    "id": "L01",
+    "name": "Gabinet Koreckiego",
+    "hero": "M",
+    "phase": "A",
+    "links": [
+      "L02"
+    ],
+    "description": "Ciężkie biurko po lewej, okno z tramwajem konnym w głębi, fotel gospodarza po prawej. Deszcz na szybie. Papier umowy leży na jasnym fragmencie blatu.",
+    "objects": [
+      "Korecki",
+      "umowa",
+      "okno"
+    ],
+    "hotspots": [
+      {
+        "id": "L01_H1",
+        "name": "Korecki",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Korecki.",
+        "semantic_target": "Korecki"
+      },
+      {
+        "id": "L01_H2",
+        "name": "umowa",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Umowa.",
+        "semantic_target": "umowa"
+      },
+      {
+        "id": "L01_H3",
+        "name": "okno",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Okno.",
+        "semantic_target": "okno"
+      }
+    ]
+  },
+  {
+    "id": "L02",
+    "name": "Przedpokój Koreckich",
+    "hero": "MK",
+    "phase": "A,E,F",
+    "links": [
+      "L01",
+      "L03",
+      "L04"
+    ],
+    "description": "Wysokie lustro, wieszak, drzwi do gabinetu i kufer podróżny. Marian przy bocznych drzwiach.",
+    "objects": [
+      "Marian",
+      "kufer",
+      "drzwi"
+    ],
+    "hotspots": [
+      {
+        "id": "L02_H1",
+        "name": "Marian",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Marian.",
+        "semantic_target": "Marian"
+      },
+      {
+        "id": "L02_H2",
+        "name": "kufer",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Kufer.",
+        "semantic_target": "kufer"
+      },
+      {
+        "id": "L02_H3",
+        "name": "drzwi",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Drzwi.",
+        "semantic_target": "drzwi"
+      }
+    ]
+  },
+  {
+    "id": "L03",
+    "name": "Pokój Konstancji w Warszawie",
+    "hero": "K",
+    "phase": "A,E,F",
+    "links": [
+      "L02"
+    ],
+    "description": "Toaletka przy oknie, mała szkatułka na stole, podróżna walizka i fotografia matki. Bez luksusowego nadmiaru drobiazgów.",
+    "objects": [
+      "szkatułka",
+      "fotografia Luizy",
+      "walizka"
+    ],
+    "hotspots": [
+      {
+        "id": "L03_H1",
+        "name": "szkatułka",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Szkatułka.",
+        "semantic_target": "szkatułka"
+      },
+      {
+        "id": "L03_H2",
+        "name": "fotografia Luizy",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Fotografia luizy.",
+        "semantic_target": "fotografia Luizy"
+      },
+      {
+        "id": "L03_H3",
+        "name": "walizka",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Walizka.",
+        "semantic_target": "walizka"
+      }
+    ]
+  },
+  {
+    "id": "L04",
+    "name": "Redakcja Izydora",
+    "hero": "MK",
+    "phase": "A,C,E,F",
+    "links": [
+      "L02",
+      "L05",
+      "L38"
+    ],
+    "description": "Biurko publicysty, szuflada korespondencji, szpalty gazety. Izydor w kamizelce, puste miejsce na przekazywane dokumenty.",
+    "objects": [
+      "Izydor",
+      "poczta",
+      "próbna gazeta"
+    ],
+    "hotspots": [
+      {
+        "id": "L04_H1",
+        "name": "Izydor",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Izydor.",
+        "semantic_target": "Izydor"
+      },
+      {
+        "id": "L04_H2",
+        "name": "poczta",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Poczta.",
+        "semantic_target": "poczta"
+      },
+      {
+        "id": "L04_H3",
+        "name": "próbna gazeta",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Próbna gazeta.",
+        "semantic_target": "próbna gazeta"
+      }
+    ]
+  },
+  {
+    "id": "L05",
+    "name": "Dworzec warszawski",
+    "hero": "MK",
+    "phase": "A,C,E,F",
+    "links": [
+      "L04",
+      "L06"
+    ],
+    "description": "Kasa po lewej, tablica odjazdów centralnie, wejście na peron po prawej. Para za oknem, kufry, stalowe wiązary.",
+    "objects": [
+      "kasjer",
+      "rozkład",
+      "bramka"
+    ],
+    "hotspots": [
+      {
+        "id": "L05_H1",
+        "name": "kasjer",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Kasjer.",
+        "semantic_target": "kasjer"
+      },
+      {
+        "id": "L05_H2",
+        "name": "rozkład",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Rozkład.",
+        "semantic_target": "rozkład"
+      },
+      {
+        "id": "L05_H3",
+        "name": "bramka",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Bramka.",
+        "semantic_target": "bramka"
+      }
+    ]
+  },
+  {
+    "id": "L06",
+    "name": "Przedział pociągu",
+    "hero": "M",
+    "phase": "A",
+    "links": [
+      "L05",
+      "L07",
+      "L08"
+    ],
+    "description": "Drewniane ławki, ciężarna podróżna przy oknie, drzwi na pomost. Krystyna widoczna w osobnym kadrze rozmowy.",
+    "objects": [
+      "podróżna",
+      "konduktor",
+      "drzwi na pomost"
+    ],
+    "hotspots": [
+      {
+        "id": "L06_H1",
+        "name": "podróżna",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Podróżna.",
+        "semantic_target": "podróżna"
+      },
+      {
+        "id": "L06_H2",
+        "name": "konduktor",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Konduktor.",
+        "semantic_target": "konduktor"
+      },
+      {
+        "id": "L06_H3",
+        "name": "drzwi na pomost",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Drzwi na pomost.",
+        "semantic_target": "drzwi na pomost"
+      }
+    ]
+  },
+  {
+    "id": "L07",
+    "name": "Postój przy parowozie",
+    "hero": "M",
+    "phase": "A",
+    "links": [
+      "L06"
+    ],
+    "description": "Bok maszyny, uproszczona sprężarka i trzy czytelne elementy: dopływ, zawór, przewód. Maszynista stoi z dala od mechanizmu.",
+    "objects": [
+      "maszynista",
+      "sprężarka",
+      "skrzynka narzędzi"
+    ],
+    "hotspots": [
+      {
+        "id": "L07_H1",
+        "name": "maszynista",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Maszynista.",
+        "semantic_target": "maszynista"
+      },
+      {
+        "id": "L07_H2",
+        "name": "sprężarka",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Sprężarka.",
+        "semantic_target": "sprężarka"
+      },
+      {
+        "id": "L07_H3",
+        "name": "skrzynka narzędzi",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Skrzynka narzędzi.",
+        "semantic_target": "skrzynka narzędzi"
+      }
+    ]
+  },
+  {
+    "id": "L08",
+    "name": "Stacja Opoczno",
+    "hero": "MK",
+    "phase": "A,C,E,F",
+    "links": [
+      "L06",
+      "L09"
+    ],
+    "description": "Niski budynek stacyjny, drogowskaz Wąglany, wóz przy studni. Otwarte niebo, szeroka biała przestrzeń.",
+    "objects": [
+      "woźnica",
+      "drogowskaz",
+      "ławka"
+    ],
+    "hotspots": [
+      {
+        "id": "L08_H1",
+        "name": "woźnica",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Woźnica.",
+        "semantic_target": "woźnica"
+      },
+      {
+        "id": "L08_H2",
+        "name": "drogowskaz",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Drogowskaz.",
+        "semantic_target": "drogowskaz"
+      },
+      {
+        "id": "L08_H3",
+        "name": "ławka",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Ławka.",
+        "semantic_target": "ławka"
+      }
+    ]
+  },
+  {
+    "id": "L09",
+    "name": "Droga i most w Wąglanach",
+    "hero": "MK",
+    "phase": "B,C,D,F",
+    "links": [
+      "L08",
+      "L10",
+      "L11",
+      "L16",
+      "L18"
+    ],
+    "description": "Mostek nad wodą, młyn w tle, po prawej brama fabryki. Las odcina horyzont zwartą czernią.",
+    "objects": [
+      "drogowskaz",
+      "młyn",
+      "most"
+    ],
+    "hotspots": [
+      {
+        "id": "L09_H1",
+        "name": "drogowskaz",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Drogowskaz.",
+        "semantic_target": "drogowskaz"
+      },
+      {
+        "id": "L09_H2",
+        "name": "młyn",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Młyn.",
+        "semantic_target": "młyn"
+      },
+      {
+        "id": "L09_H3",
+        "name": "most",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Most.",
+        "semantic_target": "most"
+      }
+    ]
+  },
+  {
+    "id": "L10",
+    "name": "Karczma",
+    "hero": "MK",
+    "phase": "B,C,D",
+    "links": [
+      "L09"
+    ],
+    "description": "Tolek przy stole, Celina za ladą; wolne miejsce dla fotografa w etapie D. Belki, jasne naczynia na ciemnym tle.",
+    "objects": [
+      "Tolek",
+      "Celina",
+      "fotograf"
+    ],
+    "hotspots": [
+      {
+        "id": "L10_H1",
+        "name": "Tolek",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Tolek.",
+        "semantic_target": "Tolek"
+      },
+      {
+        "id": "L10_H2",
+        "name": "Celina",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Celina.",
+        "semantic_target": "Celina"
+      },
+      {
+        "id": "L10_H3",
+        "name": "fotograf",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Fotograf.",
+        "semantic_target": "fotograf"
+      }
+    ]
+  },
+  {
+    "id": "L11",
+    "name": "Dziedziniec gorzelni",
+    "hero": "MK",
+    "phase": "B,C,D,F",
+    "links": [
+      "L09",
+      "L12",
+      "L14",
+      "L15"
+    ],
+    "description": "Biały dawny dworek, brama, komin i niewykończony budynek. Florek obok stojaka na rowery.",
+    "objects": [
+      "Florek",
+      "brama",
+      "rower"
+    ],
+    "hotspots": [
+      {
+        "id": "L11_H1",
+        "name": "Florek",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Florek.",
+        "semantic_target": "Florek"
+      },
+      {
+        "id": "L11_H2",
+        "name": "brama",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Brama.",
+        "semantic_target": "brama"
+      },
+      {
+        "id": "L11_H3",
+        "name": "rower",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Rower.",
+        "semantic_target": "rower"
+      }
+    ]
+  },
+  {
+    "id": "L12",
+    "name": "Korytarz stróżówki",
+    "hero": "M",
+    "phase": "B,C,D",
+    "links": [
+      "L11",
+      "L13"
+    ],
+    "description": "Drzwi do pokoju, ciemny koniec korytarza, okno nad ławką. W nawiedzeniu światło pod drzwiami znika.",
+    "objects": [
+      "drzwi pokoju",
+      "okno",
+      "cień"
+    ],
+    "hotspots": [
+      {
+        "id": "L12_H1",
+        "name": "drzwi pokoju",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Drzwi pokoju.",
+        "semantic_target": "drzwi pokoju"
+      },
+      {
+        "id": "L12_H2",
+        "name": "okno",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Okno.",
+        "semantic_target": "okno"
+      },
+      {
+        "id": "L12_H3",
+        "name": "cień",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Cień.",
+        "semantic_target": "cień"
+      }
+    ]
+  },
+  {
+    "id": "L13",
+    "name": "Pokój Mikołaja",
+    "hero": "MK",
+    "phase": "B,C,D,F",
+    "links": [
+      "L12"
+    ],
+    "description": "Biurko po lewej, zamknięte okno centralnie, łóżko i budzik po prawej, piec w rogu. Biała koronka kontrastuje z ciemną podłogą.",
+    "objects": [
+      "biurko",
+      "okno",
+      "łóżko",
+      "koronka"
+    ],
+    "hotspots": [
+      {
+        "id": "L13_H1",
+        "name": "biurko",
+        "rect": [
+          10,
+          28,
+          170,
+          104
+        ],
+        "examine": "Biurko.",
+        "semantic_target": "biurko"
+      },
+      {
+        "id": "L13_H2",
+        "name": "okno",
+        "rect": [
+          190,
+          28,
+          350,
+          104
+        ],
+        "examine": "Okno.",
+        "semantic_target": "okno"
+      },
+      {
+        "id": "L13_H3",
+        "name": "łóżko",
+        "rect": [
+          10,
+          119,
+          170,
+          199
+        ],
+        "examine": "Łóżko.",
+        "semantic_target": "łóżko"
+      },
+      {
+        "id": "L13_H4",
+        "name": "koronka",
+        "rect": [
+          190,
+          119,
+          350,
+          199
+        ],
+        "examine": "Koronka.",
+        "semantic_target": "koronka"
+      }
+    ]
+  },
+  {
+    "id": "L14",
+    "name": "Hala browaru",
+    "hero": "M",
+    "phase": "B,C",
+    "links": [
+      "L11",
+      "L15"
+    ],
+    "description": "Kadzie i rury, mokre kamienne posadzki, małe górne okna. Żadnych elektrycznych mierników.",
+    "objects": [
+      "kadź",
+      "rura",
+      "ślady na podłodze"
+    ],
+    "hotspots": [
+      {
+        "id": "L14_H1",
+        "name": "kadź",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Kadź.",
+        "semantic_target": "kadź"
+      },
+      {
+        "id": "L14_H2",
+        "name": "rura",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Rura.",
+        "semantic_target": "rura"
+      },
+      {
+        "id": "L14_H3",
+        "name": "ślady na podłodze",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Ślady na podłodze.",
+        "semantic_target": "ślady na podłodze"
+      }
+    ]
+  },
+  {
+    "id": "L15",
+    "name": "Warsztat i skład",
+    "hero": "MK",
+    "phase": "B,C,D,F",
+    "links": [
+      "L11",
+      "L14"
+    ],
+    "description": "Stół z imadłem, kołki na ścianie, bęben liny, hak, lampa. Każde narzędzie ma osobny obrys.",
+    "objects": [
+      "stół",
+      "lina",
+      "hak",
+      "lampa"
+    ],
+    "hotspots": [
+      {
+        "id": "L15_H1",
+        "name": "stół",
+        "rect": [
+          10,
+          28,
+          170,
+          104
+        ],
+        "examine": "Stół.",
+        "semantic_target": "stół"
+      },
+      {
+        "id": "L15_H2",
+        "name": "lina",
+        "rect": [
+          190,
+          28,
+          350,
+          104
+        ],
+        "examine": "Lina.",
+        "semantic_target": "lina"
+      },
+      {
+        "id": "L15_H3",
+        "name": "hak",
+        "rect": [
+          10,
+          119,
+          170,
+          199
+        ],
+        "examine": "Hak.",
+        "semantic_target": "hak"
+      },
+      {
+        "id": "L15_H4",
+        "name": "lampa",
+        "rect": [
+          190,
+          119,
+          350,
+          199
+        ],
+        "examine": "Lampa.",
+        "semantic_target": "lampa"
+      }
+    ]
+  },
+  {
+    "id": "L16",
+    "name": "Dom poszkodowanego robotnika",
+    "hero": "M",
+    "phase": "B",
+    "links": [
+      "L09"
+    ],
+    "description": "Furtka, mała Marysia, matka w progu; w środku łóżko chorego za kotarą. Obecność Grety jedynie przez spojrzenie dziecka.",
+    "objects": [
+      "Marysia",
+      "matka",
+      "robotnik"
+    ],
+    "hotspots": [
+      {
+        "id": "L16_H1",
+        "name": "Marysia",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Marysia.",
+        "semantic_target": "Marysia"
+      },
+      {
+        "id": "L16_H2",
+        "name": "matka",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Matka.",
+        "semantic_target": "matka"
+      },
+      {
+        "id": "L16_H3",
+        "name": "robotnik",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Robotnik.",
+        "semantic_target": "robotnik"
+      }
+    ]
+  },
+  {
+    "id": "L17",
+    "name": "Plebania",
+    "hero": "MK",
+    "phase": "B,C,D,F",
+    "links": [
+      "L18"
+    ],
+    "description": "Stół, księgi i okno, proboszcz w głębi. Marianna przy drzwiach do kuchni. Spokojne jasne wnętrze.",
+    "objects": [
+      "proboszcz",
+      "Marianna",
+      "księga"
+    ],
+    "hotspots": [
+      {
+        "id": "L17_H1",
+        "name": "proboszcz",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Proboszcz.",
+        "semantic_target": "proboszcz"
+      },
+      {
+        "id": "L17_H2",
+        "name": "Marianna",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Marianna.",
+        "semantic_target": "Marianna"
+      },
+      {
+        "id": "L17_H3",
+        "name": "księga",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Księga.",
+        "semantic_target": "księga"
+      }
+    ]
+  },
+  {
+    "id": "L18",
+    "name": "Plac przy kościele",
+    "hero": "MK",
+    "phase": "B,C,D,F",
+    "links": [
+      "L09",
+      "L17",
+      "L19",
+      "L40"
+    ],
+    "description": "Kościół i ławka; rozgałęzienie do pałacu i cmentarza. Krystyna czeka przy bramce tylko przed umówionym spotkaniem.",
+    "objects": [
+      "Krystyna",
+      "ławka",
+      "drogowskaz"
+    ],
+    "hotspots": [
+      {
+        "id": "L18_H1",
+        "name": "Krystyna",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Krystyna.",
+        "semantic_target": "Krystyna"
+      },
+      {
+        "id": "L18_H2",
+        "name": "ławka",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Ławka.",
+        "semantic_target": "ławka"
+      },
+      {
+        "id": "L18_H3",
+        "name": "drogowskaz",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Drogowskaz.",
+        "semantic_target": "drogowskaz"
+      }
+    ]
+  },
+  {
+    "id": "L19",
+    "name": "Hall pałacu w Białaczowie",
+    "hero": "MK",
+    "phase": "C,D,F",
+    "links": [
+      "L18",
+      "L20",
+      "L21"
+    ],
+    "description": "Schody, duże drzwi biblioteki, służący. Jasne ściany i czarne drewniane płyciny.",
+    "objects": [
+      "służący",
+      "drzwi biblioteki",
+      "schody"
+    ],
+    "hotspots": [
+      {
+        "id": "L19_H1",
+        "name": "służący",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Służący.",
+        "semantic_target": "służący"
+      },
+      {
+        "id": "L19_H2",
+        "name": "drzwi biblioteki",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Drzwi biblioteki.",
+        "semantic_target": "drzwi biblioteki"
+      },
+      {
+        "id": "L19_H3",
+        "name": "schody",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Schody.",
+        "semantic_target": "schody"
+      }
+    ]
+  },
+  {
+    "id": "L20",
+    "name": "Biblioteka",
+    "hero": "MK",
+    "phase": "C,D,F",
+    "links": [
+      "L19"
+    ],
+    "description": "Pięciokątny pokój, obraz wysoko nad drzwiami, ruchoma drabina, katalog pod oknem i oznaczony regał kronik.",
+    "objects": [
+      "portret",
+      "drabina",
+      "katalog",
+      "kronika"
+    ],
+    "hotspots": [
+      {
+        "id": "L20_H1",
+        "name": "portret",
+        "rect": [
+          10,
+          28,
+          170,
+          104
+        ],
+        "examine": "Portret.",
+        "semantic_target": "portret"
+      },
+      {
+        "id": "L20_H2",
+        "name": "drabina",
+        "rect": [
+          190,
+          28,
+          350,
+          104
+        ],
+        "examine": "Drabina.",
+        "semantic_target": "drabina"
+      },
+      {
+        "id": "L20_H3",
+        "name": "katalog",
+        "rect": [
+          10,
+          119,
+          170,
+          199
+        ],
+        "examine": "Katalog.",
+        "semantic_target": "katalog"
+      },
+      {
+        "id": "L20_H4",
+        "name": "kronika",
+        "rect": [
+          190,
+          119,
+          350,
+          199
+        ],
+        "examine": "Kronika.",
+        "semantic_target": "kronika"
+      }
+    ]
+  },
+  {
+    "id": "L21",
+    "name": "Ogród pałacowy",
+    "hero": "MK",
+    "phase": "C,D",
+    "links": [
+      "L19"
+    ],
+    "description": "Żywopłot przesłania rozmówców, ścieżka biegnie ku otwartemu placowi. Trzy sylwetki w kadrze podsłuchu.",
+    "objects": [
+      "żywopłot",
+      "Ludwik",
+      "Korecki",
+      "Krystyna"
+    ],
+    "hotspots": [
+      {
+        "id": "L21_H1",
+        "name": "żywopłot",
+        "rect": [
+          10,
+          28,
+          170,
+          104
+        ],
+        "examine": "Żywopłot.",
+        "semantic_target": "żywopłot"
+      },
+      {
+        "id": "L21_H2",
+        "name": "Ludwik",
+        "rect": [
+          190,
+          28,
+          350,
+          104
+        ],
+        "examine": "Ludwik.",
+        "semantic_target": "Ludwik"
+      },
+      {
+        "id": "L21_H3",
+        "name": "Korecki",
+        "rect": [
+          10,
+          119,
+          170,
+          199
+        ],
+        "examine": "Korecki.",
+        "semantic_target": "Korecki"
+      },
+      {
+        "id": "L21_H4",
+        "name": "Krystyna",
+        "rect": [
+          190,
+          119,
+          350,
+          199
+        ],
+        "examine": "Krystyna.",
+        "semantic_target": "Krystyna"
+      }
+    ]
+  },
+  {
+    "id": "L22",
+    "name": "Leśna ścieżka",
+    "hero": "MK",
+    "phase": "C,D,F",
+    "links": [
+      "L11",
+      "L23"
+    ],
+    "description": "Jeżyny na pierwszym planie, blady fragment tkaniny na kolcu, wydeptana ścieżka znikająca w ciemności.",
+    "objects": [
+      "jeżyny",
+      "koronka",
+      "ścieżka"
+    ],
+    "hotspots": [
+      {
+        "id": "L22_H1",
+        "name": "jeżyny",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Jeżyny.",
+        "semantic_target": "jeżyny"
+      },
+      {
+        "id": "L22_H2",
+        "name": "koronka",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Koronka.",
+        "semantic_target": "koronka"
+      },
+      {
+        "id": "L22_H3",
+        "name": "ścieżka",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Ścieżka.",
+        "semantic_target": "ścieżka"
+      }
+    ]
+  },
+  {
+    "id": "L23",
+    "name": "Brzeg stawu",
+    "hero": "MK",
+    "phase": "C,D,F",
+    "links": [
+      "L22",
+      "L24"
+    ],
+    "description": "Nieruchoma woda, korzenie, zwalony pień po lewej i stabilny głaz po prawej. Biała koronka na wodzie; odległy brzeg tonie w czerni.",
+    "objects": [
+      "pień",
+      "woda",
+      "głaz",
+      "korzenie"
+    ],
+    "hotspots": [
+      {
+        "id": "L23_H1",
+        "name": "pień",
+        "rect": [
+          10,
+          28,
+          170,
+          104
+        ],
+        "examine": "Pień.",
+        "semantic_target": "pień"
+      },
+      {
+        "id": "L23_H2",
+        "name": "woda",
+        "rect": [
+          190,
+          28,
+          350,
+          104
+        ],
+        "examine": "Woda.",
+        "semantic_target": "woda"
+      },
+      {
+        "id": "L23_H3",
+        "name": "głaz",
+        "rect": [
+          10,
+          119,
+          170,
+          199
+        ],
+        "examine": "Głaz.",
+        "semantic_target": "głaz"
+      },
+      {
+        "id": "L23_H4",
+        "name": "korzenie",
+        "rect": [
+          190,
+          119,
+          350,
+          199
+        ],
+        "examine": "Korzenie.",
+        "semantic_target": "korzenie"
+      }
+    ]
+  },
+  {
+    "id": "L24",
+    "name": "Widzenie dawnego obozu",
+    "hero": "M",
+    "phase": "C",
+    "links": [
+      "L23"
+    ],
+    "description": "Małe ognisko, dwie szable, skórzana torba, stare naczynia. Zarys postaci za drzewami, bez obrazu przemocy seksualnej.",
+    "objects": [
+      "ognisko",
+      "torba",
+      "światło między drzewami"
+    ],
+    "hotspots": [
+      {
+        "id": "L24_H1",
+        "name": "ognisko",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Ognisko.",
+        "semantic_target": "ognisko"
+      },
+      {
+        "id": "L24_H2",
+        "name": "torba",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Torba.",
+        "semantic_target": "torba"
+      },
+      {
+        "id": "L24_H3",
+        "name": "światło między drzewami",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Światło między drzewami.",
+        "semantic_target": "światło między drzewami"
+      }
+    ]
+  },
+  {
+    "id": "L25",
+    "name": "Pokój w Seroczynie",
+    "hero": "K",
+    "phase": "A",
+    "links": [
+      "L26"
+    ],
+    "description": "Łóżko, kufer, dzwonek, okno na park. Walizka stoi gotowa, drzwi prowadzą do pilnowanego korytarza.",
+    "objects": [
+      "kufer",
+      "dzwonek",
+      "okno"
+    ],
+    "hotspots": [
+      {
+        "id": "L25_H1",
+        "name": "kufer",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Kufer.",
+        "semantic_target": "kufer"
+      },
+      {
+        "id": "L25_H2",
+        "name": "dzwonek",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Dzwonek.",
+        "semantic_target": "dzwonek"
+      },
+      {
+        "id": "L25_H3",
+        "name": "okno",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Okno.",
+        "semantic_target": "okno"
+      }
+    ]
+  },
+  {
+    "id": "L26",
+    "name": "Korytarz Borakowskich",
+    "hero": "K",
+    "phase": "A",
+    "links": [
+      "L25",
+      "L27",
+      "L28"
+    ],
+    "description": "Trzy drzwi, stolik na korespondencję, schody do salonu. Irena blokuje główne wyjście.",
+    "objects": [
+      "Irena",
+      "stolik",
+      "drzwi kuchni"
+    ],
+    "hotspots": [
+      {
+        "id": "L26_H1",
+        "name": "Irena",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Irena.",
+        "semantic_target": "Irena"
+      },
+      {
+        "id": "L26_H2",
+        "name": "stolik",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Stolik.",
+        "semantic_target": "stolik"
+      },
+      {
+        "id": "L26_H3",
+        "name": "drzwi kuchni",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Drzwi kuchni.",
+        "semantic_target": "drzwi kuchni"
+      }
+    ]
+  },
+  {
+    "id": "L27",
+    "name": "Kuchnia w Seroczynie",
+    "hero": "K",
+    "phase": "A",
+    "links": [
+      "L26"
+    ],
+    "description": "Stół, dzban, okno gospodarcze i dwa zamki w drzwiach. Luiza, służąca, jest odrębną osobą od matki Konstancji.",
+    "objects": [
+      "Luiza służąca",
+      "dzban",
+      "drzwi gospodarcze"
+    ],
+    "hotspots": [
+      {
+        "id": "L27_H1",
+        "name": "Luiza służąca",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Luiza służąca.",
+        "semantic_target": "Luiza służąca"
+      },
+      {
+        "id": "L27_H2",
+        "name": "dzban",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Dzban.",
+        "semantic_target": "dzban"
+      },
+      {
+        "id": "L27_H3",
+        "name": "drzwi gospodarcze",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Drzwi gospodarcze.",
+        "semantic_target": "drzwi gospodarcze"
+      }
+    ]
+  },
+  {
+    "id": "L28",
+    "name": "Park Borakowskich",
+    "hero": "K",
+    "phase": "A",
+    "links": [
+      "L26",
+      "L29"
+    ],
+    "description": "Gęste drzewa, ławka, ogrodzenie i furtka ku wsi. Dominuje ciemny żywopłot, nie labirynt.",
+    "objects": [
+      "furtka",
+      "ogrodnik",
+      "ławka"
+    ],
+    "hotspots": [
+      {
+        "id": "L28_H1",
+        "name": "furtka",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Furtka.",
+        "semantic_target": "furtka"
+      },
+      {
+        "id": "L28_H2",
+        "name": "ogrodnik",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Ogrodnik.",
+        "semantic_target": "ogrodnik"
+      },
+      {
+        "id": "L28_H3",
+        "name": "ławka",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Ławka.",
+        "semantic_target": "ławka"
+      }
+    ]
+  },
+  {
+    "id": "L29",
+    "name": "Droga pod Seroczynem",
+    "hero": "K",
+    "phase": "A",
+    "links": [
+      "L28"
+    ],
+    "description": "Błotnista droga i wóz wieśniaka; dwór nadal widoczny. Brak bezpiecznej drogi dalszej ucieczki na tym etapie.",
+    "objects": [
+      "wieśniak",
+      "wóz",
+      "droga"
+    ],
+    "hotspots": [
+      {
+        "id": "L29_H1",
+        "name": "wieśniak",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Wieśniak.",
+        "semantic_target": "wieśniak"
+      },
+      {
+        "id": "L29_H2",
+        "name": "wóz",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Wóz.",
+        "semantic_target": "wóz"
+      },
+      {
+        "id": "L29_H3",
+        "name": "droga",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Droga.",
+        "semantic_target": "droga"
+      }
+    ]
+  },
+  {
+    "id": "L30",
+    "name": "Pokój w Sopocie",
+    "hero": "K",
+    "phase": "B",
+    "links": [
+      "L31"
+    ],
+    "description": "Walizka, okno na ogród, drzwi pilnowane przez Irenę. Trzy stany: przed przemocą, po interwencji Adama, otwarte okno.",
+    "objects": [
+      "Irena",
+      "Adam",
+      "walizka",
+      "okno"
+    ],
+    "hotspots": [
+      {
+        "id": "L30_H1",
+        "name": "Irena",
+        "rect": [
+          10,
+          28,
+          170,
+          104
+        ],
+        "examine": "Irena.",
+        "semantic_target": "Irena"
+      },
+      {
+        "id": "L30_H2",
+        "name": "Adam",
+        "rect": [
+          190,
+          28,
+          350,
+          104
+        ],
+        "examine": "Adam.",
+        "semantic_target": "Adam"
+      },
+      {
+        "id": "L30_H3",
+        "name": "walizka",
+        "rect": [
+          10,
+          119,
+          170,
+          199
+        ],
+        "examine": "Walizka.",
+        "semantic_target": "walizka"
+      },
+      {
+        "id": "L30_H4",
+        "name": "okno",
+        "rect": [
+          190,
+          119,
+          350,
+          199
+        ],
+        "examine": "Okno.",
+        "semantic_target": "okno"
+      }
+    ]
+  },
+  {
+    "id": "L31",
+    "name": "Ogród i Bergen Strasse",
+    "hero": "K",
+    "phase": "B",
+    "links": [
+      "L30",
+      "L32"
+    ],
+    "description": "Niska skarpa, krzewy, piaszczysta uliczka i tabliczka. Widoczne przejście ku wydmom.",
+    "objects": [
+      "skarpa",
+      "tabliczka",
+      "ścieżka ku morzu"
+    ],
+    "hotspots": [
+      {
+        "id": "L31_H1",
+        "name": "skarpa",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Skarpa.",
+        "semantic_target": "skarpa"
+      },
+      {
+        "id": "L31_H2",
+        "name": "tabliczka",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Tabliczka.",
+        "semantic_target": "tabliczka"
+      },
+      {
+        "id": "L31_H3",
+        "name": "ścieżka ku morzu",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Ścieżka ku morzu.",
+        "semantic_target": "ścieżka ku morzu"
+      }
+    ]
+  },
+  {
+    "id": "L32",
+    "name": "Plaża z sieciami",
+    "hero": "K",
+    "phase": "B,C,F",
+    "links": [
+      "L31",
+      "L33",
+      "L34"
+    ],
+    "description": "Paliki, sieci, ciemne morze po prawej, molo daleko z lewej. Pies o białej sierści i czarnych łatkach w wariancie porannym.",
+    "objects": [
+      "sieci",
+      "pies",
+      "linia brzegu"
+    ],
+    "hotspots": [
+      {
+        "id": "L32_H1",
+        "name": "sieci",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Sieci.",
+        "semantic_target": "sieci"
+      },
+      {
+        "id": "L32_H2",
+        "name": "pies",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Pies.",
+        "semantic_target": "pies"
+      },
+      {
+        "id": "L32_H3",
+        "name": "linia brzegu",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Linia brzegu.",
+        "semantic_target": "linia brzegu"
+      }
+    ]
+  },
+  {
+    "id": "L33",
+    "name": "Chata rybaka",
+    "hero": "K",
+    "phase": "B,C,F",
+    "links": [
+      "L32"
+    ],
+    "description": "Piec, ława, stół do szycia, skrzynia, małe okno. Rybak i pies; bezpieczna przestrzeń z dużą ilością bieli.",
+    "objects": [
+      "rybak",
+      "stół do szycia",
+      "skrzynia"
+    ],
+    "hotspots": [
+      {
+        "id": "L33_H1",
+        "name": "rybak",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Rybak.",
+        "semantic_target": "rybak"
+      },
+      {
+        "id": "L33_H2",
+        "name": "stół do szycia",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Stół do szycia.",
+        "semantic_target": "stół do szycia"
+      },
+      {
+        "id": "L33_H3",
+        "name": "skrzynia",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Skrzynia.",
+        "semantic_target": "skrzynia"
+      }
+    ]
+  },
+  {
+    "id": "L34",
+    "name": "Przystań rybacka",
+    "hero": "K",
+    "phase": "C,F",
+    "links": [
+      "L32",
+      "L35"
+    ],
+    "description": "Łódź na piasku, podarte sieci, rybak sąsiad przy paliku. Horyzont morski.",
+    "objects": [
+      "sąsiad",
+      "sieć",
+      "łódź"
+    ],
+    "hotspots": [
+      {
+        "id": "L34_H1",
+        "name": "sąsiad",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Sąsiad.",
+        "semantic_target": "sąsiad"
+      },
+      {
+        "id": "L34_H2",
+        "name": "sieć",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Sieć.",
+        "semantic_target": "sieć"
+      },
+      {
+        "id": "L34_H3",
+        "name": "łódź",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Łódź.",
+        "semantic_target": "łódź"
+      }
+    ]
+  },
+  {
+    "id": "L35",
+    "name": "Stacja w Sopocie",
+    "hero": "K",
+    "phase": "C",
+    "links": [
+      "L34",
+      "L05"
+    ],
+    "description": "Kasa, rozkład, tor z odjeżdżającym składem. Podróż do Warszawy jest przejściem fabularnym.",
+    "objects": [
+      "kasjer",
+      "rozkład",
+      "peron"
+    ],
+    "hotspots": [
+      {
+        "id": "L35_H1",
+        "name": "kasjer",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Kasjer.",
+        "semantic_target": "kasjer"
+      },
+      {
+        "id": "L35_H2",
+        "name": "rozkład",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Rozkład.",
+        "semantic_target": "rozkład"
+      },
+      {
+        "id": "L35_H3",
+        "name": "peron",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Peron.",
+        "semantic_target": "peron"
+      }
+    ]
+  },
+  {
+    "id": "L36",
+    "name": "Sala weselna",
+    "hero": "K",
+    "phase": "E",
+    "links": [
+      "L02",
+      "L37"
+    ],
+    "description": "Muzycy w tle, stoły, drzwi bocznego gabinetu, zegar. W wariancie uratowanej Krystyny jest to przyjęcie zaręczynowe.",
+    "objects": [
+      "Adam",
+      "zegar",
+      "drzwi gabinetu"
+    ],
+    "hotspots": [
+      {
+        "id": "L36_H1",
+        "name": "Adam",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Adam.",
+        "semantic_target": "Adam"
+      },
+      {
+        "id": "L36_H2",
+        "name": "zegar",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Zegar.",
+        "semantic_target": "zegar"
+      },
+      {
+        "id": "L36_H3",
+        "name": "drzwi gabinetu",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Drzwi gabinetu.",
+        "semantic_target": "drzwi gabinetu"
+      }
+    ]
+  },
+  {
+    "id": "L37",
+    "name": "Gabinet przy sali",
+    "hero": "K",
+    "phase": "E",
+    "links": [
+      "L36"
+    ],
+    "description": "Biurko z teczką, drzwi z przeszkleniem i kredens. Rozmowa Borakowskich dociera przez uchylone drzwi.",
+    "objects": [
+      "drzwi",
+      "teczka",
+      "biurko"
+    ],
+    "hotspots": [
+      {
+        "id": "L37_H1",
+        "name": "drzwi",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Drzwi.",
+        "semantic_target": "drzwi"
+      },
+      {
+        "id": "L37_H2",
+        "name": "teczka",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Teczka.",
+        "semantic_target": "teczka"
+      },
+      {
+        "id": "L37_H3",
+        "name": "biurko",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Biurko.",
+        "semantic_target": "biurko"
+      }
+    ]
+  },
+  {
+    "id": "L38",
+    "name": "Areszt i pokój rozmów",
+    "hero": "MK",
+    "phase": "E,F",
+    "links": [
+      "L04",
+      "L39"
+    ],
+    "description": "Stół przed kratą, strażnik w głębi, Mikołaj po drugiej stronie. Po ocaleniu Krystyny ten sam pokój służy do zeznań bez krat na pierwszym planie.",
+    "objects": [
+      "Mikołaj",
+      "strażnik",
+      "stół na dokumenty"
+    ],
+    "hotspots": [
+      {
+        "id": "L38_H1",
+        "name": "Mikołaj",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Mikołaj.",
+        "semantic_target": "Mikołaj"
+      },
+      {
+        "id": "L38_H2",
+        "name": "strażnik",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Strażnik.",
+        "semantic_target": "strażnik"
+      },
+      {
+        "id": "L38_H3",
+        "name": "stół na dokumenty",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Stół na dokumenty.",
+        "semantic_target": "stół na dokumenty"
+      }
+    ]
+  },
+  {
+    "id": "L39",
+    "name": "Sala rozpraw",
+    "hero": "K",
+    "phase": "F",
+    "links": [
+      "L38",
+      "L08"
+    ],
+    "description": "Ława świadka, stół sądu, miejsce na dokumenty; przeciwnicy jako sylwetki w tle.",
+    "objects": [
+      "sąd",
+      "świadkowie",
+      "dokumenty"
+    ],
+    "hotspots": [
+      {
+        "id": "L39_H1",
+        "name": "sąd",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Sąd.",
+        "semantic_target": "sąd"
+      },
+      {
+        "id": "L39_H2",
+        "name": "świadkowie",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Świadkowie.",
+        "semantic_target": "świadkowie"
+      },
+      {
+        "id": "L39_H3",
+        "name": "dokumenty",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Dokumenty.",
+        "semantic_target": "dokumenty"
+      }
+    ]
+  },
+  {
+    "id": "L40",
+    "name": "Rodzinny grobowiec",
+    "hero": "MK",
+    "phase": "F",
+    "links": [
+      "L18"
+    ],
+    "description": "Kamienny grobowiec, otwarte miejsce na inskrypcję Grety. W żałobnym wariancie drugi wieniec dla Krystyny.",
+    "objects": [
+      "płyta",
+      "proboszcz",
+      "wieniec"
+    ],
+    "hotspots": [
+      {
+        "id": "L40_H1",
+        "name": "płyta",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Płyta.",
+        "semantic_target": "płyta"
+      },
+      {
+        "id": "L40_H2",
+        "name": "proboszcz",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Proboszcz.",
+        "semantic_target": "proboszcz"
+      },
+      {
+        "id": "L40_H3",
+        "name": "wieniec",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Wieniec.",
+        "semantic_target": "wieniec"
+      }
+    ]
+  },
+  {
+    "id": "L41",
+    "name": "Praska ulica",
+    "hero": "K",
+    "phase": "F",
+    "links": [
+      "L04",
+      "L42"
+    ],
+    "description": "Mokra kostka, kałuża, przygasła witryna, Karol siedzący pod murem. Marian wyłania się z przejścia.",
+    "objects": [
+      "Karol",
+      "Marian",
+      "przejście"
+    ],
+    "hotspots": [
+      {
+        "id": "L41_H1",
+        "name": "Karol",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Karol.",
+        "semantic_target": "Karol"
+      },
+      {
+        "id": "L41_H2",
+        "name": "Marian",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Marian.",
+        "semantic_target": "Marian"
+      },
+      {
+        "id": "L41_H3",
+        "name": "przejście",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Przejście.",
+        "semantic_target": "przejście"
+      }
+    ]
+  },
+  {
+    "id": "L42",
+    "name": "Pokój Klary",
+    "hero": "K",
+    "phase": "F",
+    "links": [
+      "L41"
+    ],
+    "description": "Klara przy stole, dokumenty Luizy i stara fotografia. Świt za oknem.",
+    "objects": [
+      "Klara",
+      "dokumenty",
+      "fotografia"
+    ],
+    "hotspots": [
+      {
+        "id": "L42_H1",
+        "name": "Klara",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Klara.",
+        "semantic_target": "Klara"
+      },
+      {
+        "id": "L42_H2",
+        "name": "dokumenty",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Dokumenty.",
+        "semantic_target": "dokumenty"
+      },
+      {
+        "id": "L42_H3",
+        "name": "fotografia",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Fotografia.",
+        "semantic_target": "fotografia"
+      }
+    ]
+  },
+  {
+    "id": "L43",
+    "name": "Gospodarstwo Mikołaja",
+    "hero": "M",
+    "phase": "F",
+    "links": [
+      "L17"
+    ],
+    "description": "Niewielki dom, płot i jasne pole. Marianna w progu wyłącznie w odpowiednim epilogu.",
+    "objects": [
+      "dom",
+      "Marianna",
+      "droga"
+    ],
+    "hotspots": [
+      {
+        "id": "L43_H1",
+        "name": "dom",
+        "rect": [
+          12,
+          65,
+          106,
+          188
+        ],
+        "examine": "Dom.",
+        "semantic_target": "dom"
+      },
+      {
+        "id": "L43_H2",
+        "name": "Marianna",
+        "rect": [
+          128,
+          35,
+          235,
+          178
+        ],
+        "examine": "Marianna.",
+        "semantic_target": "Marianna"
+      },
+      {
+        "id": "L43_H3",
+        "name": "droga",
+        "rect": [
+          252,
+          45,
+          348,
+          192
+        ],
+        "examine": "Droga.",
+        "semantic_target": "droga"
+      }
+    ]
+  }
+]
