@@ -320,3 +320,11 @@ Test natywny nowej fazy jest dopiero przygotowywany. `dist/` nadal oznacza
 zweryfikowane Q01–Q08 z `d6e6124`, nie przypisywać mu wyników Q09–Q15.
 Następny krok: natywne przejście A+B na świeżym profilu, poprawki jeśli
 potrzebne, potem faza C. Q16–Q40, zapisy i końcowe zasoby nadal niewykonane.
+
+Końcowe powtórzenie 3d: profil `/workspace/testing/stage3b-final`, SHA aplikacji
+`b6cc3532f2a31ff9709552e0f3574e4bfad99f3cbfac5d1648a868b3aa6df60b`,
+runner `test_native_campaign.py --chapter ab --profile ...` **w toku**.
+Pierwsze A+B PASS na poprzednim snapshotcie. Następnie poprawiono fakt
+o obu znacznikach: pojawia się dopiero po obu oględzinach, z osobną asercją C.
+Podsumowanie Q12 pojawia się po wszystkich warunkach, niezależnie od tego,
+czy koronkę zabrano przed oględzinami, czy po nich. `dist/` nadal etapu 3c.

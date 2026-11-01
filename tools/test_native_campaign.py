@@ -7,21 +7,34 @@ from test_native_demo import Driver
 
 
 class CampaignDriver(Driver):
+    def __init__(self,args):
+        super().__init__(args)
+        self.scenes=json.loads((Path(__file__).resolve().parents[1]/'scenes.json').read_text())
+        self.scene=1
+
+    def expect(self,text,*args):
+        super().expect(text,*args)
+        for s in self.scenes:
+            if s['name']==text:self.scene=int(s['id'][1:])
+
     def verb(self,index):
         self.click(60+(index%4)*128,309+(index//4)*22)
 
     def spot(self,index):
-        # Root scene hotspots in the editorial JSON (the 4th is not used here).
-        self.click([50,190,300][index-1],[145,120,120][index-1])
+        h=self.scenes[self.scene-1]['hotspots'][index-1]
+        l,t,r,b=h['rect'];self.click(6+(l+r)//2,39+(t+b)//2)
 
     def inspect(self,index):
         self.verb(0);self.spot(index)
 
     def talk(self,index,topic=0):
-        self.verb(4);self.spot(index);self.click(100,90+34*topic)
+        self.verb(4);self.spot(index)
+        self.click(100,90+34*topic+(40 if self.scene==30 and index==1 else 0))
 
     def go(self,slot,title):
-        self.click(470,138);self.click(420,162+26*slot);self.expect(title)
+        self.click(470,138)
+        for _ in range(slot//3):self.click(470,239)
+        self.click(420,162+26*(slot%3));self.expect(title)
 
     def inventory(self):
         self.click(400,138)
@@ -47,7 +60,7 @@ class CampaignDriver(Driver):
         self.capture('campaign-a-'+title.split()[0])
         self.key('Escape')
 
-    def run(self):
+    def chapter_a(self):
         self.expect('Gabinet Koreckiego');self.key('Escape')
         self.inspect(2);self.expect('Zatrudnienie w gorzelni w Wąglanach.',30,90);self.key('Escape')
         self.talk(1);self.talk(1,1)
@@ -72,6 +85,7 @@ class CampaignDriver(Driver):
         self.inspect(3);self.verb(0);self.click(50,238)
         self.verb(5);self.click(180,238)
         self.journal_title('Przyjazd',2,2)
+
         self.key('Tab');self.expect('Pokój Konstancji w Warszawie');self.key('Escape')
         self.open(1);self.take_first();self.take_first();self.key('Escape')
         self.inventory();self.verb(0);self.click(390,165);self.key('Escape')
@@ -95,15 +109,65 @@ class CampaignDriver(Driver):
         self.journal_title('Przyjazd',2,2)
 
 
+    def chapter_b(self):
+        self.expect('Droga i most w Wąglanach')
+        self.go(1,'Dziedziniec gorzelni');self.talk(1)
+        self.go(1,'Korytarz stróżówki');self.go(1,'Pokój Mikołaja')
+        self.open(1);self.take_first();self.key('Escape')
+        self.source(3);self.click(50,238)             # key -> drawer
+        self.verb(1);self.click(50,238);self.take_first()
+        self.click(50,100);self.key('Escape')        # examine Bible, leave it
+        self.go(0,'Korytarz stróżówki');self.go(0,'Dziedziniec gorzelni');self.talk(1,1)
+        self.journal_title('Klucze zmarłego stróża',3,0)
+        self.go(0,'Droga i most w Wąglanach');self.go(0,'Karczma')
+        self.talk(1);self.talk(1,1);self.use(0,1);self.talk(1,2)
+        self.go(0,'Droga i most w Wąglanach');self.go(2,'Dom poszkodowanego robotnika')
+        self.talk(1);self.talk(1,1);self.talk(2);self.talk(3)
+        self.go(0,'Droga i most w Wąglanach');self.go(1,'Dziedziniec gorzelni')
+        self.go(3,'Warsztat i skład');self.open(1)
+        self.take_first();self.take_first();self.take_first();self.key('Escape')
+        self.go(0,'Dziedziniec gorzelni');self.go(1,'Korytarz stróżówki');self.go(1,'Pokój Mikołaja')
+        self.inspect(2);self.verb(0);self.click(180,238)
+        self.source(8);self.click(180,238)            # strip -> door
+        self.use(7,2);self.use(6,2)                  # wax, thread -> window
+        self.verb(3);self.spot(3);self.click(100,90)  # explicit rest
+        self.inspect(2);self.verb(0);self.click(180,238)
+        self.execute('xdotool','mousemove','--window',self.args.window,276,198,
+                     'mousedown',1,'sleep',0.16,'mousemove','--window',self.args.window,
+                     390,210,'sleep',0.16,'mouseup',1,'sleep',0.3)
+        self.journal_title('Nienaruszone wejścia',5,0)
+        self.go(0,'Korytarz stróżówki');self.key('Tab');self.expect('Korytarz stróżówki')
+        self.inspect(3);self.verb(6);self.spot(3);self.inspect(3);self.talk(3)
+        self.open(1);self.go(0,'Dziedziniec gorzelni')
+        self.journal_title('Imię w ciemności',5,1)
+        self.key('Tab');self.expect('Pokój w Sopocie')
+        self.verb(4);self.spot(1)
+        self.expect('Następna scena opisuje atak i śmiertelny uraz.',30,88)
+        self.click(100,164);self.expect('Irena atakuje Konstancję.',30,90);self.key('Escape')
+        self.talk(2);self.talk(2,2)                  # pack, confrontation route
+        self.go(0,'Ogród i Bergen Strasse');self.inspect(2);self.go(0,'Plaża z sieciami')
+        self.verb(5);self.click(50,238);self.expect('Plaża z sieciami')
+        self.verb(0);self.click(50,238);self.talk(3);self.key('Escape')
+        self.expect('Chata rybaka');self.talk(1)
+        self.journal_title('Z dala od świateł',3,1)
+        self.key('Tab');self.expect('Dziedziniec gorzelni')
+        self.journal_title('Imię w ciemności',5,1)
+
+    def run(self):
+        self.chapter_a()
+        if self.args.chapter=='ab':self.chapter_b()
+
+
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--container',default='proch-emulation')
     parser.add_argument('--window',default='0x200004')
     parser.add_argument('--profile',required=True,type=Path)
-    args=parser.parse_args();args.part='campaign-a'
+    parser.add_argument('--chapter',choices=['a','ab'],default='a')
+    args=parser.parse_args();args.part='campaign-'+args.chapter
     d=CampaignDriver(args);d.run()
-    (d.directory/'campaign-a-result.json').write_text(json.dumps({
+    (d.directory/(args.part+'-result.json')).write_text(json.dumps({
         'result':'PASS','checks':d.passed,'run_id':d.run_id,
         'application_sha256':d.profile['application_sha256'],'profile':str(args.profile),
-        'scope':'Q01-Q08 native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},
+        'scope':('Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+' native UI, Mini vMac Plus/System 6.0.8/4 MB; not Macintosh SE'},
         ensure_ascii=False,indent=2)+'\n')

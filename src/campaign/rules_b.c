@@ -18,6 +18,8 @@ void pr_refresh_b(PrState *s)
     if(pr_has_item(s,PR_M,13))MARK(9,4);
     if(pr_has_item(s,PR_M,16) && pr_has_item(s,PR_M,17) && pr_has_item(s,PR_M,18))MARK(12,0);
     if(pr_has_item(s,PR_M,19))MARK(12,9);
+    if(HAS(12,7) && HAS(12,8))
+        pr_learn(s,PR_M,PR_FACT_UNBROKEN_MARKERS,PR_KNOWN,PR_FACT_UNBROKEN_MARKERS);
     for(q=9;q<=15;++q)if(!pr_done(s,q)) {
         for(i=0;i<pr_quest_steps[q];++i)
             if((s->quest[q-1].actions&masks[q-9][i])!=masks[q-9][i])break;
@@ -99,14 +101,14 @@ static PrFeedback choose(PrState *s,unsigned target)
 static PrFeedback look(PrState *s,unsigned target)
 {
     if(s->active==PR_M) {
-        if(target==PR_ITEM(14)) {MARK(9,5);return SAY(Q09_BIBLE);}
+        if(target==PR_ITEM(14)) {MARK(9,5);return HAS(9,0)?SAY(Q09_BIBLE):SAY(Q09_BIBLE_LOOK);}
         if(target==PR_ROOM_DOOR) {
             if(HAS(12,6)) {MARK(12,7);return SAY(Q12_DOOR_INTACT);}
             MARK(12,1);return SAY(Q12_DOOR);
         }
         if(target==H(13,2)) {
             if(HAS(12,6)) {
-                MARK(12,8);pr_learn(s,PR_M,PR_FACT_UNBROKEN_MARKERS,PR_KNOWN,PR_FACT_UNBROKEN_MARKERS);
+                MARK(12,8);
                 return SAY(Q12_WINDOW_INTACT);
             }
             MARK(12,2);return SAY(Q12_WINDOW);

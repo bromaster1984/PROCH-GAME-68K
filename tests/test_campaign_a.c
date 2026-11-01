@@ -192,7 +192,9 @@ static void b_m_path(int bible,int q12_first)
     look(H(13,2));look(PR_ROOM_DOOR);use(18,PR_ROOM_DOOR);
     denied(PR_USE,16,H(13,2));use(17,H(13,2));use(16,H(13,2));
     choose(H(13,3),C(12,1));take(19); /* pickup before final inspections */
-    assert(!pr_done(&game.current,12));look(H(13,2));look(PR_ROOM_DOOR);
+    assert(!pr_done(&game.current,12));look(H(13,2));
+    assert(!pr_knows(&game.current,PR_M,PR_FACT_UNBROKEN_MARKERS));
+    look(PR_ROOM_DOOR);
     assert(pr_done(&game.current,12));
     go(12);
     if(q12_first) {

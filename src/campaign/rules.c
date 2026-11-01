@@ -84,6 +84,7 @@ PrFeedback pr_act(PrGame *g,PrAction a)
 {
     PrState *s=&g->current;
     PrFeedback f;
+    int q12_was_done=pr_done(s,12);
     if(s->active>=PR_HEROES || s->player_dead || s->ending ||
        (s->locks&(PR_TRANSITION|PR_VISION|PR_RESCUE)))
         return pr_reply(PR_DENIED,PR_TEXT_BLOCKED,PR_LOG,0);
@@ -118,6 +119,7 @@ PrFeedback pr_act(PrGame *g,PrAction a)
         }
         if(s->phase==PR_A)pr_refresh_a(s);
         else if(s->phase==PR_B)pr_refresh_b(s);
+        if(!q12_was_done && pr_done(s,12))f.text=PR_TEXT_Q12_COMPLETE;
         pr_advance_phase(s,0);
     }
     return f;
