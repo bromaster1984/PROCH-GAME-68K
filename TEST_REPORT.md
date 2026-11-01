@@ -1,26 +1,37 @@
 # PROCH — raport testów
 
-## Bieżące wydanie: etap 3k, Q22 Konstancji w fazie C
+## Bieżące wydanie: etap 3n, Q23 Konstancji w fazie C
 
 `dist/PROCH.bin` SHA256
-`146675f3dd2636f0ae91fbd7dc8b0f379f0ddf53800bd6aa5cc4698527f8d3a1`.
-MacBinary 83 840 B, zasoby 83 711 B, HFS 819 200 B. Kontrola forków,
+`c580ace9fa28f3dcffee79dfbe1e01227da91eaf23ddd80236944d80fe030d3a`.
+MacBinary 85 376 B, zasoby 85 126 B, HFS 819 200 B. Kontrola forków,
 zasobów i HFS PASS; suma aplikacji zgadza się z uruchomioną kopią.
 
 Mini vMac Plus/System 6.0.8/4 MB: Q01–Q15 obu postaci, Q16–Q20 Mikołaja
-oraz Q21–Q22 Konstancji PASS, 95 kontroli pikseli. Runner przeszedł
-rozmowę z sąsiadem, oględziny sieci, użycie I25, dwa błędne połączenia,
-poprawną sekwencję, odbiór I27 i wpis w dzienniku. Raport
-`tests/results/stage3-c-q22-native.json`, zrzut
+oraz Q21–Q23 Konstancji PASS, 101 kontroli pikseli. Runner sprawdził
+napisanie listu, właściwą treść, wspomnienie broszki, przekazanie sąsiadowi
+i wpis „Żyję” w dzienniku. Raport `tests/results/stage3-c-q23-native.json`,
+zrzut `screenshots/stage3-c-q23-journal.png` (512×342, 1-bit). Profil
+`/workspace/testing/stage3c-q23-candidate1`; emulowany Macintosh Plus.
+
+Host C/ASan/UBSan PASS: publiczne `pr_act` sprawdza Q23 oraz regresje Q01–Q22;
+9 testów Python i cross-build 68000 PASS. Hostowy test modelu potwierdza,
+że I28 czeka u kuriera do D, trafia wtedy do Florka i Mikołaj nie otrzymuje
+wiedzy przed Q26. Ten test dostawy używa testowego spełnienia bramki Q24,
+bo Q24 nie jest jeszcze zaimplementowane.
+
+Niezweryfikowane/niewykonane: natywna dostawa I28 w D, Q24–Q40,
+dostępność Q20 w D, T01–T04, zapis/odczyt, produkcyjne ilustracje, audio,
+całkowite zużycie pamięci i test SE.
+
+## Archiwum: etap 3k, Q22 Konstancji w fazie C
+
+Archiwalny `PROCH.bin` SHA256
+`146675f3dd2636f0ae91fbd7dc8b0f379f0ddf53800bd6aa5cc4698527f8d3a1`.
+MacBinary 83 840 B, zasoby 83 711 B, HFS 819 200 B. Kontrola forków,
+zasobów i HFS PASS. Pełny przebieg natywny do Q22 PASS, 95 kontroli.
+Raport `tests/results/stage3-c-q22-native.json`, zrzut
 `screenshots/stage3-c-q22-journal.png` (512×342, 1-bit).
-
-Host C/ASan/UBSan PASS: publiczne `pr_act` potwierdza reset wyłącznie dwóch
-połączeń po błędzie, brak utraty I25, brak przedwczesnego I27/flagi,
-pojedyncze przyznanie nagrody i wariant pominięcia Q22. Regresje Q01–Q21,
-9 testów Python i cross-build 68000 PASS.
-
-Niezweryfikowane/niewykonane: Q23–Q40, dostępność Q20 w D, T01–T04,
-zapis/odczyt, produkcyjne ilustracje, audio, pomiary pamięci i test SE.
 
 ## Archiwum: etap 3i, Q21 Konstancji w fazie C
 

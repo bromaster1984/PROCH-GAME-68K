@@ -576,3 +576,30 @@ produkcyjne i pomiary pamięci pozostają do wykonania.
 
 Następny krok: przejść Q23 przez natywny interfejs Mini vMac od nowej gry,
 dopiero po PASS zaktualizować `dist/` i raport testów. Potem Q24.
+
+## 2026-11-01 — etap 3n: natywna weryfikacja Q23
+
+Wykonano: podpowiedź Q23 działa w menu Mac; runner `abc_mk23` przechodzi
+Q01–Q15 obiema postaciami, Q16–Q20 M i Q21–Q23 K. Po Q22 runner wybiera
+napisanie listu, właściwą treść i wspomnienie broszki, przechodzi przez
+L32 do L34, przekazuje list sąsiadowi i sprawdza wpis „Żyję”. Zapisano
+przetestowany MacBinary i oryginalny wolumin HFS w `dist/`.
+
+Przetestowano: `bash tools/test_host.sh` PASS; 9 testów Python PASS;
+cross-build 68000 PASS. Świeży profil Plus/System 6.0.8/4 MB zakończył
+pełny przebieg natywny PASS, 101 kontroli pikseli. Raport
+`tests/results/stage3-c-q23-native.json`; profil
+`/workspace/testing/stage3c-q23-candidate1`; SHA aplikacji
+`c580ace9fa28f3dcffee79dfbe1e01227da91eaf23ddd80236944d80fe030d3a`.
+Build, kopia rozruchowa i `dist/` mają identyczną sumę. Kontrola MacBinary,
+zasobów i HFS PASS. Zrzut `screenshots/stage3-c-q23-journal.png` ma
+512×342/1-bit.
+
+Problemy i granice: test natywny nie obejmuje dostawy listu w D, bo Q24
+i przejście C→D są jeszcze niezaimplementowane. Hostowy test modelu zasymulował
+bramkę Q24, by sprawdzić doręczenie I28 do Florka i brak przedwczesnej wiedzy
+Mikołaja. Macintosh SE, zapis/odczyt, audio, ilustracje produkcyjne i pomiary
+pamięci pozostają niewykonane lub nieweryfikowane.
+
+Następny krok: Q24 — powrót Konstancji do Warszawy i Wąglan, niezależnie
+od Q22/Q23. Przed implementacją bramki C→D i kolejnej podróży wrócić do Sol.

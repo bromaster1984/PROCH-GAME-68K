@@ -224,12 +224,20 @@ class CampaignDriver(Driver):
         self.journal_title('Sieć i zaufanie',4,0,'campaign-c-q22')
         self.go(0,'Plaża z sieciami');self.go(0,'Chata rybaka')
 
+    def chapter_c_k_q23(self):
+        self.talk(2);self.talk(2);self.talk(2)
+        self.go(0,'Plaża z sieciami');self.go(1,'Przystań rybacka')
+        self.talk(1);self.expect('Sąsiad: Przyjąłem',9,266)
+        self.journal_title('Żyję',4,1,'campaign-c-q23')
+        self.go(0,'Plaża z sieciami');self.go(0,'Chata rybaka')
+
     def run(self):
         self.chapter_a()
-        if self.args.chapter in ('ab','abc_m','abc_mk21','abc_mk22'):self.chapter_b()
-        if self.args.chapter in ('abc_m','abc_mk21','abc_mk22'):self.chapter_c_m()
-        if self.args.chapter in ('abc_mk21','abc_mk22'):self.chapter_c_k_q21()
-        if self.args.chapter=='abc_mk22':self.chapter_c_k_q22()
+        if self.args.chapter in ('ab','abc_m','abc_mk21','abc_mk22','abc_mk23'):self.chapter_b()
+        if self.args.chapter in ('abc_m','abc_mk21','abc_mk22','abc_mk23'):self.chapter_c_m()
+        if self.args.chapter in ('abc_mk21','abc_mk22','abc_mk23'):self.chapter_c_k_q21()
+        if self.args.chapter in ('abc_mk22','abc_mk23'):self.chapter_c_k_q22()
+        if self.args.chapter=='abc_mk23':self.chapter_c_k_q23()
 
 
 if __name__=='__main__':
@@ -237,13 +245,14 @@ if __name__=='__main__':
     parser.add_argument('--container',default='proch-emulation')
     parser.add_argument('--window',default='0x200004')
     parser.add_argument('--profile',required=True,type=Path)
-    parser.add_argument('--chapter',choices=['a','ab','abc_m','abc_mk21','abc_mk22'],default='a')
+    parser.add_argument('--chapter',choices=['a','ab','abc_m','abc_mk21','abc_mk22','abc_mk23'],default='a')
     args=parser.parse_args();args.part='campaign-'+args.chapter
     d=CampaignDriver(args);d.run()
     (d.directory/(args.part+'-result.json')).write_text(json.dumps({
         'result':'PASS','checks':d.passed,'run_id':d.run_id,
         'application_sha256':d.profile['application_sha256'],'profile':str(args.profile),
-        'scope':('Q01-Q15 both heroes; Q16-Q20 M; Q21-Q22 K' if args.chapter=='abc_mk22' else
+        'scope':('Q01-Q15 both heroes; Q16-Q20 M; Q21-Q23 K' if args.chapter=='abc_mk23' else
+                 'Q01-Q15 both heroes; Q16-Q20 M; Q21-Q22 K' if args.chapter=='abc_mk22' else
                  'Q01-Q15 both heroes; Q16-Q20 M; Q21 K' if args.chapter=='abc_mk21' else
                  'Q01-Q15 both heroes; Q16-Q20 M' if args.chapter=='abc_m' else
                  'Q01-Q15' if args.chapter=='ab' else 'Q01-Q08')+
